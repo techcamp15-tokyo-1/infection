@@ -16,7 +16,7 @@
 /**
  * バックグラウンドで無音の曲を再生し続ける。
  * バックグラウンドで音楽が再生されていればBluetoothもバックグラウンド通信できる。
- * Core Bluetooth フレームワークを使えばバックグラウンド通信できそうだが、実装に時間がかかりそうなので今回はこの手法を採用。
+ * Core Bluetooth　フレームワークを使えばバックグラウンド通信できそうだが、実装に時間がかかりそうなので今回はこの手法を採用。
  * 参考URL: http://addsict.hatenablog.com/entry/2013/01/05/002049
  */
 + (void) playDummyAudioBackground {
