@@ -39,7 +39,7 @@
 + (NSDictionary*) toDictionary: (NSData*) jsonData {
     NSError* error;
     NSDictionary* dictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-    if (dictionary == nil) {
+    if (dictionary == nil) { // エラー発生
         NSLog(@"***** Error in toDictionary: *****");
         NSLog(@"%@", error);
     }
