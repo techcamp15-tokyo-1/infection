@@ -5,61 +5,41 @@
 
 @implementation TashouNoEnViewController
 
-
-
-/*
-// The designated initializer. Override to perform setup that is required before the view is loaded.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
-
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-
 	NSString *message = [[NSUserDefaults standardUserDefaults] objectForKey:@"message"];
 	if(message) {
 		[messageTextField setText:message];
 	}
 
-	mySession = [[GKSession alloc] initWithSessionID:kSessionID displayName:nil sessionMode:GKSessionModePeer];
+	mySession = [[GKSession alloc] initWithSessionID:kSessionID displayName:@"oosawa" sessionMode:GKSessionModePeer];
 	mySession.delegate = self;
 	[mySession setDataReceiveHandler:self withContext:nil];
 	mySession.available = YES;
 	
 	[self addLog:[NSString stringWithFormat:@"誰かを探し始めた！自分のIDは %@",mySession.peerID]];
+    [self playDummyAudio];
 }
 
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (void) playDummyAudio {
+    // ファイルのパスを作成します。
+    NSString *path = @"10min.mp3";
+    // ファイルのパスを NSURL へ変換します。
+    NSURL* url = [NSURL fileURLWithPath:path];
+    
+    // ファイルを読み込んで、プレイヤーを作成します。
+    AVAudioPlayer* player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    player.numberOfLoops = -1;
+    // 再生
+    [player play];
 }
-*/
+
 
 - (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
+	[super didReceiveMemoryWarning];
 }
 
 - (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
 }
 
 
@@ -72,17 +52,12 @@
 
 #pragma mark Helper
 - (void)addLog:(NSString*)logString {
-	
-	//mainTextView.text = [NSString stringWithFormat:@"- %@\n%@",logString,mainTextView.text];
 	[self performSelectorOnMainThread:@selector(updateLog:) withObject:logString waitUntilDone:YES];
-	
 }
 
 - (void)updateLog:(NSString*)logString {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
 	logTextView.text = [NSString stringWithFormat:@"- %@\n%@",logString,logTextView.text];
-	
 	[pool release];
 }
 
@@ -113,8 +88,7 @@
 	switch (state) {
 		case GKPeerStateAvailable:
 			[self addLog:[NSString stringWithFormat:@"%@ を見つけた！",peerID]];
-			[self addLog:[NSString stringWithFormat:@"%@ に接続しに行く！",peerID]];
-			[mySession connectToPeer:peerID withTimeout:10.0f];
+            [self addLog:[NSString stringWithFormat:@"displayName = %@", [mySession displayNameForPeer:peerID]]];
 			break;
 		case GKPeerStateUnavailable:
 			[self addLog:[NSString stringWithFormat:@"%@ を見失った！",peerID]];

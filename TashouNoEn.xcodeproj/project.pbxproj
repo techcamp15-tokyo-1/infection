@@ -15,6 +15,9 @@
 		2899E5220DE3E06400AC0155 /* TashouNoEnViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* TashouNoEnViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* TashouNoEnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* TashouNoEnViewController.m */; };
+		43E8546D17C4C2920083991B /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E8546C17C4C2920083991B /* CoreAudio.framework */; };
+		43EF438417C5986700221ECA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EF438317C5986700221ECA /* AudioToolbox.framework */; };
+		43EF438617C5994E00221ECA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EF438517C5994E00221ECA /* AVFoundation.framework */; };
 		A4EC5393104406AF00605CEF /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EC5387104406A800605CEF /* GameKit.framework */; };
 		A4EC53FD1044106200605CEF /* README in Resources */ = {isa = PBXBuildFile; fileRef = A4EC53FC1044106200605CEF /* README */; };
 /* End PBXBuildFile section */
@@ -32,6 +35,9 @@
 		28D7ACF70DDB3853001CB0EB /* TashouNoEnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TashouNoEnViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* TashouNoEn_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TashouNoEn_Prefix.pch; sourceTree = "<group>"; };
+		43E8546C17C4C2920083991B /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		43EF438317C5986700221ECA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		43EF438517C5994E00221ECA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* TashouNoEn-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TashouNoEn-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A4EC5387104406A800605CEF /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A4EC53FC1044106200605CEF /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
@@ -42,6 +48,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43EF438617C5994E00221ECA /* AVFoundation.framework in Frameworks */,
+				43EF438417C5986700221ECA /* AudioToolbox.framework in Frameworks */,
+				43E8546D17C4C2920083991B /* CoreAudio.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -74,6 +83,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				43EF438517C5994E00221ECA /* AVFoundation.framework */,
 				A4EC53FC1044106200605CEF /* README */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -106,6 +116,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43EF438317C5986700221ECA /* AudioToolbox.framework */,
+				43E8546C17C4C2920083991B /* CoreAudio.framework */,
 				A4EC5387104406A800605CEF /* GameKit.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
