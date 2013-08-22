@@ -33,23 +33,35 @@
 		[messageTextField setText:message];
 	}
 
-	mySession = [[GKSession alloc] initWithSessionID:kSessionID displayName:@"arata" sessionMode:GKSessionModePeer];
+	mySession = [[GKSession alloc] initWithSessionID:kSessionID displayName:@"oosawa" sessionMode:GKSessionModePeer];
 	mySession.delegate = self;
 	[mySession setDataReceiveHandler:self withContext:nil];
 	mySession.available = YES;
 	
 	[self addLog:[NSString stringWithFormat:@"誰かを探し始めた！自分のIDは %@",mySession.peerID]];
+    [self playDummyAudio];
 }
 
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (void) playDummyAudio {
+    // バックグラウンド再生を許可
+    AVAudioSession* session = [AVAudioSession sharedInstance];
+    NSError* error = nil;
+    [session setCategory:AVAudioSessionCategoryPlayback error:&error];
+    [session setActive:YES error:&error];
+    
+    
+    // ファイルのパスを作成
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"jazz" ofType:@"mp3"];
+    // ファイルのパスを NSURL へ変換します。
+    NSURL* url = [NSURL fileURLWithPath:path];
+    // ファイルを読み込んで、プレイヤーを作成
+    AVAudioPlayer* player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    
+    // 無限ループ設定
+    player.numberOfLoops = -1;
+    // 再生
+    [player play];
 }
-*/
-
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -115,14 +127,22 @@
 			//[self addLog:[NSString stringWithFormat:@"%@ を見つけた！",peerID]];
 			[self addLog:[NSString stringWithFormat:@"%@ を見つけた！",[mySession displayNameForPeer: peerID]]];
 			[self addLog:[NSString stringWithFormat:@"%@ に接続しに行く！",peerID]];
+            [mySession connectToPeer:peerID withTimeout:10.0f];
 			break;
 		case GKPeerStateUnavailable:
 			[self addLog:[NSString stringWithFormat:@"%@ を見失った！",peerID]];
 			break;
 		case GKPeerStateConnected:
 			[self addLog:[NSString stringWithFormat:@"%@ が接続した！",peerID]];
-			[mySession sendData:[mySession.displayName dataUsingEncoding:NSUTF8StringEncoding] toPeers:[NSArray arrayWithObject:peerID] withDataMode:GKSendDataReliable error:nil];
-			[self addLog:[NSString stringWithFormat:@"%@ にメッセージを送った！「%@」",peerID,[messageTextField text]]];
+            NSDictionary* jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                            @"name",           @"my virus",
+                                            @"infection rate", 0.5,
+                                            @"remaining time", 10, nil];
+            NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary
+                                options:NSJSONWritingPrettyPrinted
+                                error:nil];
+			[mySession sendData:jsonData toPeers:[NSArray arrayWithObject:peerID] withDataMode:GKSendDataReliable error:nil];
+			[self addLog:[NSString stringWithFormat:@"%@ にメッセージを送った！「%@」",peerID,jsonData]];
 			break;
 		case GKPeerStateDisconnected:
 			[self addLog:[NSString stringWithFormat:@"%@ が切断された！",peerID]];
@@ -136,7 +156,8 @@
 }
 
 - (void) receiveData:(NSData *)data fromPeer:(NSString *)peer inSession:(GKSession *)session context:(void *)context {
-	[self addLog:[NSString stringWithFormat:@"%@ からメッセージを受け取った！ 「%@」",peer,[[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]]];
+    NSDictionary* jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+	[self addLog:[NSString stringWithFormat:@"%@ からメッセージを受け取った！ 「%@」",peer,jsonDictionary]];
 }
 
 #pragma mark UITextFieldDelegate

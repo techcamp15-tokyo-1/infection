@@ -18,6 +18,8 @@
 		43E8546D17C4C2920083991B /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E8546C17C4C2920083991B /* CoreAudio.framework */; };
 		43EF438417C5986700221ECA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EF438317C5986700221ECA /* AudioToolbox.framework */; };
 		43EF438617C5994E00221ECA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43EF438517C5994E00221ECA /* AVFoundation.framework */; };
+		43EF438817C5A25600221ECA /* jazz.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 43EF438717C5A25600221ECA /* jazz.mp3 */; };
+		43EF438A17C5AD7200221ECA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43EF438917C5AD7200221ECA /* Default-568h@2x.png */; };
 		A4EC5393104406AF00605CEF /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EC5387104406A800605CEF /* GameKit.framework */; };
 		A4EC53FD1044106200605CEF /* README in Resources */ = {isa = PBXBuildFile; fileRef = A4EC53FC1044106200605CEF /* README */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		43E8546C17C4C2920083991B /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		43EF438317C5986700221ECA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		43EF438517C5994E00221ECA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		43EF438717C5A25600221ECA /* jazz.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jazz.mp3; sourceTree = "<group>"; };
+		43EF438917C5AD7200221ECA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* TashouNoEn-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TashouNoEn-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A4EC5387104406A800605CEF /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A4EC53FC1044106200605CEF /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
@@ -83,7 +87,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				43EF438517C5994E00221ECA /* AVFoundation.framework */,
+				43EF438917C5AD7200221ECA /* Default-568h@2x.png */,
+				43EF438717C5A25600221ECA /* jazz.mp3 */,
 				A4EC53FC1044106200605CEF /* README */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -116,6 +121,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43EF438517C5994E00221ECA /* AVFoundation.framework */,
 				43EF438317C5986700221ECA /* AudioToolbox.framework */,
 				43E8546C17C4C2920083991B /* CoreAudio.framework */,
 				A4EC5387104406A800605CEF /* GameKit.framework */,
@@ -175,9 +181,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43EF438817C5A25600221ECA /* jazz.mp3 in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* TashouNoEnViewController.xib in Resources */,
 				A4EC53FD1044106200605CEF /* README in Resources */,
+				43EF438A17C5AD7200221ECA /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
