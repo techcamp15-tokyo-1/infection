@@ -10,6 +10,7 @@
 		4381D59A17C5F33700943DA1 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4381D59917C5F33700943DA1 /* AudioPlayer.m */; };
 		4381D59C17C5F5B900943DA1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4381D59B17C5F5B900943DA1 /* AVFoundation.framework */; };
 		4381D59F17C60B5000943DA1 /* JSONConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4381D59E17C60B5000943DA1 /* JSONConverter.m */; };
+		4381D5A217C6164300943DA1 /* HTTPRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 4381D5A117C6164300943DA1 /* HTTPRequester.m */; };
 		43E1A62C17C5CD050043A826 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E1A62B17C5CD050043A826 /* UIKit.framework */; };
 		43E1A62E17C5CD050043A826 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E1A62D17C5CD050043A826 /* Foundation.framework */; };
 		43E1A63017C5CD050043A826 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E1A62F17C5CD050043A826 /* CoreGraphics.framework */; };
@@ -47,6 +48,8 @@
 		4381D59B17C5F5B900943DA1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4381D59D17C60B5000943DA1 /* JSONConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONConverter.h; path = ../JSONConverter.h; sourceTree = "<group>"; };
 		4381D59E17C60B5000943DA1 /* JSONConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONConverter.m; path = ../JSONConverter.m; sourceTree = "<group>"; };
+		4381D5A017C6164300943DA1 /* HTTPRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPRequester.h; path = ../HTTPRequester.h; sourceTree = "<group>"; };
+		4381D5A117C6164300943DA1 /* HTTPRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPRequester.m; path = ../HTTPRequester.m; sourceTree = "<group>"; };
 		43E1A62817C5CD050043A826 /* Infection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Infection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E1A62B17C5CD050043A826 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		43E1A62D17C5CD050043A826 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,6 +144,8 @@
 				4381D59E17C60B5000943DA1 /* JSONConverter.m */,
 				43E1A63A17C5CD050043A826 /* TestAppDelegate.h */,
 				4381D59817C5F33700943DA1 /* AudioPlayer.h */,
+				4381D5A017C6164300943DA1 /* HTTPRequester.h */,
+				4381D5A117C6164300943DA1 /* HTTPRequester.m */,
 				4381D59917C5F33700943DA1 /* AudioPlayer.m */,
 				43E1A63B17C5CD050043A826 /* TestAppDelegate.m */,
 				43E1A64317C5CD050043A826 /* MainStoryboard.storyboard */,
@@ -310,6 +315,7 @@
 				43E1A66F17C5CE8E0043A826 /* SpreadViewController.m in Sources */,
 				4381D59A17C5F33700943DA1 /* AudioPlayer.m in Sources */,
 				4381D59F17C60B5000943DA1 /* JSONConverter.m in Sources */,
+				4381D5A217C6164300943DA1 /* HTTPRequester.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
