@@ -33,7 +33,7 @@
 		[messageTextField setText:message];
 	}
 
-	mySession = [[GKSession alloc] initWithSessionID:kSessionID displayName:nil sessionMode:GKSessionModePeer];
+	mySession = [[GKSession alloc] initWithSessionID:kSessionID displayName:@"arata" sessionMode:GKSessionModePeer];
 	mySession.delegate = self;
 	[mySession setDataReceiveHandler:self withContext:nil];
 	mySession.available = YES;
@@ -112,16 +112,16 @@
 - (void)session:(GKSession *)session peer:(NSString *)peerID didChangeState:(GKPeerConnectionState)state {	
 	switch (state) {
 		case GKPeerStateAvailable:
-			[self addLog:[NSString stringWithFormat:@"%@ を見つけた！",peerID]];
+			//[self addLog:[NSString stringWithFormat:@"%@ を見つけた！",peerID]];
+			[self addLog:[NSString stringWithFormat:@"%@ を見つけた！",[mySession displayNameForPeer: peerID]]];
 			[self addLog:[NSString stringWithFormat:@"%@ に接続しに行く！",peerID]];
-			[mySession connectToPeer:peerID withTimeout:10.0f];
 			break;
 		case GKPeerStateUnavailable:
 			[self addLog:[NSString stringWithFormat:@"%@ を見失った！",peerID]];
 			break;
 		case GKPeerStateConnected:
 			[self addLog:[NSString stringWithFormat:@"%@ が接続した！",peerID]];
-			[mySession sendData:[[messageTextField text] dataUsingEncoding:NSUTF8StringEncoding] toPeers:[NSArray arrayWithObject:peerID] withDataMode:GKSendDataReliable error:nil];
+			[mySession sendData:[mySession.displayName dataUsingEncoding:NSUTF8StringEncoding] toPeers:[NSArray arrayWithObject:peerID] withDataMode:GKSendDataReliable error:nil];
 			[self addLog:[NSString stringWithFormat:@"%@ にメッセージを送った！「%@」",peerID,[messageTextField text]]];
 			break;
 		case GKPeerStateDisconnected:
