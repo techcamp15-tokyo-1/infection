@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JSONUtil : NSObject {
+@interface JSONConverter : NSObject {
     
 }
 

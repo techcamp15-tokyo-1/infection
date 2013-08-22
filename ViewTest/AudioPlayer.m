@@ -6,10 +6,10 @@
 //  Copyright (c) 2013年 technologycamp. All rights reserved.
 //
 
-#import "AudioUtil.h"
+#import "AudioPlayer.h"
 #import <AVFoundation/AVFoundation.h>
 
-@implementation AudioUtil {
+@implementation AudioPlayer {
     
 }
 

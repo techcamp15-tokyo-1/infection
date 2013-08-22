@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AudioUtil : NSObject {
+@interface AudioPlayer : NSObject {
 }
 
 + (void) playDummyAudioBackground;

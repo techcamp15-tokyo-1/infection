@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 technologycamp. All rights reserved.
 //
 
-#import "JSONUtil.h"
+#import "JSONConverter.h"
 
-@implementation JSONUtil {
+@implementation JSONConverter {
     
 }
 
