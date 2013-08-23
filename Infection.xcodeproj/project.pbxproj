@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		435A4C4517C6ECD100AB98E8 /* GKSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 435A4C4417C6ECD100AB98E8 /* GKSessionDelegate.m */; };
-		435A4C4717C6F1CB00AB98E8 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 435A4C4617C6F1CB00AB98E8 /* GameKit.framework */; };
-		435A4C4A17C7011800AB98E8 /* UIApplication+UIID.h in Sources */ = {isa = PBXBuildFile; fileRef = 435A4C4817C7011800AB98E8 /* UIApplication+UIID.h */; };
-		435A4C4B17C7011800AB98E8 /* UIApplication+UIID.m in Sources */ = {isa = PBXBuildFile; fileRef = 435A4C4917C7011800AB98E8 /* UIApplication+UIID.m */; };
-		4381D59A17C5F33700943DA1 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4381D59917C5F33700943DA1 /* AudioPlayer.m */; };
-		4381D59C17C5F5B900943DA1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4381D59B17C5F5B900943DA1 /* AVFoundation.framework */; };
-		4381D59F17C60B5000943DA1 /* JSONConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4381D59E17C60B5000943DA1 /* JSONConverter.m */; };
-		4381D5A217C6164300943DA1 /* HTTPRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 4381D5A117C6164300943DA1 /* HTTPRequester.m */; };
 		43E1A62C17C5CD050043A826 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E1A62B17C5CD050043A826 /* UIKit.framework */; };
 		43E1A62E17C5CD050043A826 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E1A62D17C5CD050043A826 /* Foundation.framework */; };
 		43E1A63017C5CD050043A826 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E1A62F17C5CD050043A826 /* CoreGraphics.framework */; };
@@ -32,6 +24,7 @@
 		43E1A65A17C5CD050043A826 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43E1A65817C5CD050043A826 /* InfoPlist.strings */; };
 		43E1A65D17C5CD050043A826 /* ViewTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E1A65C17C5CD050043A826 /* ViewTestTests.m */; };
 		43E1A66D17C5CE8E0043A826 /* MakeVirusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E1A66717C5CE8E0043A826 /* MakeVirusViewController.m */; };
+		43E1A66E17C5CE8E0043A826 /* ProfileViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E1A66917C5CE8E0043A826 /* ProfileViewControllerFactory.m */; };
 		43F9EC1F17C5F25F00FA8AB7 /* SpreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9EC1E17C5F25F00FA8AB7 /* SpreadViewController.m */; };
 		43F9EC2217C60D7300FA8AB7 /* Virus.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9EC2117C60D7300FA8AB7 /* Virus.m */; };
 		43F9EC2517C61C9E00FA8AB7 /* VirusDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9EC2417C61C9D00FA8AB7 /* VirusDetailViewController.m */; };
@@ -48,21 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD:Infection.xcodeproj/project.pbxproj
-=======
-		435A4C4317C6ECD100AB98E8 /* GKSessionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKSessionDelegate.h; path = ../GKSessionDelegate.h; sourceTree = "<group>"; };
-		435A4C4417C6ECD100AB98E8 /* GKSessionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKSessionDelegate.m; path = ../GKSessionDelegate.m; sourceTree = "<group>"; };
-		435A4C4617C6F1CB00AB98E8 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		435A4C4817C7011800AB98E8 /* UIApplication+UIID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIApplication+UIID.h"; path = "../UIApplication+UIID.h"; sourceTree = "<group>"; };
-		435A4C4917C7011800AB98E8 /* UIApplication+UIID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+UIID.m"; path = "../UIApplication+UIID.m"; sourceTree = "<group>"; };
-		4381D59817C5F33700943DA1 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
-		4381D59917C5F33700943DA1 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
-		4381D59B17C5F5B900943DA1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		4381D59D17C60B5000943DA1 /* JSONConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONConverter.h; path = ../JSONConverter.h; sourceTree = "<group>"; };
-		4381D59E17C60B5000943DA1 /* JSONConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONConverter.m; path = ../JSONConverter.m; sourceTree = "<group>"; };
-		4381D5A017C6164300943DA1 /* HTTPRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPRequester.h; path = ../HTTPRequester.h; sourceTree = "<group>"; };
-		4381D5A117C6164300943DA1 /* HTTPRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPRequester.m; path = ../HTTPRequester.m; sourceTree = "<group>"; };
->>>>>>> oosawa:Infection.xcodeproj/project.pbxproj
 		43E1A62817C5CD050043A826 /* Infection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Infection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E1A62B17C5CD050043A826 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		43E1A62D17C5CD050043A826 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,6 +65,8 @@
 		43E1A65C17C5CD050043A826 /* ViewTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewTestTests.m; sourceTree = "<group>"; };
 		43E1A66617C5CE8E0043A826 /* MakeVirusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeVirusViewController.h; sourceTree = "<group>"; };
 		43E1A66717C5CE8E0043A826 /* MakeVirusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeVirusViewController.m; sourceTree = "<group>"; };
+		43E1A66817C5CE8E0043A826 /* ProfileViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewControllerFactory.h; sourceTree = "<group>"; };
+		43E1A66917C5CE8E0043A826 /* ProfileViewControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewControllerFactory.m; sourceTree = "<group>"; };
 		43E1A66C17C5CE8E0043A826 /* ViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllers.h; sourceTree = "<group>"; };
 		43F9EC1D17C5F25F00FA8AB7 /* SpreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpreadViewController.h; sourceTree = "<group>"; };
 		43F9EC1E17C5F25F00FA8AB7 /* SpreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpreadViewController.m; sourceTree = "<group>"; };
@@ -101,8 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				435A4C4717C6F1CB00AB98E8 /* GameKit.framework in Frameworks */,
-				4381D59C17C5F5B900943DA1 /* AVFoundation.framework in Frameworks */,
 				43E1A62C17C5CD050043A826 /* UIKit.framework in Frameworks */,
 				43E1A62E17C5CD050043A826 /* Foundation.framework in Frameworks */,
 				43E1A63017C5CD050043A826 /* CoreGraphics.framework in Frameworks */,
@@ -144,8 +122,6 @@
 		43E1A62A17C5CD050043A826 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				435A4C4617C6F1CB00AB98E8 /* GameKit.framework */,
-				4381D59B17C5F5B900943DA1 /* AVFoundation.framework */,
 				43E1A62B17C5CD050043A826 /* UIKit.framework */,
 				43E1A62D17C5CD050043A826 /* Foundation.framework */,
 				43E1A62F17C5CD050043A826 /* CoreGraphics.framework */,
@@ -157,47 +133,23 @@
 		43E1A63117C5CD050043A826 /* ViewTest */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD:Infection.xcodeproj/project.pbxproj
 				43E1A63A17C5CD050043A826 /* TestAppDelegate.h */,
 				43E1A63B17C5CD050043A826 /* TestAppDelegate.m */,
 				43F9EC1D17C5F25F00FA8AB7 /* SpreadViewController.h */,
 				43F9EC1E17C5F25F00FA8AB7 /* SpreadViewController.m */,
-=======
-				4381D59817C5F33700943DA1 /* AudioPlayer.h */,
-				435A4C4817C7011800AB98E8 /* UIApplication+UIID.h */,
-				435A4C4917C7011800AB98E8 /* UIApplication+UIID.m */,
-				4381D59917C5F33700943DA1 /* AudioPlayer.m */,
-				435A4C4317C6ECD100AB98E8 /* GKSessionDelegate.h */,
-				435A4C4417C6ECD100AB98E8 /* GKSessionDelegate.m */,
-				4381D5A017C6164300943DA1 /* HTTPRequester.h */,
-				4381D5A117C6164300943DA1 /* HTTPRequester.m */,
-				4381D59D17C60B5000943DA1 /* JSONConverter.h */,
-				4381D59E17C60B5000943DA1 /* JSONConverter.m */,
->>>>>>> oosawa:Infection.xcodeproj/project.pbxproj
 				43E1A64317C5CD050043A826 /* MainStoryboard.storyboard */,
-				43E1A66617C5CE8E0043A826 /* MakeVirusViewController.h */,
-				43E1A66717C5CE8E0043A826 /* MakeVirusViewController.m */,
-<<<<<<< HEAD
 				43E1A64617C5CD050043A826 /* ProfileViewController.h */,
 				43E1A64717C5CD050043A826 /* ProfileViewController.m */,
+				43E1A66617C5CE8E0043A826 /* MakeVirusViewController.h */,
+				43E1A66717C5CE8E0043A826 /* MakeVirusViewController.m */,
 				43E1A66817C5CE8E0043A826 /* ProfileViewControllerFactory.h */,
 				43E1A66917C5CE8E0043A826 /* ProfileViewControllerFactory.m */,
-<<<<<<< HEAD:Infection.xcodeproj/project.pbxproj
-=======
->>>>>>> 4e9a6ee10ffae204edb8d690a0f6119481ef966f
 				43E1A66C17C5CE8E0043A826 /* ViewControllers.h */,
 				43F9EC2017C60D7300FA8AB7 /* Virus.h */,
 				43F9EC2117C60D7300FA8AB7 /* Virus.m */,
 				43F9EC2317C61C9D00FA8AB7 /* VirusDetailViewController.h */,
 				43F9EC2417C61C9D00FA8AB7 /* VirusDetailViewController.m */,
-=======
-				43E1A66A17C5CE8E0043A826 /* SpreadViewController.h */,
-				43E1A66B17C5CE8E0043A826 /* SpreadViewController.m */,
->>>>>>> oosawa:Infection.xcodeproj/project.pbxproj
 				43E1A63217C5CD050043A826 /* Supporting Files */,
-				43E1A63A17C5CD050043A826 /* TestAppDelegate.h */,
-				43E1A63B17C5CD050043A826 /* TestAppDelegate.m */,
-				43E1A66C17C5CE8E0043A826 /* ViewControllers.h */,
 			);
 			path = ViewTest;
 			sourceTree = "<group>";
@@ -346,27 +298,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				435A4C4A17C7011800AB98E8 /* UIApplication+UIID.h in Sources */,
-				435A4C4B17C7011800AB98E8 /* UIApplication+UIID.m in Sources */,
 				43E1A63817C5CD050043A826 /* main.m in Sources */,
 				43E1A63C17C5CD050043A826 /* TestAppDelegate.m in Sources */,
 				43E1A64817C5CD050043A826 /* ProfileViewController.m in Sources */,
 				43E1A66D17C5CE8E0043A826 /* MakeVirusViewController.m in Sources */,
-<<<<<<< HEAD
 				43E1A66E17C5CE8E0043A826 /* ProfileViewControllerFactory.m in Sources */,
-<<<<<<< HEAD:Infection.xcodeproj/project.pbxproj
-=======
->>>>>>> 4e9a6ee10ffae204edb8d690a0f6119481ef966f
 				43F9EC1F17C5F25F00FA8AB7 /* SpreadViewController.m in Sources */,
 				43F9EC2217C60D7300FA8AB7 /* Virus.m in Sources */,
 				43F9EC2517C61C9E00FA8AB7 /* VirusDetailViewController.m in Sources */,
-=======
-				43E1A66F17C5CE8E0043A826 /* SpreadViewController.m in Sources */,
-				4381D59A17C5F33700943DA1 /* AudioPlayer.m in Sources */,
-				4381D59F17C60B5000943DA1 /* JSONConverter.m in Sources */,
-				4381D5A217C6164300943DA1 /* HTTPRequester.m in Sources */,
-				435A4C4517C6ECD100AB98E8 /* GKSessionDelegate.m in Sources */,
->>>>>>> oosawa:Infection.xcodeproj/project.pbxproj
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

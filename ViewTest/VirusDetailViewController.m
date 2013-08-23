@@ -35,7 +35,7 @@
 //    [_VirusImage release];
 //    [_infectionRate release];
 //    [_spreadButton release];
-    [super dealloc];
+//    [super dealloc];
 }
 
 
