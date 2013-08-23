@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		435A4C4517C6ECD100AB98E8 /* GKSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 435A4C4417C6ECD100AB98E8 /* GKSessionDelegate.m */; };
 		435A4C4717C6F1CB00AB98E8 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 435A4C4617C6F1CB00AB98E8 /* GameKit.framework */; };
+		435A4C4A17C7011800AB98E8 /* UIApplication+UIID.h in Sources */ = {isa = PBXBuildFile; fileRef = 435A4C4817C7011800AB98E8 /* UIApplication+UIID.h */; };
+		435A4C4B17C7011800AB98E8 /* UIApplication+UIID.m in Sources */ = {isa = PBXBuildFile; fileRef = 435A4C4917C7011800AB98E8 /* UIApplication+UIID.m */; };
 		4381D59A17C5F33700943DA1 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4381D59917C5F33700943DA1 /* AudioPlayer.m */; };
 		4381D59C17C5F5B900943DA1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4381D59B17C5F5B900943DA1 /* AVFoundation.framework */; };
 		4381D59F17C60B5000943DA1 /* JSONConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4381D59E17C60B5000943DA1 /* JSONConverter.m */; };
@@ -48,6 +50,8 @@
 		435A4C4317C6ECD100AB98E8 /* GKSessionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKSessionDelegate.h; path = ../GKSessionDelegate.h; sourceTree = "<group>"; };
 		435A4C4417C6ECD100AB98E8 /* GKSessionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GKSessionDelegate.m; path = ../GKSessionDelegate.m; sourceTree = "<group>"; };
 		435A4C4617C6F1CB00AB98E8 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		435A4C4817C7011800AB98E8 /* UIApplication+UIID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIApplication+UIID.h"; path = "../UIApplication+UIID.h"; sourceTree = "<group>"; };
+		435A4C4917C7011800AB98E8 /* UIApplication+UIID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+UIID.m"; path = "../UIApplication+UIID.m"; sourceTree = "<group>"; };
 		4381D59817C5F33700943DA1 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
 		4381D59917C5F33700943DA1 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
 		4381D59B17C5F5B900943DA1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -148,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				4381D59817C5F33700943DA1 /* AudioPlayer.h */,
+				435A4C4817C7011800AB98E8 /* UIApplication+UIID.h */,
+				435A4C4917C7011800AB98E8 /* UIApplication+UIID.m */,
 				4381D59917C5F33700943DA1 /* AudioPlayer.m */,
 				435A4C4317C6ECD100AB98E8 /* GKSessionDelegate.h */,
 				435A4C4417C6ECD100AB98E8 /* GKSessionDelegate.m */,
@@ -316,6 +322,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				435A4C4A17C7011800AB98E8 /* UIApplication+UIID.h in Sources */,
+				435A4C4B17C7011800AB98E8 /* UIApplication+UIID.m in Sources */,
 				43E1A63817C5CD050043A826 /* main.m in Sources */,
 				43E1A63C17C5CD050043A826 /* TestAppDelegate.m in Sources */,
 				43E1A64817C5CD050043A826 /* ProfileViewController.m in Sources */,
