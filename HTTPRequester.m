@@ -12,6 +12,10 @@
     
 }
 
+/**
+ 文字列で指定されたURLにNSDataを送信し、レスポンスを返す。
+ URLへの接続やレスポンスの受信に失敗した場合はnilが返る。
+*/
 + (NSData*) sendPostWithData: (NSString*)urlstr : (NSData*)data {
     NSURL* url = [NSURL URLWithString:urlstr];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
@@ -27,6 +31,35 @@
     return received;
 }
 
-// TODO: Dictionary, key-value Arrayからpost strを生成するメソッド実装
-// TODO: Dictionaryをpost strに変換し、それをNSDataに変換するメソッド実装
+/**
+ NSDictionaryをPOST通信で使用できる形式の文字列に変換する。
+*/
++ (NSString*) postString: (NSDictionary*) dictionary {
+    NSArray* keys = [dictionary allKeys];
+    NSMutableString* postString = [NSMutableString stringWithString:@""];
+    for (int i = 0; i < [keys count]; i++) {
+        id key   = [keys objectAtIndex:i];
+        id value = [dictionary objectForKey:key];
+        [postString appendFormat:@"%@=%@", key, value];
+        if (i != [keys count] - 1) {
+            [postString appendString:@"&"];
+        }
+    }
+    return postString;
+}
+
+/**
+ 文字列で指定されたURLにNSDictionaryの内容を送信し、レスポンスを返す。
+ URLへの接続やレスポンスの受信に失敗した場合はnilが返る。
+ */
++ (NSData*) sendPostWithDictionary: (NSString*)urlstr : (NSDictionary*)dictionary {
+    NSString* postString = [HTTPRequester postString:dictionary];
+    NSData* postData = [postString dataUsingEncoding:NSUTF8StringEncoding];
+    NSData* response = [HTTPRequester sendPostWithData:urlstr :postData];
+    if (response == nil) {
+        NSLog(@"***** Error in sendPostWithDictionary: *****");
+    }
+    return response;
+}
+
 @end
