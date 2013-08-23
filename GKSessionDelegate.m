@@ -14,12 +14,12 @@
 
 - (void)session:(GKSession *)session connectionWithPeerFailed:(NSString *)peerID withError:(NSError *)error {
     NSLog(@"Connection failed with PeerID:%@", peerID);
-    NSLOg(@"Error description: %@", error);
+    NSLog(@"Error description: %@", error);
 }
 
 - (void)session:(GKSession *)session didFailWithError:(NSError *)error {
     NSLog(@"Critical Error has occured");
-    NSLOg(@"Error description: %@", error);
+    NSLog(@"Error description: %@", error);
 }
 
 - (void)session:(GKSession *)session didReceiveConnectionRequestFromPeer:(NSString *)peerID {
