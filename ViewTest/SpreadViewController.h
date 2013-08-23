@@ -16,6 +16,7 @@
 
 @interface SpreadViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
+    
     @private
     NSInteger view_mode;
     BOOL isShowTable;

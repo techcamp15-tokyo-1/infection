@@ -81,11 +81,17 @@
     return YES;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.infectionRateText.delegate = self;
     self.durabilityText.delegate = self;
+}
+
+- (void)viewDidUnload
+{
 }
 
 - (void)didReceiveMemoryWarning
@@ -115,4 +121,9 @@
     [_remnantText release];
     [super dealloc];
 }
+
+- (IBAction)backgroundTapped:(id)sender {
+    [self.view endEditing:YES];
+}
+
 @end
