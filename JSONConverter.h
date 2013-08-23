@@ -13,4 +13,5 @@
 }
 
 + (NSData*) toJsonData: (NSDictionary*) dictionary;
++ (NSDictionary*) toNSDictionary: (NSData*) jsonData;
 @end
