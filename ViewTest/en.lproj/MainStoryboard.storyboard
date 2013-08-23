@@ -150,7 +150,7 @@
             </objects>
             <point key="canvasLocation" x="350" y="1296"/>
         </scene>
-        <!--Profile View Controller - Item 1-->
+        <!--Profile View Controller - profile-->
         <scene sceneID="VkK-Bn-jxP">
             <objects>
                 <viewController id="Iwg-BS-wjb" customClass="ProfileViewController" sceneMemberID="viewController">
@@ -195,7 +195,7 @@
                             <constraint firstItem="GLE-v5-Y3B" firstAttribute="leading" secondItem="MyG-Ic-TXf" secondAttribute="leading" constant="60" id="zqT-l5-AZq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="3oH-RO-jmr"/>
+                    <tabBarItem key="tabBarItem" title="profile" id="3oH-RO-jmr"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zsR-fk-j87" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -267,6 +267,7 @@
         <class className="MakeVirusViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MakeVirusViewController.h"/>
             <relationships>
+                <relationship kind="action" name="onMakeButtonCliked:"/>
                 <relationship kind="outlet" name="makeButton" candidateClass="UIButton"/>
             </relationships>
         </class>
@@ -282,6 +283,7 @@
         <class className="SpreadViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SpreadViewController.h"/>
             <relationships>
+                <relationship kind="action" name="onToReinforceButtonClicked:"/>
                 <relationship kind="outlet" name="pointGetText" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="spreadText" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
