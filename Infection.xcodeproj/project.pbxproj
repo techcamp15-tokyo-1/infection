@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		435A4C4517C6ECD100AB98E8 /* GKSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 435A4C4417C6ECD100AB98E8 /* GKSessionDelegate.m */; };
 		43E1A62C17C5CD050043A826 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E1A62B17C5CD050043A826 /* UIKit.framework */; };
 		43E1A62E17C5CD050043A826 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E1A62D17C5CD050043A826 /* Foundation.framework */; };
 		43E1A63017C5CD050043A826 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E1A62F17C5CD050043A826 /* CoreGraphics.framework */; };
