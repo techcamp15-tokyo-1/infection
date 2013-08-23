@@ -7,7 +7,6 @@
 //
 
 #import "SpreadViewController.h"
-#import "VirusDetailViewController.h"
 
 
 @implementation SpreadViewController
@@ -35,12 +34,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIWindow *window = nil;
-    VirusDetailViewController *controller = [[VirusDetailViewController alloc]init];
-	[window addSubview:controller.view];
     
-    isShowTable = YES;
-    [self switchView:isShowTable];
+    _virusList.delegate = self;
+    _virusList.dataSource  = self;
+    
+    view_mode = VIEW_VIRUS_LIST;
+    [self switchView:view_mode];
 }
 
 
@@ -67,11 +66,46 @@
 
 - (void)dealloc {
 	[itemArray release];
-    [text release];
-    [virusList release];
-    [virusList release];
+    [_virusList release];
+    [_spreadText release];
+    [_spreadText release];
+    [_toReinnforceTabButton release];
+    [_pointGetText release];
     [super dealloc];
 }
+
+
+//tableviewと拡散中の切り替え
+- (void)switchView:(NSInteger)mode{
+    view_mode = mode;
+    
+    switch(view_mode){
+        case VIEW_VIRUS_LIST:
+            _virusList.hidden = NO;
+            _spreadText.hidden = YES;
+            _pointGetText.hidden = YES;
+            _toReinnforceTabButton.hidden = YES;
+            break;
+        case VIEW_SPREAD:
+            _virusList.hidden = YES;
+            _spreadText.hidden = NO;
+            _pointGetText.hidden = YES;
+            _toReinnforceTabButton.hidden = YES;
+            break;
+        case VIEW_POINT_GET:
+            _virusList.hidden = YES;
+            _spreadText.hidden = YES;
+            _pointGetText.hidden = NO;
+            _toReinnforceTabButton.hidden = NO;
+            break;
+    }
+}
+
+
+
+/**
+ * ウイルス一覧
+ */
 
 //TODO
 //サーバーからArrayを受け取ってリスト表示
@@ -107,18 +141,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	textLabel.text = [itemArray objectAtIndex:[indexPath row]];
     
-    //画面遷移
+    //alertの表示
     [self showVirusDetail:[itemArray objectAtIndex:[indexPath row]] :@0.5:@0.5];
-}
-
-/**
- * added by arata
- */
-//tableviewと拡散中の切り替え
-- (void)switchView:(BOOL)showTable{
-    isShowTable = showTable;
-    virusList.hidden = !isShowTable;
-    text.hidden = isShowTable;
 }
 
 //ウイルス拡散alertの表示
@@ -146,14 +170,29 @@
     [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
     switch (buttonIndex) {
         case 0: // cancel
-            [self switchView:YES];
+            [self switchView:VIEW_VIRUS_LIST];
             break;
         case 1: // execute
-            [self switchView:NO];
+            [self switchView:VIEW_SPREAD];
             break;
         default: // cancelとか
             break;
     }
+}
+
+
+
+/**
+ * 拡散中
+ */
+
+
+/**
+ * Point Get
+ */
+- (IBAction)onToReinforceButtonClicked:(id)sender {
+    UITabBarController *controller = self.tabBarController;
+    controller.selectedViewController = [controller.viewControllers objectAtIndex: 3];
 }
 
 @end

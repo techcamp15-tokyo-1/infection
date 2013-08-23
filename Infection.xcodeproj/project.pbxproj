@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43736CCA17C7247F007375BC /* TempViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43736CC917C7247F007375BC /* TempViewController.m */; };
 		43E1A62C17C5CD050043A826 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E1A62B17C5CD050043A826 /* UIKit.framework */; };
 		43E1A62E17C5CD050043A826 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E1A62D17C5CD050043A826 /* Foundation.framework */; };
 		43E1A63017C5CD050043A826 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E1A62F17C5CD050043A826 /* CoreGraphics.framework */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43736CC817C7247E007375BC /* TempViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempViewController.h; sourceTree = "<group>"; };
+		43736CC917C7247F007375BC /* TempViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempViewController.m; sourceTree = "<group>"; };
 		43E1A62817C5CD050043A826 /* Infection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Infection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E1A62B17C5CD050043A826 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		43E1A62D17C5CD050043A826 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -150,6 +153,8 @@
 				43F9EC2317C61C9D00FA8AB7 /* VirusDetailViewController.h */,
 				43F9EC2417C61C9D00FA8AB7 /* VirusDetailViewController.m */,
 				43E1A63217C5CD050043A826 /* Supporting Files */,
+				43736CC817C7247E007375BC /* TempViewController.h */,
+				43736CC917C7247F007375BC /* TempViewController.m */,
 			);
 			path = ViewTest;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				43F9EC1F17C5F25F00FA8AB7 /* SpreadViewController.m in Sources */,
 				43F9EC2217C60D7300FA8AB7 /* Virus.m in Sources */,
 				43F9EC2517C61C9E00FA8AB7 /* VirusDetailViewController.m in Sources */,
+				43736CCA17C7247F007375BC /* TempViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,21 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VirusDetailViewController.h"
 
 
+//画面表示切り替えのパターン
+#define VIEW_VIRUS_LIST 0
+#define VIEW_SPREAD 1
+#define VIEW_POINT_GET 2
 
-@interface SpreadViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SpreadViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
     @private
+    NSInteger view_mode;
     BOOL isShowTable;
     
 	IBOutlet UILabel *textLabel;
 	NSArray *itemArray;
-    
-    IBOutlet UITableView *virusList;
-    IBOutlet UILabel *text;
 }
+
+@property (retain, nonatomic) IBOutlet UILabel *spreadText;
+@property (retain, nonatomic) IBOutlet UITableView *virusList;
+@property (retain, nonatomic) IBOutlet UILabel *pointGetText;
+@property (retain, nonatomic) IBOutlet UIButton *toReinnforceTabButton;
 
 @end
 
