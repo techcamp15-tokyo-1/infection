@@ -267,7 +267,6 @@
         <class className="MakeVirusViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MakeVirusViewController.h"/>
             <relationships>
-                <relationship kind="action" name="onMakeButtonCliked:"/>
                 <relationship kind="outlet" name="makeButton" candidateClass="UIButton"/>
             </relationships>
         </class>
@@ -283,7 +282,6 @@
         <class className="SpreadViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SpreadViewController.h"/>
             <relationships>
-                <relationship kind="action" name="onToReinforceButtonClicked:"/>
                 <relationship kind="outlet" name="pointGetText" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="spreadText" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>

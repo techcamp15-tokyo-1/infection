@@ -48,22 +48,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-//画面の回転方向の指定
-- (BOOL) shouldAutorotate
-{
-    return NO;
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
 }
 
-- (NSUInteger) supportedInterfaceOrientations
-{
-    // 横画面固定
-    //return UIInterfaceOrientationMaskPortrait;
+
+- (BOOL) shouldAutorotate {
+    return YES;
+}
+
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait;
 }
 
 - (void)dealloc {
-//    [_ProfileImage release];
-//    [_NameText release];
-//    [_RegisterButton release];
     [super dealloc];
 }
 @end

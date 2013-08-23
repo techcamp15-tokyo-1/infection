@@ -35,16 +35,18 @@
     controller.selectedViewController = [controller.viewControllers objectAtIndex: 2];
 }
 
-//画面の回転方向の指定
-- (BOOL) shouldAutorotate
-{
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+}
+
+
+- (BOOL) shouldAutorotate {
     return YES;
 }
 
-- (NSUInteger) supportedInterfaceOrientations
-{
-    // 横画面固定
-    //return UIInterfaceOrientationMaskPortrait;
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait;
 }
 
 - (void)dealloc {
