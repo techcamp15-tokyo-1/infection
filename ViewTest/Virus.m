@@ -7,6 +7,7 @@
 //
 
 #import "Virus.h"
+#import "JSONConverter.h"
 
 @implementation Virus
 
@@ -19,9 +20,10 @@
     return self;
 }
 
-- (id)initWithValue:(NSString *)_name :(NSNumber *)_infection_rate :(NSNumber *)_durability
+- (id)initWithValue:(NSInteger)_id :(NSString *)_name :(NSNumber *)_infection_rate :(NSNumber *)_durability
 {
     if (self = [super init]) {
+        virus_id = _id;
         name = _name;
         infection_rate = _infection_rate;
         durability = _durability;
@@ -61,6 +63,18 @@
 -(NSNumber *)getDurability
 {
     return durability;
+}
+
+/**
+ ウィルスのステータスをJSON形式のバイナリに変換する
+ */
+- (NSData*) toJsonData {
+    NSDictionary* jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    virus_id,       "virus_id",
+                                    name,           "name",
+                                    infection_rate, "infection_rate",
+                                    durability,     "durability",nil];
+    return [JSONConverter toJsonData:jsonDictionary];
 }
 
 @end

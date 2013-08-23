@@ -11,6 +11,7 @@
 @interface Virus : NSObject {
 
 @private
+    NSNumber *virus_id;
     NSString *name;
     NSNumber *infection_rate;
     NSNumber *durability;
