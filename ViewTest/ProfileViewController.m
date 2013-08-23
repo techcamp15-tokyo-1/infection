@@ -18,21 +18,14 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // タブに表示する情報を設定します
-        self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:
-                           UITabBarSystemItemFeatured tag:0];
-        //ImageViewの初期化
-        _ProfileImage = [[UIImageView alloc] initWithFrame:CGRectMake(140.0, 0.0, 40.0, 40.0)];
-        [self.view addSubview:_ProfileImage];
-        //Buttonの追加
+
     }
     return self;
 }
 
 - (IBAction)responseToButtonClick:(id)sender {
-    //TODO
-    //登録ボタンをクリック
-    //その後ウイルス作成に遷移
+    UITabBarController *controller = self.tabBarController;
+    controller.selectedViewController = [controller.viewControllers objectAtIndex: 1];
 }
 
 - (void)viewDidLoad
@@ -68,9 +61,9 @@
 }
 
 - (void)dealloc {
-    [_ProfileImage release];
-    [_NameText release];
-    [_RegisterButton release];
+//    [_ProfileImage release];
+//    [_NameText release];
+//    [_RegisterButton release];
     [super dealloc];
 }
 @end

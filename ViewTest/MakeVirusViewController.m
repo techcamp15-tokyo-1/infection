@@ -1,7 +1,9 @@
 #import "ViewControllers.h"
 
 @interface MakeVirusViewController ()
+
 @end
+
 
 @implementation MakeVirusViewController
 {
@@ -11,9 +13,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // タブに表示する情報を設定します
-        self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:
-                           UITabBarSystemItemFavorites tag:1];
+
     }
     return self;
 }
@@ -29,6 +29,12 @@
     [super didReceiveMemoryWarning];
 }
 
+//作成ボタンを押した時の処理
+- (IBAction)onMakeButtonCliked:(id)sender {
+    UITabBarController *controller = self.tabBarController;
+    controller.selectedViewController = [controller.viewControllers objectAtIndex: 2];
+}
+
 //画面の回転方向の指定
 - (BOOL) shouldAutorotate
 {
@@ -41,4 +47,8 @@
     //return UIInterfaceOrientationMaskPortrait;
 }
 
+- (void)dealloc {
+    [_makeButton release];
+    [super dealloc];
+}
 @end

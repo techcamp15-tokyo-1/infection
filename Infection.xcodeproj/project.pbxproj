@@ -25,7 +25,9 @@
 		43E1A65D17C5CD050043A826 /* ViewTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E1A65C17C5CD050043A826 /* ViewTestTests.m */; };
 		43E1A66D17C5CE8E0043A826 /* MakeVirusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E1A66717C5CE8E0043A826 /* MakeVirusViewController.m */; };
 		43E1A66E17C5CE8E0043A826 /* ProfileViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E1A66917C5CE8E0043A826 /* ProfileViewControllerFactory.m */; };
-		43E1A66F17C5CE8E0043A826 /* SpreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E1A66B17C5CE8E0043A826 /* SpreadViewController.m */; };
+		43F9EC1F17C5F25F00FA8AB7 /* SpreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9EC1E17C5F25F00FA8AB7 /* SpreadViewController.m */; };
+		43F9EC2217C60D7300FA8AB7 /* Virus.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9EC2117C60D7300FA8AB7 /* Virus.m */; };
+		43F9EC2517C61C9E00FA8AB7 /* VirusDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9EC2417C61C9D00FA8AB7 /* VirusDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,25 +41,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		43E1A62817C5CD050043A826 /* ViewTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		43E1A62817C5CD050043A826 /* Infection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Infection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E1A62B17C5CD050043A826 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		43E1A62D17C5CD050043A826 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		43E1A62F17C5CD050043A826 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		43E1A63317C5CD050043A826 /* ViewTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ViewTest-Info.plist"; sourceTree = "<group>"; };
+		43E1A63317C5CD050043A826 /* Infection-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Infection-Info.plist"; sourceTree = "<group>"; };
 		43E1A63517C5CD050043A826 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		43E1A63717C5CD050043A826 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		43E1A63917C5CD050043A826 /* ViewTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViewTest-Prefix.pch"; sourceTree = "<group>"; };
+		43E1A63917C5CD050043A826 /* Infection-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Infection-Prefix.pch"; sourceTree = "<group>"; };
 		43E1A63A17C5CD050043A826 /* TestAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAppDelegate.h; sourceTree = "<group>"; };
-		43E1A63B17C5CD050043A826 /* TestAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAppDelegate.m; sourceTree = "<group>"; };
+		43E1A63B17C5CD050043A826 /* TestAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TestAppDelegate.m; path = /Users/techcamp/Desktop/infection/ViewTest/TestAppDelegate.m; sourceTree = "<absolute>"; };
 		43E1A63D17C5CD050043A826 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		43E1A63F17C5CD050043A826 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		43E1A64117C5CD050043A826 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		43E1A64417C5CD050043A826 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		43E1A64617C5CD050043A826 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		43E1A64717C5CD050043A826 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		43E1A64E17C5CD050043A826 /* ViewTestTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViewTestTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		43E1A64E17C5CD050043A826 /* InfectionTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfectionTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E1A64F17C5CD050043A826 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		43E1A65717C5CD050043A826 /* ViewTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ViewTestTests-Info.plist"; sourceTree = "<group>"; };
+		43E1A65717C5CD050043A826 /* InfectionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "InfectionTests-Info.plist"; sourceTree = "<group>"; };
 		43E1A65917C5CD050043A826 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		43E1A65B17C5CD050043A826 /* ViewTestTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewTestTests.h; sourceTree = "<group>"; };
 		43E1A65C17C5CD050043A826 /* ViewTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewTestTests.m; sourceTree = "<group>"; };
@@ -65,9 +67,13 @@
 		43E1A66717C5CE8E0043A826 /* MakeVirusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeVirusViewController.m; sourceTree = "<group>"; };
 		43E1A66817C5CE8E0043A826 /* ProfileViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewControllerFactory.h; sourceTree = "<group>"; };
 		43E1A66917C5CE8E0043A826 /* ProfileViewControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewControllerFactory.m; sourceTree = "<group>"; };
-		43E1A66A17C5CE8E0043A826 /* SpreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpreadViewController.h; sourceTree = "<group>"; };
-		43E1A66B17C5CE8E0043A826 /* SpreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpreadViewController.m; sourceTree = "<group>"; };
 		43E1A66C17C5CE8E0043A826 /* ViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllers.h; sourceTree = "<group>"; };
+		43F9EC1D17C5F25F00FA8AB7 /* SpreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpreadViewController.h; sourceTree = "<group>"; };
+		43F9EC1E17C5F25F00FA8AB7 /* SpreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpreadViewController.m; sourceTree = "<group>"; };
+		43F9EC2017C60D7300FA8AB7 /* Virus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Virus.h; sourceTree = "<group>"; };
+		43F9EC2117C60D7300FA8AB7 /* Virus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Virus.m; sourceTree = "<group>"; };
+		43F9EC2317C61C9D00FA8AB7 /* VirusDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirusDetailViewController.h; sourceTree = "<group>"; };
+		43F9EC2417C61C9D00FA8AB7 /* VirusDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirusDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +113,8 @@
 		43E1A62917C5CD050043A826 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				43E1A62817C5CD050043A826 /* ViewTest.app */,
-				43E1A64E17C5CD050043A826 /* ViewTestTests.octest */,
+				43E1A62817C5CD050043A826 /* Infection.app */,
+				43E1A64E17C5CD050043A826 /* InfectionTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +135,8 @@
 			children = (
 				43E1A63A17C5CD050043A826 /* TestAppDelegate.h */,
 				43E1A63B17C5CD050043A826 /* TestAppDelegate.m */,
+				43F9EC1D17C5F25F00FA8AB7 /* SpreadViewController.h */,
+				43F9EC1E17C5F25F00FA8AB7 /* SpreadViewController.m */,
 				43E1A64317C5CD050043A826 /* MainStoryboard.storyboard */,
 				43E1A64617C5CD050043A826 /* ProfileViewController.h */,
 				43E1A64717C5CD050043A826 /* ProfileViewController.m */,
@@ -136,9 +144,11 @@
 				43E1A66717C5CE8E0043A826 /* MakeVirusViewController.m */,
 				43E1A66817C5CE8E0043A826 /* ProfileViewControllerFactory.h */,
 				43E1A66917C5CE8E0043A826 /* ProfileViewControllerFactory.m */,
-				43E1A66A17C5CE8E0043A826 /* SpreadViewController.h */,
-				43E1A66B17C5CE8E0043A826 /* SpreadViewController.m */,
 				43E1A66C17C5CE8E0043A826 /* ViewControllers.h */,
+				43F9EC2017C60D7300FA8AB7 /* Virus.h */,
+				43F9EC2117C60D7300FA8AB7 /* Virus.m */,
+				43F9EC2317C61C9D00FA8AB7 /* VirusDetailViewController.h */,
+				43F9EC2417C61C9D00FA8AB7 /* VirusDetailViewController.m */,
 				43E1A63217C5CD050043A826 /* Supporting Files */,
 			);
 			path = ViewTest;
@@ -147,10 +157,10 @@
 		43E1A63217C5CD050043A826 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				43E1A63317C5CD050043A826 /* ViewTest-Info.plist */,
+				43E1A63317C5CD050043A826 /* Infection-Info.plist */,
 				43E1A63417C5CD050043A826 /* InfoPlist.strings */,
 				43E1A63717C5CD050043A826 /* main.m */,
-				43E1A63917C5CD050043A826 /* ViewTest-Prefix.pch */,
+				43E1A63917C5CD050043A826 /* Infection-Prefix.pch */,
 				43E1A63D17C5CD050043A826 /* Default.png */,
 				43E1A63F17C5CD050043A826 /* Default@2x.png */,
 				43E1A64117C5CD050043A826 /* Default-568h@2x.png */,
@@ -171,7 +181,7 @@
 		43E1A65617C5CD050043A826 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				43E1A65717C5CD050043A826 /* ViewTestTests-Info.plist */,
+				43E1A65717C5CD050043A826 /* InfectionTests-Info.plist */,
 				43E1A65817C5CD050043A826 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -180,9 +190,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		43E1A62717C5CD050043A826 /* ViewTest */ = {
+		43E1A62717C5CD050043A826 /* Infection */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43E1A66017C5CD050043A826 /* Build configuration list for PBXNativeTarget "ViewTest" */;
+			buildConfigurationList = 43E1A66017C5CD050043A826 /* Build configuration list for PBXNativeTarget "Infection" */;
 			buildPhases = (
 				43E1A62417C5CD050043A826 /* Sources */,
 				43E1A62517C5CD050043A826 /* Frameworks */,
@@ -192,14 +202,14 @@
 			);
 			dependencies = (
 			);
-			name = ViewTest;
+			name = Infection;
 			productName = ViewTest;
-			productReference = 43E1A62817C5CD050043A826 /* ViewTest.app */;
+			productReference = 43E1A62817C5CD050043A826 /* Infection.app */;
 			productType = "com.apple.product-type.application";
 		};
-		43E1A64D17C5CD050043A826 /* ViewTestTests */ = {
+		43E1A64D17C5CD050043A826 /* InfectionTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43E1A66317C5CD050043A826 /* Build configuration list for PBXNativeTarget "ViewTestTests" */;
+			buildConfigurationList = 43E1A66317C5CD050043A826 /* Build configuration list for PBXNativeTarget "InfectionTests" */;
 			buildPhases = (
 				43E1A64917C5CD050043A826 /* Sources */,
 				43E1A64A17C5CD050043A826 /* Frameworks */,
@@ -211,9 +221,9 @@
 			dependencies = (
 				43E1A65417C5CD050043A826 /* PBXTargetDependency */,
 			);
-			name = ViewTestTests;
+			name = InfectionTests;
 			productName = ViewTestTests;
-			productReference = 43E1A64E17C5CD050043A826 /* ViewTestTests.octest */;
+			productReference = 43E1A64E17C5CD050043A826 /* InfectionTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -226,7 +236,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = technologycamp;
 			};
-			buildConfigurationList = 43E1A62317C5CD050043A826 /* Build configuration list for PBXProject "ViewTest" */;
+			buildConfigurationList = 43E1A62317C5CD050043A826 /* Build configuration list for PBXProject "Infection" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -238,8 +248,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				43E1A62717C5CD050043A826 /* ViewTest */,
-				43E1A64D17C5CD050043A826 /* ViewTestTests */,
+				43E1A62717C5CD050043A826 /* Infection */,
+				43E1A64D17C5CD050043A826 /* InfectionTests */,
 			);
 		};
 /* End PBXProject section */
@@ -293,7 +303,9 @@
 				43E1A64817C5CD050043A826 /* ProfileViewController.m in Sources */,
 				43E1A66D17C5CE8E0043A826 /* MakeVirusViewController.m in Sources */,
 				43E1A66E17C5CE8E0043A826 /* ProfileViewControllerFactory.m in Sources */,
-				43E1A66F17C5CE8E0043A826 /* SpreadViewController.m in Sources */,
+				43F9EC1F17C5F25F00FA8AB7 /* SpreadViewController.m in Sources */,
+				43F9EC2217C60D7300FA8AB7 /* Virus.m in Sources */,
+				43F9EC2517C61C9E00FA8AB7 /* VirusDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +322,7 @@
 /* Begin PBXTargetDependency section */
 		43E1A65417C5CD050043A826 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 43E1A62717C5CD050043A826 /* ViewTest */;
+			target = 43E1A62717C5CD050043A826 /* Infection */;
 			targetProxy = 43E1A65317C5CD050043A826 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -349,6 +361,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
@@ -379,6 +392,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
@@ -401,9 +415,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ViewTest/ViewTest-Prefix.pch";
-				INFOPLIST_FILE = "ViewTest/ViewTest-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "ViewTest/Infection-Prefix.pch";
+				INFOPLIST_FILE = "ViewTest/Infection-Info.plist";
+				PRODUCT_NAME = Infection;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -412,9 +426,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ViewTest/ViewTest-Prefix.pch";
-				INFOPLIST_FILE = "ViewTest/ViewTest-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "ViewTest/Infection-Prefix.pch";
+				INFOPLIST_FILE = "ViewTest/Infection-Info.plist";
+				PRODUCT_NAME = Infection;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -429,8 +443,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ViewTest/ViewTest-Prefix.pch";
-				INFOPLIST_FILE = "ViewTestTests/ViewTestTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "ViewTestTests/InfectionTests-Info.plist";
+				PRODUCT_NAME = InfectionTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -446,8 +460,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ViewTest/ViewTest-Prefix.pch";
-				INFOPLIST_FILE = "ViewTestTests/ViewTestTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "ViewTestTests/InfectionTests-Info.plist";
+				PRODUCT_NAME = InfectionTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -456,7 +470,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		43E1A62317C5CD050043A826 /* Build configuration list for PBXProject "ViewTest" */ = {
+		43E1A62317C5CD050043A826 /* Build configuration list for PBXProject "Infection" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43E1A65E17C5CD050043A826 /* Debug */,
@@ -465,21 +479,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		43E1A66017C5CD050043A826 /* Build configuration list for PBXNativeTarget "ViewTest" */ = {
+		43E1A66017C5CD050043A826 /* Build configuration list for PBXNativeTarget "Infection" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43E1A66117C5CD050043A826 /* Debug */,
 				43E1A66217C5CD050043A826 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		43E1A66317C5CD050043A826 /* Build configuration list for PBXNativeTarget "ViewTestTests" */ = {
+		43E1A66317C5CD050043A826 /* Build configuration list for PBXNativeTarget "InfectionTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43E1A66417C5CD050043A826 /* Debug */,
 				43E1A66517C5CD050043A826 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

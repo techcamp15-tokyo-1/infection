@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ProfileViewController : UIViewController
-@property (retain, nonatomic) IBOutlet UIImageView *ProfileImage;
-@property (retain, nonatomic) IBOutlet UITextField *NameText;
-@property (retain, nonatomic) IBOutlet UIButton *RegisterButton;
 
 - (IBAction)responseToButtonClick:(id)sender;
 

@@ -9,4 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MakeVirusViewController : UIViewController
+@property (retain, nonatomic) IBOutlet UIButton *makeButton;
 @end
