@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <UITextFieldDelegate>
 
 @property (retain, nonatomic) IBOutlet UITextField *nameText;
 @property (retain, nonatomic) IBOutlet UIButton *registerButton;

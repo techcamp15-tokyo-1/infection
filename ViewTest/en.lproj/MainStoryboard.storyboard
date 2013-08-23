@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Make Virus View Controller - Item 2-->
+        <!--Make Virus View Controller - ウイルスの作成-->
         <scene sceneID="WUu-eA-A5b">
             <objects>
                 <viewController id="Vuk-Hi-23e" customClass="MakeVirusViewController" sceneMemberID="viewController">
@@ -86,7 +86,7 @@
                             <constraint firstItem="B5z-j4-fIN" firstAttribute="leading" secondItem="nw0-2f-koQ" secondAttribute="leading" type="default" id="xeh-6h-B6D"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="zgv-zd-bni"/>
+                    <tabBarItem key="tabBarItem" title="ウイルスの作成" id="zgv-zd-bni"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="durabilityText" destination="B5z-j4-fIN" id="EAd-p2-PuJ"/>
@@ -99,7 +99,7 @@
             </objects>
             <point key="canvasLocation" x="314" y="648"/>
         </scene>
-        <!--Spread View Controller - Item-->
+        <!--Spread View Controller - ウイルスの拡散-->
         <scene sceneID="uNf-Bp-Cv2">
             <objects>
                 <viewController id="RTY-iV-Hw6" customClass="SpreadViewController" sceneMemberID="viewController">
@@ -171,7 +171,7 @@
                             <constraint firstItem="xye-4h-HXv" firstAttribute="leading" secondItem="2Bg-XB-1KU" secondAttribute="leading" type="default" id="nJl-Yd-LtD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ReW-rW-Wfl"/>
+                    <tabBarItem key="tabBarItem" title="ウイルスの拡散" id="ReW-rW-Wfl"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="pointGetText" destination="ar0-iL-V3E" id="q6W-MR-pOo"/>
@@ -184,7 +184,7 @@
             </objects>
             <point key="canvasLocation" x="350" y="1296"/>
         </scene>
-        <!--Profile View Controller - profile-->
+        <!--Profile View Controller - プロフォールの登録・変更-->
         <scene sceneID="VkK-Bn-jxP">
             <objects>
                 <viewController id="Iwg-BS-wjb" customClass="ProfileViewController" sceneMemberID="viewController">
@@ -229,7 +229,7 @@
                             <constraint firstItem="GLE-v5-Y3B" firstAttribute="leading" secondItem="MyG-Ic-TXf" secondAttribute="leading" constant="60" id="zqT-l5-AZq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="profile" id="3oH-RO-jmr"/>
+                    <tabBarItem key="tabBarItem" title="プロフォールの登録・変更" id="3oH-RO-jmr"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="nameText" destination="9fY-4P-s2N" id="KNM-W5-zC3"/>
@@ -240,7 +240,7 @@
             </objects>
             <point key="canvasLocation" x="306" y="43"/>
         </scene>
-        <!--View Controller - Item-->
+        <!--View Controller - ウイルスの強化-->
         <scene sceneID="e6z-FP-8ZK">
             <objects>
                 <viewController id="svP-RH-sxz" sceneMemberID="viewController">
@@ -252,12 +252,14 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6R5-1E-GEu">
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="377" id="cmA-co-f5D"/>
+                                        </constraints>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="6R5-1E-GEu" firstAttribute="leading" secondItem="8Th-os-Q5N" secondAttribute="leading" type="default" id="5gf-mS-Eb6"/>
-                                    <constraint firstItem="6R5-1E-GEu" firstAttribute="top" secondItem="8Th-os-Q5N" secondAttribute="top" type="default" id="HOb-vM-Kbs"/>
                                     <constraint firstItem="6R5-1E-GEu" firstAttribute="bottom" secondItem="8Th-os-Q5N" secondAttribute="bottom" type="default" id="ok5-oe-8kA"/>
                                     <constraint firstItem="6R5-1E-GEu" firstAttribute="trailing" secondItem="8Th-os-Q5N" secondAttribute="trailing" type="default" id="pmL-lb-Vir"/>
                                 </constraints>
@@ -271,7 +273,7 @@
                             <constraint firstItem="8Th-os-Q5N" firstAttribute="bottom" secondItem="s9L-CA-82Q" secondAttribute="bottom" type="default" id="p9l-ae-xyF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="tPj-rU-osk"/>
+                    <tabBarItem key="tabBarItem" title="ウイルスの強化" id="tPj-rU-osk"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9V-1H-QqK" userLabel="First Responder" sceneMemberID="firstResponder"/>

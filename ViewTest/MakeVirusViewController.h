@@ -10,7 +10,7 @@
 
 #define MAX_SUM_PARAM 100
 
-@interface MakeVirusViewController : UIViewController
+@interface MakeVirusViewController : UIViewController <UITextFieldDelegate>
 @property (retain, nonatomic) IBOutlet UITextField *infectionRateText;
 @property (retain, nonatomic) IBOutlet UILabel *remnantText;
 @property (retain, nonatomic) IBOutlet UITextField *durabilityText;

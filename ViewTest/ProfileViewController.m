@@ -27,7 +27,8 @@
 - (IBAction)responseToButtonClick:(id)sender {
     //textviewから値を取得
     NSString *text = _nameText.text;
-    //textの値を用いて通信
+    //TODO
+    //サーバーとの通信開始
     [self changeViewToMakeVirus];
 }
 
@@ -39,11 +40,18 @@
     controller.selectedViewController = [controller.viewControllers objectAtIndex: 1];    
 }
 
+//returnが押されるとキーボードを隠す
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.view endEditing:YES];
+    return YES;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.nameText.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {

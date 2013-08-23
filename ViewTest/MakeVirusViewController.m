@@ -21,6 +21,17 @@
 
 //作成ボタンを押した時の処理
 - (IBAction)onMakeButtonCliked:(id)sender {
+    //各パラメータの値を取得
+    //infection rateの数値を取得
+    NSString *inputInfectionRate = _infectionRateText.text;
+    NSInteger inputNumInfectionRate = [inputInfectionRate intValue];
+    
+    //durabilityの数値を取得
+    NSString *inputDurability = _durabilityText.text;
+    NSInteger inputNumDurability = [inputDurability intValue];
+
+    //TODO
+    //通信を開始
     [self changeViewToSpread];
 }
 
@@ -44,7 +55,7 @@
     }
     
     NSInteger remnantValue = [self getIntSumOfTextFiled];
-    _remnantText.text =[[NSString alloc] initWithFormat:@"%d",remnantValue];
+    _remnantText.text =[[NSString alloc] initWithFormat:@"%d",MAX_SUM_PARAM - remnantValue];
     
     return YES;
 }
@@ -63,11 +74,18 @@
     return inputNumInfectionRate + inputNumDurability;
 }
 
+//returnが押されるとキーボードを隠す
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.view endEditing:YES];
+    return YES;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.infectionRateText.delegate = self;
+    self.durabilityText.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
