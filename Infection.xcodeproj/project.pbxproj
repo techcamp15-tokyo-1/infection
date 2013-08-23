@@ -32,7 +32,6 @@
 		43E1A65A17C5CD050043A826 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 43E1A65817C5CD050043A826 /* InfoPlist.strings */; };
 		43E1A65D17C5CD050043A826 /* ViewTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E1A65C17C5CD050043A826 /* ViewTestTests.m */; };
 		43E1A66D17C5CE8E0043A826 /* MakeVirusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E1A66717C5CE8E0043A826 /* MakeVirusViewController.m */; };
-		43E1A66E17C5CE8E0043A826 /* ProfileViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E1A66917C5CE8E0043A826 /* ProfileViewControllerFactory.m */; };
 		43F9EC1F17C5F25F00FA8AB7 /* SpreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9EC1E17C5F25F00FA8AB7 /* SpreadViewController.m */; };
 		43F9EC2217C60D7300FA8AB7 /* Virus.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9EC2117C60D7300FA8AB7 /* Virus.m */; };
 		43F9EC2517C61C9E00FA8AB7 /* VirusDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F9EC2417C61C9D00FA8AB7 /* VirusDetailViewController.m */; };
@@ -88,8 +87,6 @@
 		43E1A65C17C5CD050043A826 /* ViewTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewTestTests.m; sourceTree = "<group>"; };
 		43E1A66617C5CE8E0043A826 /* MakeVirusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeVirusViewController.h; sourceTree = "<group>"; };
 		43E1A66717C5CE8E0043A826 /* MakeVirusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeVirusViewController.m; sourceTree = "<group>"; };
-		43E1A66817C5CE8E0043A826 /* ProfileViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewControllerFactory.h; sourceTree = "<group>"; };
-		43E1A66917C5CE8E0043A826 /* ProfileViewControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewControllerFactory.m; sourceTree = "<group>"; };
 		43E1A66C17C5CE8E0043A826 /* ViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllers.h; sourceTree = "<group>"; };
 		43F9EC1D17C5F25F00FA8AB7 /* SpreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpreadViewController.h; sourceTree = "<group>"; };
 		43F9EC1E17C5F25F00FA8AB7 /* SpreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpreadViewController.m; sourceTree = "<group>"; };
@@ -180,11 +177,14 @@
 				43E1A64317C5CD050043A826 /* MainStoryboard.storyboard */,
 				43E1A66617C5CE8E0043A826 /* MakeVirusViewController.h */,
 				43E1A66717C5CE8E0043A826 /* MakeVirusViewController.m */,
+<<<<<<< HEAD
 				43E1A64617C5CD050043A826 /* ProfileViewController.h */,
 				43E1A64717C5CD050043A826 /* ProfileViewController.m */,
 				43E1A66817C5CE8E0043A826 /* ProfileViewControllerFactory.h */,
 				43E1A66917C5CE8E0043A826 /* ProfileViewControllerFactory.m */,
 <<<<<<< HEAD:Infection.xcodeproj/project.pbxproj
+=======
+>>>>>>> 4e9a6ee10ffae204edb8d690a0f6119481ef966f
 				43E1A66C17C5CE8E0043A826 /* ViewControllers.h */,
 				43F9EC2017C60D7300FA8AB7 /* Virus.h */,
 				43F9EC2117C60D7300FA8AB7 /* Virus.m */,
@@ -352,8 +352,11 @@
 				43E1A63C17C5CD050043A826 /* TestAppDelegate.m in Sources */,
 				43E1A64817C5CD050043A826 /* ProfileViewController.m in Sources */,
 				43E1A66D17C5CE8E0043A826 /* MakeVirusViewController.m in Sources */,
+<<<<<<< HEAD
 				43E1A66E17C5CE8E0043A826 /* ProfileViewControllerFactory.m in Sources */,
 <<<<<<< HEAD:Infection.xcodeproj/project.pbxproj
+=======
+>>>>>>> 4e9a6ee10ffae204edb8d690a0f6119481ef966f
 				43F9EC1F17C5F25F00FA8AB7 /* SpreadViewController.m in Sources */,
 				43F9EC2217C60D7300FA8AB7 /* Virus.m in Sources */,
 				43F9EC2517C61C9E00FA8AB7 /* VirusDetailViewController.m in Sources */,
