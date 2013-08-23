@@ -23,10 +23,22 @@
     return self;
 }
 
+//ボタン押下時の処理
 - (IBAction)responseToButtonClick:(id)sender {
-    UITabBarController *controller = self.tabBarController;
-    controller.selectedViewController = [controller.viewControllers objectAtIndex: 1];
+    //textviewから値を取得
+    NSString *text = _nameText.text;
+    //textの値を用いて通信
+    [self changeViewToMakeVirus];
 }
+
+
+//make virus viewへの遷移
+- (void)changeViewToMakeVirus
+{
+    UITabBarController *controller = self.tabBarController;
+    controller.selectedViewController = [controller.viewControllers objectAtIndex: 1];    
+}
+
 
 - (void)viewDidLoad
 {
@@ -64,6 +76,8 @@
 }
 
 - (void)dealloc {
+    [_nameText release];
+    [_registerButton release];
     [super dealloc];
 }
 @end

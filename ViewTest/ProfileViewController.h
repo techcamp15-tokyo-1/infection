@@ -10,6 +10,9 @@
 
 @interface ProfileViewController : UIViewController
 
+@property (retain, nonatomic) IBOutlet UITextField *nameText;
+@property (retain, nonatomic) IBOutlet UIButton *registerButton;
+
 - (IBAction)responseToButtonClick:(id)sender;
 
 @end

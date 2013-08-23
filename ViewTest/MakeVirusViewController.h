@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#define MAX_SUM_PARAM 100
+
 @interface MakeVirusViewController : UIViewController
+@property (retain, nonatomic) IBOutlet UITextField *infectionRateText;
+@property (retain, nonatomic) IBOutlet UILabel *remnantText;
+@property (retain, nonatomic) IBOutlet UITextField *durabilityText;
 @property (retain, nonatomic) IBOutlet UIButton *makeButton;
 @end
