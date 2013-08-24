@@ -13,13 +13,13 @@
 }
 
 /**
- * NSDictionaryをJSON形式のNSDataに変換する。
- * NSDictionaryが有効なJSON形式でない場合、および変換中にエラーが発生した場合はnilを返す。
+ * 任意のオブジェクトをJSON形式のNSDataに変換する。
+ * オブジェクトが有効なJSON形式でない場合、および変換中にエラーが発生した場合はnilを返す。
  */
-+ (NSData*) toJsonData: (NSDictionary*) dictionary {
-    if ([NSJSONSerialization isValidJSONObject:dictionary]) {
++ (NSData*) toJsonData: (id) jsonObject {
+    if ([NSJSONSerialization isValidJSONObject:jsonObject]) {
         NSError* error;
-        NSData* data = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&error];
+        NSData* data = [NSJSONSerialization dataWithJSONObject:jsonObject options:NSJSONWritingPrettyPrinted error:&error];
         if (data == nil) { // エラー発生
             NSLog(@"***** Error in toJsonData: *****");
             NSLog(@"%@", error);
@@ -36,14 +36,14 @@
  * JSON形式のNSDataをNSDictionaryに変換する。
  * 変換中にエラーが発生した場合はnilを返す。
  */
-+ (NSDictionary*) toNSDictionary: (NSData*) jsonData {
++ (id) objectFrom: (NSData*) jsonData {
     NSError* error;
-    NSDictionary* dictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-    if (dictionary == nil) { // エラー発生
-        NSLog(@"***** Error in toDictionary: *****");
+    id object = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+    if (object == nil) { // エラー発生
+        NSLog(@"***** Error in objectFrom: *****");
         NSLog(@"%@", error);
     }
-    return dictionary;
+    return object;
 }
 
 @end

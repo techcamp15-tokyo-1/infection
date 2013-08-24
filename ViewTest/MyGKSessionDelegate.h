@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <GameKit/GameKit.h>
+#import "Virus.h"
 
-@interface GKSessionDelegate : NSObject {
+@interface MyGKSessionDelegate : NSObject <GKSessionDelegate> {
 }
-
++ (MyGKSessionDelegate*) sharedInstance;
+- (void) addVirus: (Virus*) virus;
+- (void) deleteVirus: (NSNumber*) virus_id;
 @end
 
 static const NSTimeInterval TIMEOUT = 10.0f;

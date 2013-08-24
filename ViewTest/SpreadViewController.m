@@ -7,7 +7,9 @@
 //
 
 #import "SpreadViewController.h"
-
+#import <GameKit/GameKit.h>
+#import "MyGKSessionDelegate.h"
+#import "AudioPlayer.h"
 
 @implementation SpreadViewController
 
@@ -146,7 +148,7 @@
 }
 
 //ウイルス拡散alertの表示
-- (void)showVirusDetail:(NSString *)virus_name:(NSNumber *)virus_infection_rate:(NSNumber *)virus_durability{
+- (void)showVirusDetail:(NSString *)virus_name :(NSNumber *)virus_infection_rate :(NSNumber *)virus_durability{
  
     UIAlertView *virusDetailAlert = [[UIAlertView alloc] initWithTitle:virus_name message:@"このウイルスを拡散しますか？" delegate:self cancelButtonTitle:@"やめる" otherButtonTitles:@"実行", nil];
     
@@ -172,9 +174,16 @@
         case 0: // cancel
             [self switchView:VIEW_VIRUS_LIST];
             break;
-        case 1: // execute
-            [self switchView:VIEW_SPREAD];
+        case 1:
+        {
+            
+            [AudioPlayer playDummyAudioBackground];
+            GKSession* session = [[GKSession alloc] initWithSessionID: @"infection" displayName:nil sessionMode:GKSessionModePeer];
+            session.delegate = [MyGKSessionDelegate sharedInstance];
+            [session setDataReceiveHandler:[MyGKSessionDelegate sharedInstance] withContext:nil];
+            session.available = YES;
             break;
+        }
         default: // cancelとか
             break;
     }

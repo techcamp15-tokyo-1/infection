@@ -20,7 +20,7 @@
     return self;
 }
 
-- (id)initWithValue:(NSInteger)_id :(NSString *)_name :(NSNumber *)_infection_rate :(NSNumber *)_durability
+- (id)initWithValue:(NSInteger*)_id :(NSString *)_name :(NSNumber *)_infection_rate :(NSNumber *)_durability
 {
     if (self = [super init]) {
         virus_id = _id;
@@ -31,8 +31,10 @@
     return self;
 }
 
+- (void) setVirusId: (NSNumber*)_virus_id {
+    virus_id = _virus_id;
+}
 
-//
 - (void)setName :(NSString *)_name
 {
     name = _name;
@@ -49,7 +51,6 @@
 }
 
 
-//
 - (NSString *)getName
 {
     return name;
@@ -65,16 +66,20 @@
     return durability;
 }
 
+-(NSNumber*) getVirusId {
+    return virus_id;
+}
+
 /**
- ウィルスのステータスをJSON形式のバイナリに変換する
+ ウィルスのステータスをJSON形式のNSDictionaryに変換する
  */
-- (NSData*) toJsonData {
+- (NSDictionary*) toNSDictionary {
     NSDictionary* jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                     virus_id,       "virus_id",
                                     name,           "name",
                                     infection_rate, "infection_rate",
                                     durability,     "durability",nil];
-    return [JSONConverter toJsonData:jsonDictionary];
+    return jsonDictionary;
 }
 
 @end
