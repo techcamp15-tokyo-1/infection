@@ -20,10 +20,6 @@
 
 - (void)readProfile;
 - (void)writeProtile:(NSString*) nameStr;
-
-@property (retain, nonatomic) IBOutlet UITextField *nameText;
-@property (retain, nonatomic) IBOutlet UIButton *registerButton;
-
 - (IBAction)responseToButtonClick:(id)sender;
 
 @end
