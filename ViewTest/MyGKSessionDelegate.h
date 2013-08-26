@@ -14,7 +14,7 @@
 }
 + (MyGKSessionDelegate*) sharedInstance;
 - (void) addVirus: (Virus*) virus;
-- (void) deleteVirus: (NSNumber*) virus_id;
+- (void) deleteVirus: (NSString*) virus_id;
 @end
 
 static const NSTimeInterval TIMEOUT = 10.0f;

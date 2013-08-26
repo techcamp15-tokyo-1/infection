@@ -20,7 +20,7 @@
     return self;
 }
 
-- (id)initWithValue:(NSNumber*)_id :(NSString *)_name :(NSNumber *)_infection_rate :(NSNumber *)_durability
+- (id)initWithValue:(NSString*)_id :(NSString *)_name :(NSNumber *)_infection_rate :(NSNumber *)_durability
 {
     if (self = [super init]) {
         virus_id = _id;
@@ -48,7 +48,7 @@
     return self;
 }
 
-- (void) setVirusId: (NSNumber*)_virus_id {
+- (void) setVirusId: (NSString*)_virus_id {
     virus_id = _virus_id;
 }
 
@@ -83,7 +83,7 @@
     return durability;
 }
 
--(NSNumber*) getVirusId {
+-(NSString*) getVirusId {
     return virus_id;
 }
 

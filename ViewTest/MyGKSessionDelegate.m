@@ -79,7 +79,7 @@ static MyGKSessionDelegate* singleton = nil;
  */
 - (BOOL) inViruses: (Virus*) virus {
     for (Virus* v in viruses) {
-        if ([[virus getVirusId] isEqualToNumber:[virus getVirusId]]) {
+        if ([[virus getVirusId] isEqualToString:[virus getVirusId]]) {
             return YES;
         }
     }
@@ -123,9 +123,9 @@ static MyGKSessionDelegate* singleton = nil;
     [self deleteVirus:[virus getVirusId]];
 }
 
-- (void) deleteVirus: (NSNumber*) virus_id {
+- (void) deleteVirus: (NSString*) virus_id {
     for (Virus* virus in viruses) {
-        if ([virus.getVirusId isEqualToNumber:virus_id]) {
+        if ([virus.getVirusId isEqualToString:virus_id]) {
             [viruses removeObject:virus];
             NSDictionary* virus_dictionary = [virus toNSDictionary];
             NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/recovered.php" :virus_dictionary];

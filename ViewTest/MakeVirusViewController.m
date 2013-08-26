@@ -1,6 +1,7 @@
 #import "ViewControllers.h"
 #import "Virus.h"
 #import "UserDefaultKey.h"
+#import "UIApplication+UIID.h"
 
 @interface MakeVirusViewController ()
 
@@ -30,12 +31,18 @@
     
     //TODO
     //一意になるようにリストから重複しない最小のidを取得
+    NSString* uiid = [[UIApplication sharedApplication] uniqueInstallationIdentifier];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSInteger virus_n = [userDefaults integerForKey:@"#Viruses"];
+    NSString* virus_id = [uiid stringByAppendingFormat:@"%d", virus_n];
+    [userDefaults setInteger:virus_n+1 forKey:@"#Viruses"];
+
     //infection rateの数値を取得
     NSNumber *inputInfectionRate = [NSNumber numberWithInt:[self.infectionRateText.text intValue]];
     //durabilityの数値を取得
     NSNumber *inputDurability = [NSNumber numberWithInt:[self.durabilityText.text intValue]];
     //ウイルスを生成
-    Virus *virus = [[Virus alloc] initWithValue:@0 :@"myName" :inputInfectionRate :inputDurability];
+    Virus *virus = [[Virus alloc] initWithValue:virus_id :@"NAME" :inputInfectionRate :inputDurability];
     //user defaultに保存
     [self addToUserDefault:virus];
 }
