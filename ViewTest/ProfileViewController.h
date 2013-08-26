@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#define NAME_KEY @"Name"
-
 @interface ProfileViewController : UIViewController <UITextFieldDelegate>
 
 @property (retain, nonatomic) IBOutlet UITextField *nameText;
@@ -20,9 +18,6 @@
 
 - (void)readProfile;
 - (void)writeProtile:(NSString*) nameStr;
-
-@property (retain, nonatomic) IBOutlet UITextField *nameText;
-@property (retain, nonatomic) IBOutlet UIButton *registerButton;
 
 - (IBAction)responseToButtonClick:(id)sender;
 

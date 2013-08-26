@@ -12,6 +12,7 @@
 #import "AudioPlayer.h"
 #import "HTTPRequester.h"
 #import "JSONConverter.h"
+#import "UserDefaultKey.h"
 
 @implementation SpreadViewController
 
@@ -165,6 +166,7 @@
 }
 
 //ウイルス拡散alertの表示
+//- (void)showVirusDetail:(NSString *)virus_name :(NSNumber *)virus_infection_rate :(NSNumber *)virus_durability{
 - (void)showVirusDetail:(Virus*) virus {
     UIAlertView *virusDetailAlert = [[UIAlertView alloc] initWithTitle:[virus getName] message:@"このウイルスを拡散しますか？" delegate:self cancelButtonTitle:@"やめる" otherButtonTitles:@"実行", nil];
     
@@ -210,14 +212,13 @@
             
             //タイマーの開始
             [self createTimer];
-
+            
             break;
         }
         default: // cancelとか
             break;
     }
 }
-
 
 
 /**
@@ -280,8 +281,6 @@
     _infectedNumberText.text = [[NSString alloc] initWithFormat:@"%d",number];
     
     //infected_nowが0になった時点でタイマーの繰り返しを切って画面遷移
-    //TODO
-    //BT通信を一旦切る?
     if(number <= 0){
         if(timer != nil){
             NSLog(@"Timer is killed because no person is infected with user's virus.");

@@ -18,10 +18,7 @@
 }
 
 - (id) initWithValue: (NSNumber*)_id : (NSString*)_name : (NSNumber*)_infection_rate : (NSNumber*)_durability;
-<<<<<<< HEAD
-=======
 - (id) initWithDictionary: (NSDictionary*) virus_dictionary;
->>>>>>> oosawa
 - (void)setName :(NSString *)_name;
 - (void)setInfectionRate :(NSNumber * )_infection_rate;
 - (void)setDurability :(NSNumber *)_durability;

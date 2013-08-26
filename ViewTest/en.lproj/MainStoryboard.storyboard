@@ -272,26 +272,22 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Th-os-Q5N">
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6R5-1E-GEu">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableView>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="6R5-1E-GEu" firstAttribute="leading" secondItem="8Th-os-Q5N" secondAttribute="leading" type="default" id="5gf-mS-Eb6"/>
-                                    <constraint firstItem="6R5-1E-GEu" firstAttribute="top" secondItem="8Th-os-Q5N" secondAttribute="top" type="default" id="HOb-vM-Kbs"/>
-                                    <constraint firstItem="6R5-1E-GEu" firstAttribute="bottom" secondItem="8Th-os-Q5N" secondAttribute="bottom" type="default" id="ok5-oe-8kA"/>
-                                    <constraint firstItem="6R5-1E-GEu" firstAttribute="trailing" secondItem="8Th-os-Q5N" secondAttribute="trailing" type="default" id="pmL-lb-Vir"/>
-                                </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6R5-1E-GEu">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6R5-1E-GEu" firstAttribute="bottom" secondItem="s9L-CA-82Q" secondAttribute="bottom" type="default" id="0Do-J7-6Wv"/>
                             <constraint firstItem="8Th-os-Q5N" firstAttribute="trailing" secondItem="s9L-CA-82Q" secondAttribute="trailing" type="default" id="DNn-YK-NFV"/>
                             <constraint firstItem="8Th-os-Q5N" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" type="default" id="R1s-Op-UtO"/>
                             <constraint firstItem="8Th-os-Q5N" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" type="default" id="aAn-Yb-sdg"/>
                             <constraint firstItem="8Th-os-Q5N" firstAttribute="bottom" secondItem="s9L-CA-82Q" secondAttribute="bottom" type="default" id="p9l-ae-xyF"/>
+                            <constraint firstItem="6R5-1E-GEu" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" type="default" id="thR-ZP-iuf"/>
+                            <constraint firstItem="6R5-1E-GEu" firstAttribute="trailing" secondItem="s9L-CA-82Q" secondAttribute="trailing" type="default" id="w3V-2a-H53"/>
+                            <constraint firstItem="6R5-1E-GEu" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" type="default" id="xdD-ZO-mr7"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="強化" id="tPj-rU-osk"/>
@@ -299,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9V-1H-QqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-131" y="1419"/>
+            <point key="canvasLocation" x="-76" y="1370"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Den-p9-EG1">
