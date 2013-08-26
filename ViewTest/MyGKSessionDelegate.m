@@ -79,7 +79,7 @@ static MyGKSessionDelegate* singleton = nil;
  */
 - (BOOL) inViruses: (Virus*) virus {
     for (Virus* v in viruses) {
-        if ([[virus getVirusId] isEqualToString:[virus getVirusId]]) {
+        if ([[virus getVirusId] isEqualToString:[v getVirusId]]) {
             return YES;
         }
     }
@@ -91,7 +91,9 @@ static MyGKSessionDelegate* singleton = nil;
  ウィルスのdurabilityに応じた時間の後死ぬようにタイマーをセット
  */
 - (void) addVirus: (Virus*) virus {
+    NSLog(@"addVirus");
     if ([self inViruses:virus]) {
+        NSLog(@"already Has");
         return;
     }
     
@@ -196,9 +198,10 @@ static MyGKSessionDelegate* singleton = nil;
 }
 
 - (void) receiveData:(NSData *)data fromPeer:(NSString *)peerID inSession:(GKSession *)session context:(void *)context {
-    NSLog(@"Receiving data from peerID:%@", peerID);
+    NSLog(@"Received data from peerID:%@", peerID);
     NSArray* virus_json_array = [JSONConverter objectFrom:data];
     for (NSDictionary* virus_dictionary in virus_json_array) {
+        NSLog(@"%@", virus_dictionary);
         [self addVirus:[[Virus alloc] initWithDictionary: virus_dictionary]];
     }
 }
