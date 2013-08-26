@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Virus.h"
 
 
 //画面表示切り替えのパターン
@@ -21,10 +22,24 @@
     BOOL isShowTable;
     
 	IBOutlet UILabel *textLabel;
-	NSArray *itemArray;
+	NSMutableArray *itemArray;
+    
+    //選択したウイルスのid
+    NSInteger virus_id;
+    
+    //タイマーの切り替えが必要なため、管理しておく必要がある
+    NSTimer *timer;
 }
 
+- (void)createTimer;
+- (void)doTimer:(NSTimer *)timer;
+- (void)getVirusNumber;
+
+- (IBAction)onToReinforceViewButtonClicked:(id)sender;
+
 @property (retain, nonatomic) IBOutlet UILabel *spreadText;
+@property (retain, nonatomic) IBOutlet UILabel *infectedPersonText;
+@property (retain, nonatomic) IBOutlet UILabel *infectedNumberText;
 @property (retain, nonatomic) IBOutlet UITableView *virusList;
 @property (retain, nonatomic) IBOutlet UILabel *pointGetText;
 @property (retain, nonatomic) IBOutlet UIButton *toReinnforceTabButton;

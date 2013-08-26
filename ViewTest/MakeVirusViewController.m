@@ -44,8 +44,7 @@
     }
     
     NSInteger remnantValue = [self getIntSumOfTextFiled];
-    _remnantText.text =[[NSString alloc] initWithFormat:@"%d",remnantValue];
-    
+    _remnantText.text =[[NSString alloc] initWithFormat:@"%d",MAX_SUM_PARAM - remnantValue];    
     return YES;
 }
 
@@ -55,7 +54,6 @@
     //infection rateの数値を取得
     NSString *inputInfectionRate = _infectionRateText.text;
     NSInteger inputNumInfectionRate = [inputInfectionRate intValue];
-
     //durabilityの数値を取得
     NSString *inputDurability = _durabilityText.text;
     NSInteger inputNumDurability = [inputDurability intValue];
@@ -63,6 +61,10 @@
     return inputNumInfectionRate + inputNumDurability;
 }
 
+//背景がタップされた時にキーボードを閉じる
+- (IBAction)backgroundTapped:(id)sender {
+    [self.view endEditing:YES];
+}
 
 - (void)viewDidLoad
 {
@@ -97,4 +99,5 @@
     [_remnantText release];
     [super dealloc];
 }
+
 @end

@@ -11,8 +11,19 @@
 @interface Virus : NSObject {
 
 @private
+    NSNumber *virus_id;
     NSString *name;
     NSNumber *infection_rate;
     NSNumber *durability;
 }
+
+- (id) initWithValue: (NSNumber*)_id : (NSString*)_name : (NSNumber*)_infection_rate : (NSNumber*)_durability;
+- (void)setName :(NSString *)_name;
+- (void)setInfectionRate :(NSNumber * )_infection_rate;
+- (void)setDurability :(NSNumber *)_durability;
+- (NSString *)getName;
+- (NSNumber *)getInfectionRate;
+- (NSNumber *)getDurability;
+- (NSNumber *)getVirusId;
+- (NSDictionary*) toNSDictionary;
 @end

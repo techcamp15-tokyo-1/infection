@@ -26,8 +26,17 @@
 //ボタン押下時の処理
 - (IBAction)responseToButtonClick:(id)sender {
     //textviewから値を取得
-    NSString *text = _nameText.text;
+    NSString *text = self.nameText.text;
+    
+    //TODO
     //textの値を用いて通信
+    //TODO
+    //通信結果によって場合分け
+    
+    //値をuser defaultに書き出し
+    [self writeProtile:text];
+    
+    //viewの遷移
     [self changeViewToMakeVirus];
 }
 
@@ -39,11 +48,51 @@
     controller.selectedViewController = [controller.viewControllers objectAtIndex: 1];    
 }
 
+//初回起動時にnilになるのを防ぐため、user defaultを初期化
+- (void)initializeProfile
+{
+    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionaryWithCapacity:1];
+    //nameの初期値を設定
+    [defaultValues setValue:@"" forKey:NAME_KEY];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    //初期値をUserDefaultに適用
+    [userDefaults registerDefaults:defaultValues];
+}
+
+
+//ユーザーデフォルトから読み込み
+- (void)readProfile
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *nameStr = [userDefaults stringForKey:NAME_KEY];
+    self.nameText.text = nameStr;
+}
+
+
+//ユーザーでフォルトへの書き出し
+- (void)writeProtile:(NSString*) nameStr
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:nameStr forKey:NAME_KEY];
+    [userDefaults synchronize];
+}
+
+
+//returnが押されるとキーボードを隠す
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.view endEditing:YES];
+    return YES;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    //プロファイルの初期化・読み込み
+    [self initializeProfile];
+    [self readProfile];
+    self.nameText.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {

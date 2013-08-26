@@ -11,4 +11,5 @@
 @interface HTTPRequester : NSObject
 
 + (NSData*) sendPostWithData: (NSString*)urlstr :(NSData*)data;
++ (NSData*) sendPostWithDictionary: (NSString*)urlstr : (NSDictionary*)dictionary;
 @end
