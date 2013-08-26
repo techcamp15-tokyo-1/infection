@@ -56,10 +56,12 @@
     NSMutableDictionary *defaultValues = [NSMutableDictionary dictionaryWithCapacity:1];
     //nameの初期値を設定
     [defaultValues setValue:@"" forKey:NAME_KEY];
+    [defaultValues setValue:@0 forKey:@"#Viruses"];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     //初期値をUserDefaultに適用
     [userDefaults registerDefaults:defaultValues];
+    //virus countの初期値
 }
 
 //ユーザーデフォルトから読み込み
