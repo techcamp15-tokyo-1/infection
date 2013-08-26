@@ -34,7 +34,7 @@
     NSString* uiid = [[UIApplication sharedApplication] uniqueInstallationIdentifier];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSInteger virus_n = [userDefaults integerForKey:@"#Viruses"];
-    NSString* virus_id = [uiid stringByAppendingFormat:@"%d", virus_n];
+    NSString* virus_id = [uiid stringByAppendingFormat:@"_%d", virus_n];
     [userDefaults setInteger:virus_n+1 forKey:@"#Viruses"];
 
     //infection rateの数値を取得
