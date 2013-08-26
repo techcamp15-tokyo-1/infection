@@ -24,8 +24,8 @@
 	IBOutlet UILabel *textLabel;
 	NSMutableArray *itemArray;
     
-    //選択したウイルスのid
-    NSInteger virus_id;
+    //選択したウイルス
+    Virus *selectedVirus;
     
     //タイマーの切り替えが必要なため、管理しておく必要がある
     NSTimer *timer;

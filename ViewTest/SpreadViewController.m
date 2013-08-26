@@ -46,6 +46,11 @@
     [self switchView:view_mode];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.virusList reloadData];
+    [super viewWillAppear:animated];
+}
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -161,8 +166,10 @@
 //    本メソッドは、UITableViewDelegateプロトコルを採用しているのでコールされる。
 //
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	textLabel.text = [itemArray objectAtIndex:[indexPath row]];
+	textLabel.text = [[itemArray objectAtIndex:[indexPath row]] getName];
     
+    //選択したvirusを保持
+    selectedVirus = [itemArray objectAtIndex:[indexPath row]];
     //alertの表示
     [self showVirusDetail:[itemArray objectAtIndex:[indexPath row]]];
 }
@@ -204,12 +211,11 @@
             NSLog(@"Session");
             GKSession* session = [[GKSession alloc] initWithSessionID: @"infection" displayName:nil sessionMode:GKSessionModePeer];
             MyGKSessionDelegate* delegate = [MyGKSessionDelegate sharedInstance];
-            Virus* virus = [[Virus alloc] initWithValue:@0 :@"virus_test" :@10 :@30];
-            NSDictionary* virus_dict = [virus toNSDictionary];
+            NSDictionary* virus_dict = [selectedVirus toNSDictionary];
             NSLog(@"Server");
             NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/spread.php" :virus_dict];
             NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
-            [delegate addVirus:virus];
+            [delegate addVirus:selectedVirus];
             session.delegate = delegate;
             [session setDataReceiveHandler:[MyGKSessionDelegate sharedInstance] withContext:nil];
             session.available = YES;
@@ -250,7 +256,6 @@
                                    userInfo:userInfo
                                     repeats:YES
      ];
-    
 }
 
 /**
@@ -273,10 +278,9 @@
     
     //定数化して持つべき
     NSString *url = @"http://www53.atpages.jp/infectionapp/state.php/";
-    NSDictionary *virus_info = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   @0, @"virus_id", nil];
+    NSDictionary* virus_dict = [selectedVirus toNSDictionary];
     //HTTP POST REQUESTを送信
-    NSData *response = [HTTPRequester sendPostWithDictionary:url :virus_info];
+    NSData *response = [HTTPRequester sendPostWithDictionary:url :virus_dict];
     
     //POST結果を文字列で出力
     NSString *myString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];

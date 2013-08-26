@@ -15,5 +15,6 @@
 @property (retain, nonatomic) IBOutlet UITextField *infectionRateText;
 @property (retain, nonatomic) IBOutlet UILabel *remnantText;
 @property (retain, nonatomic) IBOutlet UITextField *durabilityText;
+@property (retain, nonatomic) IBOutlet UITextField *nameText;
 @property (retain, nonatomic) IBOutlet UIButton *makeButton;
 @end

@@ -34,8 +34,10 @@
     NSNumber *inputInfectionRate = [NSNumber numberWithInt:[self.infectionRateText.text intValue]];
     //durabilityの数値を取得
     NSNumber *inputDurability = [NSNumber numberWithInt:[self.durabilityText.text intValue]];
+    //nameを取得
+    NSString *inputName = self.nameText.text;
     //ウイルスを生成
-    Virus *virus = [[Virus alloc] initWithValue:@0 :@"myName" :inputInfectionRate :inputDurability];
+    Virus *virus = [[Virus alloc] initWithValue:@0 :inputName :inputInfectionRate :inputDurability];
     //user defaultに保存
     [self addToUserDefault:virus];
 }
@@ -162,6 +164,7 @@
     [_infectionRateText release];
     [_durabilityText release];
     [_remnantText release];
+    [_nameText release];
     [super dealloc];
 }
 
