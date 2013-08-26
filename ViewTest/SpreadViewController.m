@@ -119,26 +119,29 @@
  * ウイルス一覧
  */
 
-//TODO
-//サーバーからArrayを受け取ってリスト表示
 //
 //  tableView:numberOfRowsInSection
 //    NSArrayにデータをセットして、その個数を返す。
 //    本メソッドは、UITableViewDataSourceプロトコルを採用しているのでコールされる。
 //
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    itemArray = [[NSMutableArray alloc] init];
-    Virus *virus1 = [[Virus alloc] initWithValue:@0 :@"virus1" :@100 :@100];
-    Virus *virus2 = [[Virus alloc] initWithValue:@1 :@"virus2" :@100 :@100];
-    Virus *virus3 = [[Virus alloc] initWithValue:@2 :@"virus3" :@100 :@100];
-    
-    [itemArray addObject:virus1];
-    [itemArray addObject:virus2];
-    [itemArray addObject:virus3];
+    [self getVirusListFromUserDefault];
     
 	return [itemArray count];
 }
 
+//ユーザーデフォルトからリストを取得
+- (void)getVirusListFromUserDefault
+{
+    itemArray = [[NSMutableArray alloc] init];
+    
+    NSUserDefaults *_userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray* array = [_userDefaults arrayForKey:VIRUS_LIST_KEY];
+    for ( NSDictionary* object in array ) {
+        Virus *virus = [[Virus alloc] initWithDictionary:object];
+        [itemArray addObject:virus];
+    }
+}
 
 //
 //  tableView:cellForRowAtIndexPath
