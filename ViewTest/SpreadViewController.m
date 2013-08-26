@@ -179,7 +179,10 @@
             
             [AudioPlayer playDummyAudioBackground];
             GKSession* session = [[GKSession alloc] initWithSessionID: @"infection" displayName:nil sessionMode:GKSessionModePeer];
-            session.delegate = [MyGKSessionDelegate sharedInstance];
+            MyGKSessionDelegate* delegate = [MyGKSessionDelegate sharedInstance];
+            Virus* virus = [[Virus alloc] initWithValue:@1 :@"virus_test" :@10 :@100];
+            [delegate addVirus:virus];
+            session.delegate = delegate;
             [session setDataReceiveHandler:[MyGKSessionDelegate sharedInstance] withContext:nil];
             session.available = YES;
             break;

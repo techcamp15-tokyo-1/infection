@@ -9,12 +9,12 @@
 #import "MyGKSessionDelegate.h"
 #import "Virus.h"
 #import "JSONConverter.h"
+#import "HTTPRequester.h"
 
 // シングルトン
 static MyGKSessionDelegate* singleton = nil;
 
 @implementation MyGKSessionDelegate {
-    @private
     /**
      ユーザーが拡散中のウィルスの配列。
      自分が拡散開始できるのは1つのみだが、他のユーザーのウィルスに感染した場合、それらを媒介しなければならないので、
@@ -29,11 +29,16 @@ static MyGKSessionDelegate* singleton = nil;
 + (MyGKSessionDelegate*) sharedInstance {
     @synchronized(self) {
         if (singleton == nil) {
-            return [[MyGKSessionDelegate alloc] init];
-        } else {
-            return singleton;
+            singleton = [[MyGKSessionDelegate alloc] init];
         }
+        return singleton;
     }
+}
+
+- (id) init {
+    viruses = [NSMutableArray array];
+    [viruses retain];
+    return self;
 }
 
 /***** シングルトンを維持するためのオーバーライドここから *****/
@@ -71,6 +76,10 @@ static MyGKSessionDelegate* singleton = nil;
 
 - (void) addVirus: (Virus*) virus {
     [viruses addObject:virus];
+    NSLog(@"current viruses");
+    for (Virus* virus in viruses) {
+        NSLog(@"%@", [virus toNSDictionary]);
+    }
     // TODO タイマーセット
 }
 
@@ -147,9 +156,10 @@ static MyGKSessionDelegate* singleton = nil;
 - (void) receiveData:(NSData *)data fromPeer:(NSString *)peerID inSession:(GKSession *)session context:(void *)context {
     NSLog(@"Receiving data from peerID:%@", peerID);
     NSArray* virus_json_array = [JSONConverter objectFrom:data];
-    for (Virus* virus in virus_json_array) {
-        // TODO サーバーへデータ送信
-        [self addVirus:virus];
+    for (NSDictionary* virus_dictionary in virus_json_array) {
+        NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/infected.php" :virus_dictionary];
+        NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+        [self addVirus:[[Virus alloc] initWithDictionary: virus_dictionary]];
     }
 }
 @end

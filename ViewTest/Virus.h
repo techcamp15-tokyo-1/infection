@@ -17,7 +17,8 @@
     NSNumber *durability;
 }
 
-- (id) initWithValue: (NSInteger*)_id : (NSString*)_name : (NSNumber*)_infection_rate : (NSNumber*)_durability;
+- (id) initWithValue: (NSNumber*)_id : (NSString*)_name : (NSNumber*)_infection_rate : (NSNumber*)_durability;
+- (id) initWithDictionary: (NSDictionary*) virus_dictionary;
 - (void)setName :(NSString *)_name;
 - (void)setInfectionRate :(NSNumber * )_infection_rate;
 - (void)setDurability :(NSNumber *)_durability;
