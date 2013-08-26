@@ -81,6 +81,8 @@
     [_pointGetText release];
     [_infectedNumberText release];
     [_infectedPersonText release];
+    [_totalInfectedNumberText release];
+    [_totalInfectedPersonText release];
     [super dealloc];
 }
 
@@ -95,6 +97,8 @@
             _spreadText.hidden = YES;
             _infectedPersonText.hidden = YES;
             _infectedNumberText.hidden = YES;
+            _totalInfectedNumberText.hidden = YES;
+            _totalInfectedPersonText.hidden = YES;
             _pointGetText.hidden = YES;
             _toReinnforceTabButton.hidden = YES;
             break;
@@ -103,6 +107,8 @@
             _spreadText.hidden = NO;
             _infectedPersonText.hidden = NO;
             _infectedNumberText.hidden = NO;
+            _totalInfectedNumberText.hidden = NO;
+            _totalInfectedPersonText.hidden = NO;
             _pointGetText.hidden = YES;
             _toReinnforceTabButton.hidden = YES;
             break;
@@ -111,6 +117,8 @@
             _spreadText.hidden = YES;
             _infectedPersonText.hidden = YES;
             _infectedNumberText.hidden = YES;
+            _totalInfectedNumberText.hidden = YES;
+            _totalInfectedPersonText.hidden = YES;
             _pointGetText.hidden = NO;
             _toReinnforceTabButton.hidden = NO;
             break;
@@ -224,6 +232,7 @@
             [self switchView:VIEW_SPREAD];
             //デフォルトの感染人数の設定
             _infectedNumberText.text = [[NSString alloc] initWithFormat:@"1"];
+            _totalInfectedNumberText.text = [[NSString alloc] initWithFormat:@"1"];
             
             //タイマーの開始
             [self createTimer];
@@ -292,6 +301,8 @@
     //結果からinfected_nowを取得し、現在の感染人数を反映
     NSInteger number = [[dictionary objectForKey:@"infected_now"] intValue];
     _infectedNumberText.text = [[NSString alloc] initWithFormat:@"%d",number];
+    NSInteger total_number = [[dictionary objectForKey:@"infected_total"] intValue];
+    _totalInfectedNumberText.text = [[NSString alloc] initWithFormat:@"%d",total_number];
     
     //infected_nowが0になった時点でタイマーの繰り返しを切って画面遷移
     if(number <= 0){
