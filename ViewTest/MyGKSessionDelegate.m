@@ -74,22 +74,64 @@ static MyGKSessionDelegate* singleton = nil;
 
 /***** シングルトン状態維持のためのオーバーライドここまで *****/
 
+/**
+ virusが感染中のウィルスリストにあるかどうかを返す。
+ */
+- (BOOL) inViruses: (Virus*) virus {
+    for (Virus* v in viruses) {
+        if ([[virus getVirusId] isEqualToNumber:[virus getVirusId]]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+/**
+ 感染中のウィルスリストに追加する。
+ ウィルスのdurabilityに応じた時間の後死ぬようにタイマーをセット
+ */
 - (void) addVirus: (Virus*) virus {
+    if ([self inViruses:virus]) {
+        return;
+    }
+    
     [viruses addObject:virus];
     NSLog(@"current viruses");
     for (Virus* virus in viruses) {
         NSLog(@"%@", [virus toNSDictionary]);
     }
-    // TODO タイマーセット
+    
+    NSDictionary* virus_dictionary = [virus toNSDictionary];
+    NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/infected.php" :virus_dictionary];
+    NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+    
+    NSTimeInterval durability = [[virus getDurability] intValue];
+    [NSTimer scheduledTimerWithTimeInterval:durability
+                                     target:self
+                                   selector:@selector(doTimer:)
+                                   userInfo:virus
+                                    repeats:NO];
+}
+
+/**
+ * ウィルスが死んだときに呼び出される。
+ */
+- (void)doTimer:(NSTimer *)timer
+{
+    Virus* virus = (Virus*) timer.userInfo;
+    NSLog(@"VirusID: %@ is dead.", [virus getVirusId]);
+    [self deleteVirus:[virus getVirusId]];
 }
 
 - (void) deleteVirus: (NSNumber*) virus_id {
     for (Virus* virus in viruses) {
         if ([virus.getVirusId isEqualToNumber:virus_id]) {
-            [viruses delete:virus];
+            [viruses removeObject:virus];
+            NSDictionary* virus_dictionary = [virus toNSDictionary];
+            NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/recovered.php" :virus_dictionary];
+            NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
             break;
         }
-        // TODO サーバーへ送信
     }
 }
 
@@ -157,8 +199,6 @@ static MyGKSessionDelegate* singleton = nil;
     NSLog(@"Receiving data from peerID:%@", peerID);
     NSArray* virus_json_array = [JSONConverter objectFrom:data];
     for (NSDictionary* virus_dictionary in virus_json_array) {
-        NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/infected.php" :virus_dictionary];
-        NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
         [self addVirus:[[Virus alloc] initWithDictionary: virus_dictionary]];
     }
 }

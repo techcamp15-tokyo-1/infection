@@ -14,6 +14,3 @@
 + (void) playDummyAudioBackground;
 
 @end
-
-static const NSString* dummyAudioName   = @"dummy";
-static const NSString* dummyAudioFormat = @"mp3";

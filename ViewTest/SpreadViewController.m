@@ -38,7 +38,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     _virusList.delegate = self;
     _virusList.dataSource  = self;
     
@@ -195,14 +194,21 @@
             //TODO
             //アプリ起動時にBT通信Sessionを作成しておき、ここではGKSessionでaddVirusを行う
             //blue tooth 通信の開始
+            NSLog(@"Audio");
             [AudioPlayer playDummyAudioBackground];
+            NSLog(@"Session");
             GKSession* session = [[GKSession alloc] initWithSessionID: @"infection" displayName:nil sessionMode:GKSessionModePeer];
             MyGKSessionDelegate* delegate = [MyGKSessionDelegate sharedInstance];
-            [delegate addVirus:[[Virus alloc] initWithValue:@1 :@"virus_test" :@10 :@100]];
+            Virus* virus = [[Virus alloc] initWithValue:@0 :@"virus_test" :@10 :@30];
+            NSDictionary* virus_dict = [virus toNSDictionary];
+            NSLog(@"Server");
+            NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/spread.php" :virus_dict];
+            NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+            [delegate addVirus:virus];
             session.delegate = delegate;
             [session setDataReceiveHandler:[MyGKSessionDelegate sharedInstance] withContext:nil];
             session.available = YES;
-            
+            NSLog(@"END");
             //画面遷移の設定
             [self switchView:VIEW_SPREAD];
             //デフォルトの感染人数の設定
@@ -282,7 +288,7 @@
     //infected_nowが0になった時点でタイマーの繰り返しを切って画面遷移
     //TODO
     //BT通信を一旦切る?
-    if(number <= 0){
+    if(number <= 0) {
         if(timer != nil){
             NSLog(@"Timer is killed because no person is infected with user's virus.");
             [timer invalidate];

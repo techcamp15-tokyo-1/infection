@@ -9,6 +9,9 @@
 #import "AudioPlayer.h"
 #import <AVFoundation/AVFoundation.h>
 
+static NSString* dummyAudioName   = @"dummy";
+static NSString* dummyAudioFormat = @"mp3";
+
 @implementation AudioPlayer {
     
 }
