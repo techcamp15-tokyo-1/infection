@@ -27,7 +27,24 @@
         name = _name;
         infection_rate = _infection_rate;
         durability = _durability;
+        [virus_id retain];
+        [name retain];
+        [infection_rate retain];
+        [durability retain];
     }
+    return self;
+}
+
+- (id) initWithDictionary:(NSDictionary *)virus_dictionary {
+    [super init];
+    virus_id       = [virus_dictionary objectForKey:@"virus_id"];
+    name           = [virus_dictionary objectForKey:@"name"];
+    infection_rate = [virus_dictionary objectForKey:@"infection_rate"];
+    durability     = [virus_dictionary objectForKey:@"durability"];
+    [virus_id retain];
+    [name retain];
+    [infection_rate retain];
+    [durability retain];
     return self;
 }
 
@@ -74,11 +91,9 @@
  ウィルスのステータスをJSON形式のNSDictionaryに変換する
  */
 - (NSDictionary*) toNSDictionary {
-    NSDictionary* jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    virus_id,       @"virus_id",
-                                    name,           @"name",
-                                    infection_rate, @"infection_rate",
-                                    durability,     @"durability",nil];
+    NSDictionary* jsonDictionary = [NSDictionary dictionaryWithObjects:
+                                    @[virus_id,name,infection_rate,durability]
+                                    forKeys:@[@"virus_id", @"name", @"infection_rate", @"durability"]];
     return jsonDictionary;
 }
 

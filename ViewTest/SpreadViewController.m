@@ -165,7 +165,6 @@
 }
 
 //ウイルス拡散alertの表示
-//- (void)showVirusDetail:(NSString *)virus_name :(NSNumber *)virus_infection_rate :(NSNumber *)virus_durability{
 - (void)showVirusDetail:(Virus*) virus {
     UIAlertView *virusDetailAlert = [[UIAlertView alloc] initWithTitle:[virus getName] message:@"このウイルスを拡散しますか？" delegate:self cancelButtonTitle:@"やめる" otherButtonTitles:@"実行", nil];
     
@@ -211,7 +210,7 @@
             
             //タイマーの開始
             [self createTimer];
-            
+
             break;
         }
         default: // cancelとか

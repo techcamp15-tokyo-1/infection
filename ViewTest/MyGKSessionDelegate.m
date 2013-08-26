@@ -9,6 +9,7 @@
 #import "MyGKSessionDelegate.h"
 #import "Virus.h"
 #import "JSONConverter.h"
+#import "HTTPRequester.h"
 
 // シングルトン
 static MyGKSessionDelegate* singleton = nil;
@@ -35,7 +36,6 @@ static MyGKSessionDelegate* singleton = nil;
 }
 
 - (id) init {
-    NSLog(@"いにとおおおおおおおおおおおお");
     viruses = [NSMutableArray array];
     [viruses retain];
     return self;
@@ -76,8 +76,9 @@ static MyGKSessionDelegate* singleton = nil;
 
 - (void) addVirus: (Virus*) virus {
     [viruses addObject:virus];
+    NSLog(@"current viruses");
     for (Virus* virus in viruses) {
-        NSLog(@"omgomgomgasdfasdfasdfasdf");
+        NSLog(@"%@", [virus toNSDictionary]);
     }
     // TODO タイマーセット
 }
@@ -129,9 +130,6 @@ static MyGKSessionDelegate* singleton = nil;
             for (Virus* virus in viruses) {
                 [virus_json_array addObject:[virus toNSDictionary]];
             }
-            for (Virus* virus in viruses) {
-                NSLog(@"%@", [virus toNSDictionary]);
-            }
             NSData* jsonData = [JSONConverter toJsonData: virus_json_array];
             NSError* error;
 			BOOL succeeded = [session sendData:jsonData
@@ -158,12 +156,10 @@ static MyGKSessionDelegate* singleton = nil;
 - (void) receiveData:(NSData *)data fromPeer:(NSString *)peerID inSession:(GKSession *)session context:(void *)context {
     NSLog(@"Receiving data from peerID:%@", peerID);
     NSArray* virus_json_array = [JSONConverter objectFrom:data];
-    for (Virus* virus in viruses) {
-        NSLog(@"%@", [virus toNSDictionary]);
-    }
-    for (Virus* virus in virus_json_array) {
-        // TODO サーバーへデータ送信
-        [self addVirus:virus];
+    for (NSDictionary* virus_dictionary in virus_json_array) {
+        NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/infected.php" :virus_dictionary];
+        NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+        [self addVirus:[[Virus alloc] initWithDictionary: virus_dictionary]];
     }
 }
 @end
