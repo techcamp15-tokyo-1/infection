@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileViewController : UIViewController
+#define NAME_KEY @"Name"
+
+@interface ProfileViewController : UIViewController <UITextFieldDelegate>
+
+@property (retain, nonatomic) IBOutlet UITextField *nameText;
+@property (retain, nonatomic) IBOutlet UIButton *registerButton;
+
+
+- (void)initializeProfile;
+
+- (void)readProfile;
+- (void)writeProtile:(NSString*) nameStr;
 
 - (IBAction)responseToButtonClick:(id)sender;
 
