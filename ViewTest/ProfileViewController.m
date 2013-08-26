@@ -7,6 +7,7 @@
 //
 
 #import "ViewControllers.h"
+#import "UserDefaultKey.h"
 
 @interface ProfileViewController ()
 
@@ -48,6 +49,7 @@
     controller.selectedViewController = [controller.viewControllers objectAtIndex: 1];    
 }
 
+
 //初回起動時にnilになるのを防ぐため、user defaultを初期化
 - (void)initializeProfile
 {
@@ -59,7 +61,6 @@
     //初期値をUserDefaultに適用
     [userDefaults registerDefaults:defaultValues];
 }
-
 
 //ユーザーデフォルトから読み込み
 - (void)readProfile

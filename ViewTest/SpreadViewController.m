@@ -12,6 +12,7 @@
 #import "AudioPlayer.h"
 #import "HTTPRequester.h"
 #import "JSONConverter.h"
+#import "UserDefaultKey.h"
 
 @implementation SpreadViewController
 
@@ -117,26 +118,29 @@
  * ウイルス一覧
  */
 
-//TODO
-//サーバーからArrayを受け取ってリスト表示
 //
 //  tableView:numberOfRowsInSection
 //    NSArrayにデータをセットして、その個数を返す。
 //    本メソッドは、UITableViewDataSourceプロトコルを採用しているのでコールされる。
 //
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    itemArray = [[NSMutableArray alloc] init];
-    Virus *virus1 = [[Virus alloc] initWithValue:@0 :@"virus1" :@100 :@100];
-    Virus *virus2 = [[Virus alloc] initWithValue:@1 :@"virus2" :@100 :@100];
-    Virus *virus3 = [[Virus alloc] initWithValue:@2 :@"virus3" :@100 :@100];
-    
-    [itemArray addObject:virus1];
-    [itemArray addObject:virus2];
-    [itemArray addObject:virus3];
+    [self getVirusListFromUserDefault];
     
 	return [itemArray count];
 }
 
+//ユーザーデフォルトからリストを取得
+- (void)getVirusListFromUserDefault
+{
+    itemArray = [[NSMutableArray alloc] init];
+    
+    NSUserDefaults *_userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray* array = [_userDefaults arrayForKey:VIRUS_LIST_KEY];
+    for ( NSDictionary* object in array ) {
+        Virus *virus = [[Virus alloc] initWithDictionary:object];
+        [itemArray addObject:virus];
+    }
+}
 
 //
 //  tableView:cellForRowAtIndexPath
@@ -164,6 +168,7 @@
 }
 
 //ウイルス拡散alertの表示
+//- (void)showVirusDetail:(NSString *)virus_name :(NSNumber *)virus_infection_rate :(NSNumber *)virus_durability{
 - (void)showVirusDetail:(Virus*) virus {
     UIAlertView *virusDetailAlert = [[UIAlertView alloc] initWithTitle:[virus getName] message:@"このウイルスを拡散しますか？" delegate:self cancelButtonTitle:@"やめる" otherButtonTitles:@"実行", nil];
     
@@ -216,14 +221,13 @@
             
             //タイマーの開始
             [self createTimer];
-
+            
             break;
         }
         default: // cancelとか
             break;
     }
 }
-
 
 
 /**
@@ -286,9 +290,7 @@
     _infectedNumberText.text = [[NSString alloc] initWithFormat:@"%d",number];
     
     //infected_nowが0になった時点でタイマーの繰り返しを切って画面遷移
-    //TODO
-    //BT通信を一旦切る?
-    if(number <= 0) {
+    if(number <= 0){
         if(timer != nil){
             NSLog(@"Timer is killed because no person is infected with user's virus.");
             [timer invalidate];
