@@ -197,6 +197,7 @@
 //alertのボタン押下時の処理
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
+    BOOL connection_failed = NO;
     switch (buttonIndex) {
         case 0: // cancel
             [self switchView:VIEW_VIRUS_LIST];
@@ -214,6 +215,10 @@
             NSDictionary* virus_dict = [selectedVirus toNSDictionary];
             NSLog(@"Server");
             NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/spread.php" :virus_dict];
+            if (response == nil) {
+                connection_failed = YES;
+                break;
+            }
             NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
             [delegate addVirus:selectedVirus];
             session.delegate = delegate;
@@ -232,6 +237,11 @@
         }
         default: // cancelとか
             break;
+    }
+    if (connection_failed) {
+        UIAlertView *connectionFailedAlert = [[UIAlertView alloc] initWithTitle:@"サーバーとの通信に失敗しました" message:@"もう一度拡散してください。" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [connectionFailedAlert show];
+        [connectionFailedAlert release];
     }
 }
 

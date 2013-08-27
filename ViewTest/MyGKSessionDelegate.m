@@ -105,7 +105,9 @@ static MyGKSessionDelegate* singleton = nil;
     
     NSDictionary* virus_dictionary = [virus toNSDictionary];
     NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/infected.php" :virus_dictionary];
-    NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+    if (response != nil) {
+        NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+    }
     
     NSTimeInterval durability = [[virus getDurability] intValue];
     [NSTimer scheduledTimerWithTimeInterval:durability

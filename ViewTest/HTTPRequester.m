@@ -23,10 +23,16 @@
     [request setHTTPBody:data];
     NSHTTPURLResponse *response;
     NSError *error;
-    NSData* received = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    if (received == nil) { // 接続、またはレスポンスのダウンロードに失敗
-        NSLog(@"***** Error in sendHTTPPostRequest:: *****");
-        NSLog(@"%@", error);
+    NSData* received;
+    const int TRIAL = 5; // タイムアウト・エラー等発生した際の試行回数
+    for (int i = 0; i < TRIAL; i++) {
+        received = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        if (received == nil) { // 接続、またはレスポンスのダウンロードに失敗
+            NSLog(@"***** Error in sendHTTPPostRequest:: *****");
+            NSLog(@"%@", error);
+        } else {
+            break;
+        }
     }
     return received;
 }
