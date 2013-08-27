@@ -44,7 +44,9 @@
     _virusList.delegate = self;
     _virusList.dataSource  = self;
     
+    //フィールド値の初期化
     view_mode = VIEW_VIRUS_LIST;
+    totalInfectedNumber = [NSNumber numberWithInt:0];
     [self switchView:view_mode];
 }
 
@@ -217,13 +219,8 @@
             //TODO
             //アプリ起動時にBT通信Sessionを作成しておき、ここではGKSessionでaddVirusを行う
             //blue tooth 通信の開始
-//            NSLog(@"Audio");
-//            [AudioPlayer playDummyAudioBackground];
-//            NSLog(@"Session");
-//            GKSession* session = [[GKSession alloc] initWithSessionID: @"infection" displayName:nil sessionMode:GKSessionModePeer];
             MyGKSessionDelegate* delegate = [MyGKSessionDelegate sharedInstance];
             NSDictionary* virus_dict = [selectedVirus toNSDictionary];
-//            NSLog(@"Server");
             NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/spread.php" :virus_dict];
             if (response == nil) {
                 connection_failed = YES;
@@ -231,10 +228,6 @@
             }
             NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
             [delegate addVirus:selectedVirus];
-//            session.delegate = delegate;
-//            [session setDataReceiveHandler:[MyGKSessionDelegate sharedInstance] withContext:nil];
-//            session.available = YES;
-//            NSLog(@"END");
             //画面遷移の設定
             [self switchView:VIEW_SPREAD];
             //デフォルトの感染人数の設定
@@ -321,6 +314,8 @@
         if(timer != nil){
             NSLog(@"Timer is killed because no person is infected with user's virus.");
             [timer invalidate];
+            //総感染数をフィールドにセット
+            totalInfectedNumber = [NSNumber numberWithInt:total_number];
             //画面遷移
             [self switchView:VIEW_POINT_GET];
         }
@@ -336,7 +331,7 @@
     //データを送る準備
     TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
     testAppDelegate.virusData = selectedVirus;
-    testAppDelegate.pointData = [NSNumber numberWithInt:[@20 intValue]];
+    testAppDelegate.pointData = totalInfectedNumber;
     testAppDelegate.viewData = VIEW_REINFORCE;//reinforce_viewとで定数が被らないようにする
     //ウイルス強化タブに移動
     UITabBarController *controller = self.tabBarController;

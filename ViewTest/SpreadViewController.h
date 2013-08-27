@@ -25,6 +25,8 @@
     
     //選択したウイルス
     Virus *selectedVirus;
+    //総感染人数
+    NSNumber *totalInfectedNumber;
     
     //タイマーの切り替えが必要なため、管理しておく必要がある
     NSTimer *timer;

@@ -232,13 +232,24 @@
         index++;
     }
 
-    //pointをリセット
+    //pointを0にリセット
     point = [NSNumber numberWithInt:0];
     //TestAppDelegateの値をリセット
     TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
     testAppDelegate.pointData = point;
     testAppDelegate.viewData = VIEW_VIRUS_LIST;
     
+    //virus list を更新して遷移
+    [self.virusList reloadData];
+    [self switchView:VIEW_VIRUS_LIST];
+}
+
+
+- (IBAction)onCancelButtonClicked:(id)sender {
+    //TestAppDelegateの値をリセット
+    TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
+    point = testAppDelegate.pointData;
+    testAppDelegate.viewData = VIEW_VIRUS_LIST;
     //virus list を更新して遷移
     [self.virusList reloadData];
     [self switchView:VIEW_VIRUS_LIST];
