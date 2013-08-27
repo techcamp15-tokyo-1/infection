@@ -225,9 +225,7 @@
             // Bluetoothセッションの初期化
             MyGKSessionDelegate* delegate = [MyGKSessionDelegate sharedInstance];
             NSDictionary* virus_dict = [selectedVirus toNSDictionary];
-            NSLog(@"server");
             [HTTPRequester sendAsynchPostWithDictionary:@"http://www53.atpages.jp/infectionapp/spread.php" :virus_dict];
-            NSLog(@"server end");
             //NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
             [delegate addVirus:selectedVirus];
 
@@ -253,7 +251,6 @@
     }
 }
 
-
 /**
  * 拡散中
  */
@@ -262,16 +259,10 @@
  */
 - (void)createTimer
 {
-    // 指定時間経過後に呼び出すメソッドに渡すデータをセット(この場合はなくてもいいかも？)
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                              @"Snoopy", @"name",
-                              [NSNumber numberWithInt:10], @"age", nil];
-    
-    // タイマーを生成:Intervalで時間(sec),repeatsで繰り返し(YES,NO)
     timer = [NSTimer scheduledTimerWithTimeInterval:60.0f
                                      target:self
                                    selector:@selector(doTimer:)
-                                   userInfo:userInfo
+                                   userInfo:nil
                                     repeats:YES
      ];
 }
@@ -282,7 +273,6 @@
  */
 - (void)doTimer:(NSTimer *)timer
 {
-    NSLog(@"Timer func is called.");
     [self getVirusNumber];
 }
 
@@ -294,7 +284,6 @@
 {
     NSLog(@"HTTP POST to get number of infected person.");
     
-    //定数化して持つべき
     NSString *url = @"http://www53.atpages.jp/infectionapp/state.php/";
     NSDictionary* virus_dict = [selectedVirus toNSDictionary];
     //HTTP POST REQUESTを送信

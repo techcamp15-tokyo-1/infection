@@ -51,14 +51,14 @@
      {
          if ([data length] >0 && error == nil)
          {
-             NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+             NSLog(@"Response: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
          }
          else if ([data length] == 0 && error == nil)
          {
-             NSLog(@"Nothing was downloaded.");
+             NSLog(@"***** Error in sendAsynchPost *****\nError = Nothing was downloaded.");
          }
          else if (error != nil){
-             NSLog(@"Error = %@", error);
+             NSLog(@"***** Error in sendAsynchPost *****\nError = %@", error);
          }
      }];
 }
