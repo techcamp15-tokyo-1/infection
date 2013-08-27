@@ -49,19 +49,25 @@
     controller.selectedViewController = [controller.viewControllers objectAtIndex: 1];    
 }
 
+//ユーザーデフォルトの削除
+- (void)deleteUserDefault:(NSString*)key
+{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud removeObjectForKey:key];
+}
 
 //初回起動時にnilになるのを防ぐため、user defaultを初期化
 - (void)initializeProfile
 {
     NSMutableDictionary *defaultValues = [NSMutableDictionary dictionaryWithCapacity:1];
     //nameの初期値を設定
+    //virus countの初期値
     [defaultValues setValue:@"" forKey:NAME_KEY];
     [defaultValues setValue:@0 forKey:@"#Viruses"];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     //初期値をUserDefaultに適用
     [userDefaults registerDefaults:defaultValues];
-    //virus countの初期値
 }
 
 //ユーザーデフォルトから読み込み
@@ -93,7 +99,7 @@
 {
     [super viewDidLoad];
     //プロファイルの初期化・読み込み
-    [self initializeProfile];
+    //[self initializeProfile];
     [self readProfile];
     self.nameText.delegate = self;
 }

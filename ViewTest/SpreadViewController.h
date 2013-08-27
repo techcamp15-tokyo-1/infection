@@ -19,7 +19,6 @@
 {
     @private
     NSInteger view_mode;
-    BOOL isShowTable;
     
 	IBOutlet UILabel *textLabel;
 	NSMutableArray *itemArray;
@@ -40,6 +39,8 @@
 @property (retain, nonatomic) IBOutlet UILabel *spreadText;
 @property (retain, nonatomic) IBOutlet UILabel *infectedPersonText;
 @property (retain, nonatomic) IBOutlet UILabel *infectedNumberText;
+@property (retain, nonatomic) IBOutlet UILabel *totalInfectedPersonText;
+@property (retain, nonatomic) IBOutlet UILabel *totalInfectedNumberText;
 @property (retain, nonatomic) IBOutlet UITableView *virusList;
 @property (retain, nonatomic) IBOutlet UILabel *pointGetText;
 @property (retain, nonatomic) IBOutlet UIButton *toReinnforceTabButton;
