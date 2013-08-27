@@ -29,11 +29,6 @@
     //textviewから値を取得
     NSString *text = self.nameText.text;
     
-    //TODO
-    //textの値を用いて通信
-    //TODO
-    //通信結果によって場合分け
-    
     //値をuser defaultに書き出し
     [self writeProtile:text];
     

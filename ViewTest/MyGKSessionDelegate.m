@@ -206,8 +206,20 @@ static MyGKSessionDelegate* singleton = nil;
     NSLog(@"Received data from peerID:%@", peerID);
     NSArray* virus_json_array = [JSONConverter objectFrom:data];
     for (NSDictionary* virus_dictionary in virus_json_array) {
-        NSLog(@"%@", virus_dictionary);
+        
         [self addVirus:[[Virus alloc] initWithDictionary: virus_dictionary]];
+        
+        NSMutableDictionary* visualize_dictionary = [NSMutableDictionary dictionary];
+        NSString* virus_id  = [virus_dictionary objectForKey:@"virus_id"];
+        NSString* from_user = [session displayNameForPeer:peerID];
+        NSString* to_user   = session.displayName;
+        [visualize_dictionary setValue:virus_id forKey:@"virus_id"];
+        [visualize_dictionary setValue:from_user forKey:@"from_name"];
+        [visualize_dictionary setValue:to_user forKey:@"to_name"];
+        NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/report.php" :visualize_dictionary];
+        if (response != nil) {
+            NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+        }
     }
 }
 @end

@@ -10,6 +10,7 @@
 #import "TestAppDelegate.h"
 #import "AudioPlayer.h"
 #import "MyGKSessionDelegate.h"
+#import "UIApplication+UIID.h"
 
 @implementation TestAppDelegate
 
@@ -35,20 +36,23 @@
     //view間で受け渡すデータの初期化
     pointData = @0;
     viewData = VIEW_VIRUS_LIST;
+
+    //user defaultの初期化
+    [self initializeProfile];
     
     //background処理の初期化
-    NSLog(@"Audio");
+    NSLog(@"initializing ...");
+    NSUserDefaults* nd = [NSUserDefaults standardUserDefaults];
+    NSString* name = [nd objectForKey:@"Name"];
+    if (name == nil) {
+        name = [[UIApplication sharedApplication] uniqueInstallationIdentifier];
+    }
     [AudioPlayer playDummyAudioBackground];
-    NSLog(@"Session");
-    GKSession* session = [[GKSession alloc] initWithSessionID: @"infection" displayName:nil sessionMode:GKSessionModePeer];
+    GKSession* session = [[GKSession alloc] initWithSessionID: @"infection" displayName:name sessionMode:GKSessionModePeer];
     MyGKSessionDelegate* delegate = [MyGKSessionDelegate sharedInstance];
     session.delegate = delegate;
     [session setDataReceiveHandler:[MyGKSessionDelegate sharedInstance] withContext:nil];
     session.available = YES;
-    NSLog(@"END");
-
-    //user defaultの初期化
-    [self initializeProfile];
     
     return YES;
 }
