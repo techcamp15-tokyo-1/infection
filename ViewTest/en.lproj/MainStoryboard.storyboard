@@ -339,7 +339,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhG-cu-dMZ">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="7QG-2e-UG9"/>
-                                    <constraint firstAttribute="height" constant="21" id="9lQ-Uj-jOB"/>
+                                    <constraint firstAttribute="height" constant="34" id="RqB-HI-8A9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -425,8 +425,8 @@
                             <constraint firstItem="CoF-LT-FR4" firstAttribute="leading" secondItem="f0d-Ez-gSQ" secondAttribute="leading" type="default" id="3za-uX-gYq"/>
                             <constraint firstAttribute="bottom" secondItem="FbM-HG-ktr" secondAttribute="bottom" constant="48" id="AJe-DJ-pxA"/>
                             <constraint firstItem="8Th-os-Q5N" firstAttribute="trailing" secondItem="s9L-CA-82Q" secondAttribute="trailing" type="default" id="DNn-YK-NFV"/>
+                            <constraint firstItem="hhG-cu-dMZ" firstAttribute="centerX" secondItem="8Th-os-Q5N" secondAttribute="centerX" type="default" id="FlM-5o-BAh"/>
                             <constraint firstItem="Y0R-cv-cvK" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" type="default" id="Jjj-94-82z"/>
-                            <constraint firstItem="hhG-cu-dMZ" firstAttribute="centerX" secondItem="6R5-1E-GEu" secondAttribute="centerX" type="default" id="NE1-Jc-MLf"/>
                             <constraint firstItem="8Th-os-Q5N" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" type="default" id="R1s-Op-UtO"/>
                             <constraint firstItem="CoF-LT-FR4" firstAttribute="baseline" secondItem="FbM-HG-ktr" secondAttribute="baseline" type="default" id="Tb7-YQ-Kec"/>
                             <constraint firstItem="Y0R-cv-cvK" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" constant="184" id="VTT-K7-AkA"/>

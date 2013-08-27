@@ -33,8 +33,10 @@
     //    return YES;
     
     //view間で受け渡すデータの初期化
-    pointData = @0;
+    pointData = [NSNumber numberWithInt:0];
+    self.pointData = [NSNumber numberWithInt:0];
     viewData = VIEW_VIRUS_LIST;
+    self.viewData = VIEW_VIRUS_LIST;
     
     //background処理の初期化
     NSLog(@"Audio");

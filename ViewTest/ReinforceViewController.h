@@ -19,12 +19,15 @@
     @private
     NSInteger view_mode;
     NSMutableArray *itemArray;
+    
+    Virus *selectedVirus;
+    NSNumber *point;
 }
-
-//選択したVirus
-@property (retain, nonatomic) IBOutlet Virus *selectedVirus;
-//取得したポイント
-@property (retain, nonatomic) IBOutlet NSNumber *point;
+//
+////選択したVirus
+//@property (retain, nonatomic) IBOutlet Virus *selectedVirus;
+////取得したポイント
+//@property (retain, nonatomic) IBOutlet NSNumber *point;
 
 @property (retain, nonatomic) IBOutlet UITableView *virusList;
 @property (retain, nonatomic) IBOutlet UILabel *nowPointLabel;

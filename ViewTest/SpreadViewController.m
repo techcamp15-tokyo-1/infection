@@ -336,7 +336,7 @@
     //データを送る準備
     TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
     testAppDelegate.virusData = selectedVirus;
-    testAppDelegate.pointData = [NSNumber numberWithInt:[@100 intValue]];
+    testAppDelegate.pointData = [NSNumber numberWithInt:[@20 intValue]];
     testAppDelegate.viewData = VIEW_REINFORCE;//reinforce_viewとで定数が被らないようにする
     //ウイルス強化タブに移動
     UITabBarController *controller = self.tabBarController;
