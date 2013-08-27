@@ -38,6 +38,32 @@
 }
 
 /**
+ 文字列で指定されたURLにNSDataを非同期送信する。
+ */
++ (void) sendAsynchPostWithData: (NSString*)urlstr : (NSData*)data {
+    NSURL* url = [NSURL URLWithString:urlstr];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:data];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+     {
+         if ([data length] >0 && error == nil)
+         {
+             NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+         }
+         else if ([data length] == 0 && error == nil)
+         {
+             NSLog(@"Nothing was downloaded.");
+         }
+         else if (error != nil){
+             NSLog(@"Error = %@", error);
+         }
+     }];
+}
+
+/**
  NSDictionaryをPOST通信で使用できる形式の文字列に変換する。
 */
 + (NSString*) postString: (NSDictionary*) dictionary {
@@ -66,6 +92,15 @@
         NSLog(@"***** Error in sendPostWithDictionary: *****");
     }
     return response;
+}
+
+/**
+ 文字列で指定されたURLにNSDictionaryの内容を非同期送信する。
+ */
++ (void) sendAsynchPostWithDictionary: (NSString*)urlstr : (NSDictionary*)dictionary {
+    NSString* postString = [HTTPRequester postString:dictionary];
+    NSData* postData = [postString dataUsingEncoding:NSUTF8StringEncoding];
+    [HTTPRequester sendAsynchPostWithData:urlstr :postData];
 }
 
 @end

@@ -104,10 +104,7 @@ static MyGKSessionDelegate* singleton = nil;
     }
     
     NSDictionary* virus_dictionary = [virus toNSDictionary];
-    NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/infected.php" :virus_dictionary];
-    if (response != nil) {
-        NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
-    }
+    [HTTPRequester sendAsynchPostWithDictionary:@"http://www53.atpages.jp/infectionapp/infected.php" :virus_dictionary];
     
     NSTimeInterval durability = [[virus getDurability] intValue];
     [NSTimer scheduledTimerWithTimeInterval:durability
@@ -132,8 +129,7 @@ static MyGKSessionDelegate* singleton = nil;
         if ([virus.getVirusId isEqualToString:virus_id]) {
             [viruses removeObject:virus];
             NSDictionary* virus_dictionary = [virus toNSDictionary];
-            NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/recovered.php" :virus_dictionary];
-            NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+            [HTTPRequester sendAsynchPostWithDictionary:@"http://www53.atpages.jp/infectionapp/recovered.php" :virus_dictionary];
             break;
         }
     }
