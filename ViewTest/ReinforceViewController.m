@@ -17,10 +17,6 @@
 
 @implementation ReinforceViewController
 
-//virusをSpreadViewControllerから受け取るためにsynthesizeに
-@synthesize selectedVirus;
-@synthesize point;
-
 //TODO
 //SpreadViewのpoint getから遷移するときにvirus, view_mode, pointを指定
 
@@ -41,6 +37,9 @@
     _virusList.delegate = self;
     _virusList.dataSource  = self;
     
+    //値の初期化
+    selectedVirus = [[Virus alloc] init];
+    point = [NSNumber numberWithInt:0];
     [self initViewItem];
 }
 
@@ -170,36 +169,78 @@
 //    本メソッドは、UITableViewDelegateプロトコルを採用しているのでコールされる。
 //
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //TODO
-    //押したvirusに従って、そのvirusの強化viewに遷移
     //選択したvirusを保持
     selectedVirus = [itemArray objectAtIndex:[indexPath row]];
     //強化に遷移
     [self switchView:VIEW_REINFORCE];
 }
 
+
+/**
+ * Itemをタップした時の動作
+ */
 - (IBAction)onInfectionStepperClicked:(id)sender {
     //現在の値にStepperの値を足して表示
     int sum = (int)self.infectionStepper.value + [[selectedVirus getInfectionRate] intValue];
     self.infectionValue.text = [NSString stringWithFormat:@"%d", sum];
+    //現在の残りポイントを更新
+    int remain = [point intValue] - (int)self.infectionStepper.value - (int)self.durabilityStepper.value;
+    self.nowPointValue.text = [NSString stringWithFormat:@"%d", remain];
+    //stepperの最大値を変更
+    self.infectionStepper.maximumValue = [point intValue] - (int)self.durabilityStepper.value;
+    self.durabilityStepper.maximumValue = [point intValue] - (int)self.infectionStepper.value;
 }
 
 - (IBAction)onDurabilityStepperClicked:(id)sender {
     //現在の値にStepperの値を足して表示
     int sum = (int)self.durabilityStepper.value + [[selectedVirus getDurability] intValue];
     self.durabilityValue.text = [NSString stringWithFormat:@"%d", sum];
+    //現在の残りポイントを更新
+    int remain = [point intValue] - (int)self.infectionStepper.value - (int)self.durabilityStepper.value;
+    self.nowPointValue.text = [NSString stringWithFormat:@"%d", remain];
+    //stepperの最大値を変更
+    self.infectionStepper.maximumValue = [point intValue] - (int)self.durabilityStepper.value;
+    self.durabilityStepper.maximumValue = [point intValue] - (int)self.infectionStepper.value;
 }
 
 
 - (IBAction)onButtonClicked:(id)sender {
-    //TODO
+    //新しい値を持ったvirusを生成
+    Virus *temp = [[Virus alloc] initWithValue:[selectedVirus getVirusId] :[selectedVirus getName] :[selectedVirus getInfectionRate] :[selectedVirus getDurability]];
+    [temp setInfectionRate:[NSNumber numberWithInt:[self.infectionValue.text intValue]]];
+    [temp setDurability:[NSNumber numberWithInt:[self.durabilityValue.text intValue]]];
+    
     //UserDefaultの値を書き換える
+    NSUserDefaults *_userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray* array = [_userDefaults arrayForKey:VIRUS_LIST_KEY];
+    NSUInteger index = 0;
+    for ( NSDictionary* object in array ) {
+        Virus *virus = [[Virus alloc] initWithDictionary:object];
+        //virus_idが一致したvirusを置き換える
+        if([[virus getVirusId] isEqualToString:[temp getVirusId]]){
+            NSLog(@"replace at index=%d, with %@, %@", index, [temp getInfectionRate], [temp getDurability]);
+            
+            NSMutableArray *mArr;
+            mArr = [NSMutableArray arrayWithArray:array];
+            [mArr replaceObjectAtIndex:index withObject:[temp toNSDictionary]];
+            array = mArr;
+            
+            [_userDefaults setObject:array forKey:VIRUS_LIST_KEY];
+            [_userDefaults synchronize];
+            break;
+        }
+        index++;
+    }
+
+    //pointをリセット
+    point = [NSNumber numberWithInt:0];
     //TestAppDelegateの値をリセット
     TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
-    testAppDelegate.pointData = @0;
+    testAppDelegate.pointData = point;
     testAppDelegate.viewData = VIEW_VIRUS_LIST;
     
-    //virus list に遷移
+    //virus list を更新して遷移
+    [self.virusList reloadData];
     [self switchView:VIEW_VIRUS_LIST];
 }
 
