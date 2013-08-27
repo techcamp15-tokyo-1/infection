@@ -13,6 +13,7 @@
 #import "HTTPRequester.h"
 #import "JSONConverter.h"
 #import "UserDefaultKey.h"
+#import "ReinforceViewController.h"
 
 @implementation SpreadViewController
 
@@ -320,12 +321,15 @@
  * Point Get
  */
 - (IBAction)onToReinforceViewButtonClicked:(id)sender {
+    //TODO
+    //reinforceViewControllerにvirusを渡す
+//    ReinforceViewController *reinforceViewController = [[ReinforceViewController alloc] init];
+//    [reinforceViewController selectedVirus:selectedVirus];
     //ウイルス強化タブに移動
     UITabBarController *controller = self.tabBarController;
     controller.selectedViewController = [controller.viewControllers objectAtIndex: 3];
     //ウイルス強化画面に移動したら、view_modeをvirusの選択リストに戻す
     [self switchView:VIEW_VIRUS_LIST];
-
 }
 
 @end

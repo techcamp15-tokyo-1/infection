@@ -312,14 +312,10 @@
                                     <action selector="onInfectionStepperClicked:" destination="svP-RH-sxz" eventType="valueChanged" id="bs0-0x-toR"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNj-YA-Ep5">
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9g-r3-L7m">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="FNL-y5-pfa"/>
+                                    <constraint firstAttribute="width" constant="180" id="t8d-dI-2xP"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="現在のポイント数">
@@ -330,6 +326,23 @@
                                         </attributes>
                                     </fragment>
                                 </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNj-YA-Ep5">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="JeQ-xu-ccV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhG-cu-dMZ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="7QG-2e-UG9"/>
+                                    <constraint firstAttribute="height" constant="21" id="9lQ-Uj-jOB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="感染" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0R-cv-cvK">
@@ -343,8 +356,8 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6o-9z-ZTc">
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="09Q-tX-VgR"/>
                                     <constraint firstAttribute="width" constant="100" id="RVM-cS-ipV"/>
-                                    <constraint firstAttribute="height" constant="21" id="aaJ-Cn-a1F"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -391,6 +404,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onButtonClicked:" destination="svP-RH-sxz" eventType="touchUpInside" id="3aj-Gv-Lfs"/>
+                                </connections>
                             </button>
                             <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="f0d-Ez-gSQ">
                                 <connections>
@@ -407,28 +423,28 @@
                             <constraint firstAttribute="trailing" secondItem="zNj-YA-Ep5" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="2aK-AD-loG"/>
                             <constraint firstItem="zNj-YA-Ep5" firstAttribute="bottom" secondItem="h9g-r3-L7m" secondAttribute="bottom" type="default" id="3RD-I5-c4O"/>
                             <constraint firstItem="CoF-LT-FR4" firstAttribute="leading" secondItem="f0d-Ez-gSQ" secondAttribute="leading" type="default" id="3za-uX-gYq"/>
-                            <constraint firstItem="v7g-Vh-d45" firstAttribute="leading" secondItem="T6o-9z-ZTc" secondAttribute="leading" type="default" id="A4A-Gw-0k7"/>
                             <constraint firstAttribute="bottom" secondItem="FbM-HG-ktr" secondAttribute="bottom" constant="48" id="AJe-DJ-pxA"/>
                             <constraint firstItem="8Th-os-Q5N" firstAttribute="trailing" secondItem="s9L-CA-82Q" secondAttribute="trailing" type="default" id="DNn-YK-NFV"/>
                             <constraint firstItem="Y0R-cv-cvK" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" type="default" id="Jjj-94-82z"/>
+                            <constraint firstItem="hhG-cu-dMZ" firstAttribute="centerX" secondItem="6R5-1E-GEu" secondAttribute="centerX" type="default" id="NE1-Jc-MLf"/>
                             <constraint firstItem="8Th-os-Q5N" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" type="default" id="R1s-Op-UtO"/>
-                            <constraint firstItem="T6o-9z-ZTc" firstAttribute="centerY" secondItem="8Th-os-Q5N" secondAttribute="centerY" type="default" id="SqM-8S-WYI"/>
                             <constraint firstItem="CoF-LT-FR4" firstAttribute="baseline" secondItem="FbM-HG-ktr" secondAttribute="baseline" type="default" id="Tb7-YQ-Kec"/>
                             <constraint firstItem="Y0R-cv-cvK" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" constant="184" id="VTT-K7-AkA"/>
+                            <constraint firstItem="T6o-9z-ZTc" firstAttribute="centerY" secondItem="yC2-Aj-ZmK" secondAttribute="centerY" type="default" id="Xmr-eC-XKJ"/>
                             <constraint firstItem="FbM-HG-ktr" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" constant="40" id="Y8n-EB-Gif"/>
+                            <constraint firstItem="hhG-cu-dMZ" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" constant="120" id="Zr1-Fi-dfj"/>
                             <constraint firstItem="8Th-os-Q5N" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" type="default" id="aAn-Yb-sdg"/>
+                            <constraint firstItem="yC2-Aj-ZmK" firstAttribute="centerY" secondItem="8Th-os-Q5N" secondAttribute="centerY" type="default" id="avt-vR-Ftl"/>
                             <constraint firstItem="f0d-Ez-gSQ" firstAttribute="leading" secondItem="yC2-Aj-ZmK" secondAttribute="leading" type="default" id="c8J-xb-uk8"/>
-                            <constraint firstItem="T6o-9z-ZTc" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" constant="80" id="dxb-UQ-BBp"/>
+                            <constraint firstItem="T6o-9z-ZTc" firstAttribute="leading" secondItem="v7g-Vh-d45" secondAttribute="leading" type="default" id="eE0-0Q-zpE"/>
                             <constraint firstItem="jV0-Lh-ATb" firstAttribute="trailing" secondItem="Y0R-cv-cvK" secondAttribute="trailing" type="default" id="eQf-Wi-LmL"/>
                             <constraint firstItem="T6o-9z-ZTc" firstAttribute="trailing" secondItem="h9g-r3-L7m" secondAttribute="trailing" type="default" id="eVX-qv-LQs"/>
                             <constraint firstAttribute="bottom" secondItem="jV0-Lh-ATb" secondAttribute="bottom" constant="147" id="fgi-KN-uI0"/>
                             <constraint firstItem="v7g-Vh-d45" firstAttribute="top" secondItem="f0d-Ez-gSQ" secondAttribute="top" type="default" id="gRy-Yv-MOF"/>
-                            <constraint firstItem="yC2-Aj-ZmK" firstAttribute="centerY" secondItem="T6o-9z-ZTc" secondAttribute="centerY" type="default" id="gdX-0p-gP0"/>
                             <constraint firstItem="h9g-r3-L7m" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" constant="20" symbolic="YES" type="default" id="hTI-KG-ljP"/>
                             <constraint firstItem="8Th-os-Q5N" firstAttribute="bottom" secondItem="s9L-CA-82Q" secondAttribute="bottom" type="default" id="p9l-ae-xyF"/>
                             <constraint firstItem="jV0-Lh-ATb" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" type="default" id="sct-xu-iL4"/>
                             <constraint firstItem="zNj-YA-Ep5" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" constant="20" symbolic="YES" type="default" id="sgm-Rg-Qxi"/>
-                            <constraint firstAttribute="trailing" secondItem="yC2-Aj-ZmK" secondAttribute="trailing" constant="26" id="t7t-HK-RmN"/>
                             <constraint firstItem="6R5-1E-GEu" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" type="default" id="thR-ZP-iuf"/>
                             <constraint firstItem="yC2-Aj-ZmK" firstAttribute="leading" secondItem="zNj-YA-Ep5" secondAttribute="leading" type="default" id="uSN-8o-Fbc"/>
                             <constraint firstItem="h9g-r3-L7m" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" type="default" id="uxq-Od-BxX"/>
@@ -448,7 +464,9 @@
                         <outlet property="infectionLabel" destination="Y0R-cv-cvK" id="Ogk-Nm-pZg"/>
                         <outlet property="infectionStepper" destination="yC2-Aj-ZmK" id="SiK-Sy-9vG"/>
                         <outlet property="infectionValue" destination="T6o-9z-ZTc" id="6oz-Pv-Xgq"/>
+                        <outlet property="nameValue" destination="hhG-cu-dMZ" id="42p-dp-JzZ"/>
                         <outlet property="nowPointLabel" destination="h9g-r3-L7m" id="AkR-9e-V7F"/>
+                        <outlet property="nowPointValue" destination="zNj-YA-Ep5" id="cHC-VB-Ic9"/>
                         <outlet property="okButton" destination="CoF-LT-FR4" id="wzD-0v-FEU"/>
                         <outlet property="virusList" destination="6R5-1E-GEu" id="6eL-fl-xQG"/>
                     </connections>
@@ -507,6 +525,7 @@
         <class className="ReinforceViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReinforceViewController.h"/>
             <relationships>
+                <relationship kind="action" name="onButtonClicked:"/>
                 <relationship kind="action" name="onDurabilityStepperClicked:"/>
                 <relationship kind="action" name="onInfectionStepperClicked:"/>
                 <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
@@ -516,8 +535,11 @@
                 <relationship kind="outlet" name="infectionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="infectionStepper" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="infectionValue" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nowPointLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nowPointValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="okButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="selectedVirus" candidateClass="Virus"/>
                 <relationship kind="outlet" name="virusList" candidateClass="UITableView"/>
             </relationships>
         </class>
@@ -535,6 +557,9 @@
                 <relationship kind="outlet" name="totalInfectedPersonText" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="virusList" candidateClass="UITableView"/>
             </relationships>
+        </class>
+        <class className="Virus" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Virus.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

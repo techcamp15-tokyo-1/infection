@@ -8,11 +8,17 @@
 
 #import "ReinforceViewController.h"
 
+/*
 @interface ReinforceViewController ()
 
 @end
+ */
 
 @implementation ReinforceViewController
+
+//virusをSpreadViewControllerから受け取るためにsynthesizeに
+@synthesize selectedVirus;
+@synthesize point;
 
 //TODO
 //SpreadViewのpoint getから遷移するときにvirus, view_mode, pointを指定
@@ -34,9 +40,9 @@
     _virusList.delegate = self;
     _virusList.dataSource  = self;
     
-    view_mode = VIEW_REINFORCE;
+    //viewの初期化
+    view_mode = VIEW_VIRUS_LIST;
     [self switchView:view_mode];
-    
     [self initViewItem];
 }
 
@@ -49,7 +55,8 @@
 
 - (void)initViewItem
 {
-    self.nowPointLabel.text = @"0";
+    self.nowPointValue.text = @"0";
+    self.nameValue.text = @"";
     self.infectionValue.text = @"0";
     self.durabilityValue.text = @"0";
     
@@ -90,6 +97,10 @@
             self.durabilityValue.hidden = NO;
             self.infectionStepper.hidden = NO;
             self.durabilityStepper.hidden = NO;
+            //selectedVirusの値に従ってItemに値をセット
+            self.nameValue.text = [selectedVirus getName];
+            self.infectionValue.text = [[selectedVirus getInfectionRate] stringValue];
+            self.durabilityValue.text = [[selectedVirus getDurability] stringValue];
             break;
         default:
             break;
@@ -113,12 +124,12 @@
 {
     itemArray = [[NSMutableArray alloc] init];
     
-//    NSUserDefaults *_userDefaults = [NSUserDefaults standardUserDefaults];
-//    NSArray* array = [_userDefaults arrayForKey:VIRUS_LIST_KEY];
-//    for ( NSDictionary* object in array ) {
-//        Virus *virus = [[Virus alloc] initWithDictionary:object];
-//        [itemArray addObject:virus];
-//    }
+    NSUserDefaults *_userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray* array = [_userDefaults arrayForKey:VIRUS_LIST_KEY];
+    for ( NSDictionary* object in array ) {
+        Virus *virus = [[Virus alloc] initWithDictionary:object];
+        [itemArray addObject:virus];
+    }
 }
 
 //
@@ -129,7 +140,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell;
 	cell = [[[UITableViewCell alloc] init] autorelease];
-	//cell.textLabel.text = [[itemArray objectAtIndex: indexPath.row] getName];
+	cell.textLabel.text = [[itemArray objectAtIndex: indexPath.row] getName];
 	return cell;
 }
 
@@ -140,16 +151,35 @@
 //    本メソッドは、UITableViewDelegateプロトコルを採用しているのでコールされる。
 //
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    //TODO
+    //押したvirusに従って、そのvirusの強化viewに遷移
+    //選択したvirusを保持
+    selectedVirus = [itemArray objectAtIndex:[indexPath row]];
+    //強化に遷移
+    [self switchView:VIEW_REINFORCE];
 }
 
 - (IBAction)onInfectionStepperClicked:(id)sender {
-    self.infectionValue.text = [NSString stringWithFormat:@"%d", (int)self.infectionStepper.value];
+    //現在の値にStepperの値を足して表示
+    int sum = (int)self.infectionStepper.value + [[selectedVirus getInfectionRate] intValue];
+    self.infectionValue.text = [NSString stringWithFormat:@"%d", sum];
 }
 
 - (IBAction)onDurabilityStepperClicked:(id)sender {
-    self.durabilityValue.text = [NSString stringWithFormat:@"%d", (int)self.durabilityStepper.value];
+    //現在の値にStepperの値を足して表示
+    int sum = (int)self.durabilityStepper.value + [[selectedVirus getDurability] intValue];
+    self.durabilityValue.text = [NSString stringWithFormat:@"%d", sum];
 }
+
+
+- (IBAction)onButtonClicked:(id)sender {
+    //TODO
+    //UserDefaultの値を書き換える
+    
+    //virus list に遷移
+    [self switchView:VIEW_VIRUS_LIST];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -168,6 +198,7 @@
     [_durabilityStepper release];
     [_cancelButton release];
     [_okButton release];
+    [_nameValue release];
     [super dealloc];
 }
 @end
