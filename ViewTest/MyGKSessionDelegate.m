@@ -163,6 +163,9 @@ static MyGKSessionDelegate* singleton = nil;
 - (void)session:(GKSession *)session peer:(NSString *)peerID didChangeState:(GKPeerConnectionState)state {
 	switch (state) {
 		case GKPeerStateAvailable:
+            if ([viruses count] == 0) {
+                return;
+            }
             NSLog(@"PeerID:%@ found", peerID);
             NSLog(@"Establishing connection with peerID:%@", peerID);
             [session connectToPeer:peerID withTimeout:TIMEOUT];
