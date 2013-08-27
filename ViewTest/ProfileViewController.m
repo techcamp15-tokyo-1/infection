@@ -99,7 +99,7 @@
 {
     [super viewDidLoad];
     //プロファイルの初期化・読み込み
-    [self initializeProfile];
+    //[self initializeProfile];
     [self readProfile];
     self.nameText.delegate = self;
 }

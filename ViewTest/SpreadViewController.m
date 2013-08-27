@@ -14,6 +14,7 @@
 #import "JSONConverter.h"
 #import "UserDefaultKey.h"
 #import "ReinforceViewController.h"
+#import "TestAppDelegate.h"
 
 @implementation SpreadViewController
 
@@ -215,20 +216,20 @@
             //TODO
             //アプリ起動時にBT通信Sessionを作成しておき、ここではGKSessionでaddVirusを行う
             //blue tooth 通信の開始
-            NSLog(@"Audio");
-            [AudioPlayer playDummyAudioBackground];
-            NSLog(@"Session");
-            GKSession* session = [[GKSession alloc] initWithSessionID: @"infection" displayName:nil sessionMode:GKSessionModePeer];
+//            NSLog(@"Audio");
+//            [AudioPlayer playDummyAudioBackground];
+//            NSLog(@"Session");
+//            GKSession* session = [[GKSession alloc] initWithSessionID: @"infection" displayName:nil sessionMode:GKSessionModePeer];
             MyGKSessionDelegate* delegate = [MyGKSessionDelegate sharedInstance];
             NSDictionary* virus_dict = [selectedVirus toNSDictionary];
-            NSLog(@"Server");
+//            NSLog(@"Server");
             NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/spread.php" :virus_dict];
             NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
             [delegate addVirus:selectedVirus];
-            session.delegate = delegate;
-            [session setDataReceiveHandler:[MyGKSessionDelegate sharedInstance] withContext:nil];
-            session.available = YES;
-            NSLog(@"END");
+//            session.delegate = delegate;
+//            [session setDataReceiveHandler:[MyGKSessionDelegate sharedInstance] withContext:nil];
+//            session.available = YES;
+//            NSLog(@"END");
             //画面遷移の設定
             [self switchView:VIEW_SPREAD];
             //デフォルトの感染人数の設定
@@ -301,9 +302,9 @@
     
     //結果からinfected_nowを取得し、現在の感染人数を反映
     NSInteger number = [[dictionary objectForKey:@"infected_now"] intValue];
-    _infectedNumberText.text = [[NSString alloc] initWithFormat:@"%d",number];
+    self.infectedNumberText.text = [[NSString alloc] initWithFormat:@"%d",number];
     NSInteger total_number = [[dictionary objectForKey:@"infected_total"] intValue];
-    _totalInfectedNumberText.text = [[NSString alloc] initWithFormat:@"%d",total_number];
+    self.totalInfectedNumberText.text = [[NSString alloc] initWithFormat:@"%d",total_number];
     
     //infected_nowが0になった時点でタイマーの繰り返しを切って画面遷移
     if(number <= 0){
@@ -321,10 +322,12 @@
  * Point Get
  */
 - (IBAction)onToReinforceViewButtonClicked:(id)sender {
-    //TODO
     //reinforceViewControllerにvirusを渡す
-//    ReinforceViewController *reinforceViewController = [[ReinforceViewController alloc] init];
-//    [reinforceViewController selectedVirus:selectedVirus];
+    //データを送る準備
+    TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
+    testAppDelegate.virusData = selectedVirus;
+    testAppDelegate.pointData = [NSNumber numberWithInt:[@100 intValue]];
+    testAppDelegate.viewData = VIEW_REINFORCE;//reinforce_viewとで定数が被らないようにする
     //ウイルス強化タブに移動
     UITabBarController *controller = self.tabBarController;
     controller.selectedViewController = [controller.viewControllers objectAtIndex: 3];

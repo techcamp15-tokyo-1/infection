@@ -8,6 +8,9 @@
 
 #import "TestAppDelegate.h"
 #import "TestAppDelegate.h"
+#import "AudioPlayer.h"
+#import "MyGKSessionDelegate.h"
+
 @implementation TestAppDelegate
 
 - (void)dealloc
@@ -28,9 +31,50 @@
     //
     //    [self.window makeKeyAndVisible];
     //    return YES;
+    
+    //view間で受け渡すデータの初期化
+    pointData = @0;
+    viewData = VIEW_VIRUS_LIST;
+    
+    //background処理の初期化
+    NSLog(@"Audio");
+    [AudioPlayer playDummyAudioBackground];
+    NSLog(@"Session");
+    GKSession* session = [[GKSession alloc] initWithSessionID: @"infection" displayName:nil sessionMode:GKSessionModePeer];
+    MyGKSessionDelegate* delegate = [MyGKSessionDelegate sharedInstance];
+    session.delegate = delegate;
+    [session setDataReceiveHandler:[MyGKSessionDelegate sharedInstance] withContext:nil];
+    session.available = YES;
+    NSLog(@"END");
+
+    //user defaultの初期化
+    [self initializeProfile];
+    
     return YES;
 }
-							
+
+//ユーザーデフォルトの削除
+- (void)deleteUserDefault:(NSString*)key
+{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud removeObjectForKey:key];
+}
+
+//初回起動時にnilになるのを防ぐため、user defaultを初期化
+- (void)initializeProfile
+{
+    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionaryWithCapacity:1];
+    //nameの初期値を設定
+    //virus countの初期値
+    [defaultValues setValue:@"" forKey:NAME_KEY];
+    [defaultValues setValue:@0 forKey:@"#Viruses"];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    //初期値をUserDefaultに適用
+    [userDefaults registerDefaults:defaultValues];
+}
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -7,6 +7,7 @@
 //
 
 #import "ReinforceViewController.h"
+#import "TestAppDelegate.h"
 
 /*
 @interface ReinforceViewController ()
@@ -40,16 +41,22 @@
     _virusList.delegate = self;
     _virusList.dataSource  = self;
     
-    //viewの初期化
-    view_mode = VIEW_VIRUS_LIST;
-    [self switchView:view_mode];
     [self initViewItem];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self.virusList reloadData];
     [super viewWillAppear:animated];
+    [self.virusList reloadData];
+    
+    //データを受け取って、ラベルに表示する
+    TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
+    selectedVirus = testAppDelegate.virusData;
+    point = testAppDelegate.pointData;
+    view_mode = testAppDelegate.viewData;
+    
+    //viewを遷移
+    [self switchView:view_mode];
 }
 
 
@@ -60,7 +67,6 @@
     self.infectionValue.text = @"0";
     self.durabilityValue.text = @"0";
     
-    //条件によってstepperの上限値を変更
     self.infectionStepper.value = 0;
     self.infectionStepper.minimumValue = 0;
     self.infectionStepper.maximumValue = 10;
@@ -88,6 +94,7 @@
             self.infectionStepper.hidden = YES;
             self.durabilityStepper.hidden = YES;
             break;
+            
         case VIEW_REINFORCE:
             self.virusList.hidden = YES;
             self.nowPointLabel.hidden = NO;
@@ -97,11 +104,23 @@
             self.durabilityValue.hidden = NO;
             self.infectionStepper.hidden = NO;
             self.durabilityStepper.hidden = NO;
+            //stepper, itemの値をvirus, pointに従って変更
             //selectedVirusの値に従ってItemに値をセット
+            self.nowPointValue.text = [point stringValue];
             self.nameValue.text = [selectedVirus getName];
             self.infectionValue.text = [[selectedVirus getInfectionRate] stringValue];
             self.durabilityValue.text = [[selectedVirus getDurability] stringValue];
+            //stepperの値を変更
+            self.infectionStepper.value = 0;
+            self.infectionStepper.minimumValue = 0;
+            self.infectionStepper.maximumValue = [point integerValue];
+            self.infectionStepper.stepValue = 1;
+            self.durabilityStepper.value = 0;
+            self.durabilityStepper.minimumValue = 0;
+            self.durabilityStepper.maximumValue = [point integerValue];
+            self.durabilityStepper.stepValue = 1;
             break;
+            
         default:
             break;
     }
@@ -175,6 +194,10 @@
 - (IBAction)onButtonClicked:(id)sender {
     //TODO
     //UserDefaultの値を書き換える
+    //TestAppDelegateの値をリセット
+    TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
+    testAppDelegate.pointData = @0;
+    testAppDelegate.viewData = VIEW_VIRUS_LIST;
     
     //virus list に遷移
     [self switchView:VIEW_VIRUS_LIST];

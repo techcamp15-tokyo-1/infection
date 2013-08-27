@@ -7,9 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Virus.h"
+#import "ReinforceViewController.h"
 
 @interface TestAppDelegate : UIResponder <UIApplicationDelegate>
+{
+    Virus *virusData;
+    NSNumber *pointData;
+    NSInteger viewData;
+}
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) Virus *virusData;
+@property (strong, nonatomic) NSNumber *pointData;
+@property (nonatomic) NSInteger viewData;
 
 @end

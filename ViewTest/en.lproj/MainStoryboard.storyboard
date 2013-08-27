@@ -514,6 +514,12 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
+        <class className="NSNumber" superclassName="NSValue">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSNumber.h"/>
+        </class>
+        <class className="NSValue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSValue.h"/>
+        </class>
         <class className="ProfileViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
             <relationships>
@@ -539,6 +545,7 @@
                 <relationship kind="outlet" name="nowPointLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nowPointValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="okButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="point" candidateClass="NSNumber"/>
                 <relationship kind="outlet" name="selectedVirus" candidateClass="Virus"/>
                 <relationship kind="outlet" name="virusList" candidateClass="UITableView"/>
             </relationships>
