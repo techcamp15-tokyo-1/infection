@@ -224,7 +224,7 @@
             MyGKSessionDelegate* delegate = [MyGKSessionDelegate sharedInstance];
             NSDictionary* virus_dict = [selectedVirus toNSDictionary];
 //            NSLog(@"Server");
-            NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/spread.php" :virus_dict];
+            NSData* response = [HTTPRequester sendPostWithDictionary:@"http://nokok.dip.jp/infectionapp/spread.php" :virus_dict];
             if (response == nil) {
                 connection_failed = YES;
                 break;
@@ -298,7 +298,7 @@
     NSLog(@"HTTP POST to get number of infected person.");
     
     //定数化して持つべき
-    NSString *url = @"http://www53.atpages.jp/infectionapp/state.php/";
+    NSString *url = @"http://nokok.dip.jp/infectionapp/state.php/";
     NSDictionary* virus_dict = [selectedVirus toNSDictionary];
     //HTTP POST REQUESTを送信
     NSData *response = [HTTPRequester sendPostWithDictionary:url :virus_dict];

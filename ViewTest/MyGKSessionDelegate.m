@@ -104,7 +104,7 @@ static MyGKSessionDelegate* singleton = nil;
     }
     
     NSDictionary* virus_dictionary = [virus toNSDictionary];
-    NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/infected.php" :virus_dictionary];
+    NSData* response = [HTTPRequester sendPostWithDictionary:@"http://nokok.dip.jp/infectionapp/infected.php" :virus_dictionary];
     if (response != nil) {
         NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
     }
@@ -132,7 +132,7 @@ static MyGKSessionDelegate* singleton = nil;
         if ([virus.getVirusId isEqualToString:virus_id]) {
             [viruses removeObject:virus];
             NSDictionary* virus_dictionary = [virus toNSDictionary];
-            NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/recovered.php" :virus_dictionary];
+            NSData* response = [HTTPRequester sendPostWithDictionary:@"http://nokok.dip.jp/infectionapp/recovered.php" :virus_dictionary];
             NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
             break;
         }
@@ -216,7 +216,7 @@ static MyGKSessionDelegate* singleton = nil;
         [visualize_dictionary setValue:virus_id forKey:@"virus_id"];
         [visualize_dictionary setValue:from_user forKey:@"from_name"];
         [visualize_dictionary setValue:to_user forKey:@"to_name"];
-        NSData* response = [HTTPRequester sendPostWithDictionary:@"http://www53.atpages.jp/infectionapp/report.php" :visualize_dictionary];
+        NSData* response = [HTTPRequester sendPostWithDictionary:@"http://nokok.dip.jp/infectionapp/report.php" :visualize_dictionary];
         if (response != nil) {
             NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
         }
