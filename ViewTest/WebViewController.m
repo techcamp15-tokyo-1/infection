@@ -68,9 +68,6 @@
 }
 
 
-- (IBAction)onBlueToothSwitchClicked:(id)sender {
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -79,7 +76,6 @@
 
 - (void)dealloc {
     [_WebView release];
-    [_blueToothSwitch release];
     [super dealloc];
 }
 @end

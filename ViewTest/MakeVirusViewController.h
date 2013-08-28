@@ -29,6 +29,4 @@
 @property (retain, nonatomic) IBOutlet UILabel *durabilityValue;
 @property (retain, nonatomic) IBOutlet UIStepper *durabilityStepper;
 
-@property (retain, nonatomic) IBOutlet UISwitch *blueToothSwitch;
-
 @end

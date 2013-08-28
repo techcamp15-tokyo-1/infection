@@ -62,7 +62,6 @@
     [_makeButton release];
     [_remnantValue release];
     [_nameText release];
-    [_blueToothSwitch release];
     [_infectionRateValue release];
     [_durabilityValue release];
     [_infectionRateStepper release];
@@ -183,10 +182,5 @@
     return YES;
 }
 
-
-//bluetoothの on off
-- (IBAction)onBlueToothSwitchClicked:(id)sender {
-    //TODO
-}
 
 @end

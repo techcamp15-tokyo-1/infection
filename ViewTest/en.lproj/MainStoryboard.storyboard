@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ZHk-Gx-e03">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ZHk-Gx-e03">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -125,20 +125,9 @@
                             <action selector="backgroundTapped:" destination="Vuk-Hi-23e" eventType="touchUpInside" id="dLn-8l-RDu"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="ウイルスの新規作成" id="f88-Hl-srY">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="vz0-ho-lH3">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="krL-9O-OyC">
-                                <rect key="frame" x="238" y="8" width="79" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="onBlueToothSwitchClicked:" destination="Vuk-Hi-23e" eventType="valueChanged" id="M5F-gD-gJ3"/>
-                                </connections>
-                            </switch>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="ウイルスの新規作成" id="f88-Hl-srY"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="blueToothSwitch" destination="krL-9O-OyC" id="PT1-BZ-9pt"/>
                         <outlet property="durabilityStepper" destination="WVk-8R-xln" id="ZQB-Sh-KiU"/>
                         <outlet property="durabilityValue" destination="1LT-8D-4Vs" id="run-0u-ILH"/>
                         <outlet property="infectionRateStepper" destination="F7x-AV-HhN" id="F2T-ek-yhd"/>
@@ -374,20 +363,9 @@
                             <constraint firstItem="yhB-Sn-Ezn" firstAttribute="leading" secondItem="tke-k1-kPM" secondAttribute="leading" type="default" id="mDg-et-4F8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="拡散経路を可視化" id="RWt-dV-xpX">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="nVr-ZW-hxB">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="K4h-uT-TOe">
-                                <rect key="frame" x="238" y="8" width="79" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <connections>
-                                <action selector="onBlutToothSwitchClicked:" destination="AKh-fE-IgN" id="klH-Mn-Ogh"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="拡散経路を可視化" id="RWt-dV-xpX"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="blueToothSwitch" destination="nVr-ZW-hxB" id="wIQ-K9-xCB"/>
                         <outlet property="virusList" destination="yhB-Sn-Ezn" id="eKX-Cu-Mqi"/>
                     </connections>
                 </viewController>
@@ -418,20 +396,9 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="ウイルス一覧" id="8RY-lh-TKF">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="KtF-fK-TBU">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="dIa-Xu-Sp7">
-                                <rect key="frame" x="238" y="8" width="79" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <connections>
-                                <action selector="onBlueToothSwitchClicked:" destination="RTY-iV-Hw6" id="4hv-Hs-I6x"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="ウイルス一覧" id="8RY-lh-TKF"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="blueToothSwitch" destination="KtF-fK-TBU" id="aWr-I3-8Xb"/>
                         <outlet property="virusList" destination="EHz-jK-nnw" id="rRz-SN-q7e"/>
                     </connections>
                 </viewController>
@@ -529,20 +496,9 @@
                             <constraint firstItem="Uel-IJ-5DQ" firstAttribute="bottom" secondItem="JBh-io-MyA" secondAttribute="bottom" type="default" id="ozO-D1-MMU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ウイルスを強化" id="aKF-S9-4re">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="6TV-y6-cpl">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="601-uM-KQX">
-                                <rect key="frame" x="238" y="8" width="79" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <connections>
-                                <action selector="onBlueToothSwitchClicked:" destination="vbM-Ew-ubL" id="dXj-Ph-vAI"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="ウイルスを強化" id="aKF-S9-4re"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="blueToothSwitch" destination="6TV-y6-cpl" id="Vx8-8k-1X4"/>
                         <outlet property="virusList" destination="Uel-IJ-5DQ" id="Rdz-lz-eMa"/>
                     </connections>
                 </viewController>
@@ -708,20 +664,9 @@
                             <constraint firstItem="v7g-Vh-d45" firstAttribute="trailing" secondItem="T6o-9z-ZTc" secondAttribute="trailing" type="default" id="y8J-wL-heX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="各パラメータの強化" id="cTv-2W-4kp">
-                        <barButtonItem key="rightBarButtonItem" id="5kY-CO-9Df">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="ijJ-09-Srl">
-                                <rect key="frame" x="238" y="8" width="79" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <connections>
-                                <action selector="onBlueToothSwitchClicked:" destination="svP-RH-sxz" id="Nit-rN-z0e"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="各パラメータの強化" id="cTv-2W-4kp"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="blueToothSwitch" destination="5kY-CO-9Df" id="KUE-RF-ZxG"/>
                         <outlet property="cancelButton" destination="FbM-HG-ktr" id="Hgc-LC-3K7"/>
                         <outlet property="durabilityLabel" destination="jV0-Lh-ATb" id="tMW-FE-oxM"/>
                         <outlet property="durabilityStepper" destination="f0d-Ez-gSQ" id="chO-ki-FQL"/>
@@ -759,21 +704,10 @@
                             <constraint firstItem="iyD-MC-W11" firstAttribute="top" secondItem="olT-gY-gvn" secondAttribute="top" type="default" id="hZH-MQ-lV3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="拡散経路" id="DNg-sI-EoO">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="mvO-Mr-is5">
-                            <switch key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="RbP-PN-gHk">
-                                <rect key="frame" x="238" y="8" width="79" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <connections>
-                                <action selector="onBlueToothSwitchClicked:" destination="w59-Bq-qhw" id="LaG-UL-3hp"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="拡散経路" id="DNg-sI-EoO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="WebView" destination="iyD-MC-W11" id="3Zu-R2-oSa"/>
-                        <outlet property="blueToothSwitch" destination="mvO-Mr-is5" id="s8i-j9-8PR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k3I-mJ-cvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -903,11 +837,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MakeVirusViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backgroundTapped:"/>
-                <relationship kind="action" name="onBlueToothSwitchClicked:"/>
-                <relationship kind="action" name="onDurabilityStepperCliked:"/>
-                <relationship kind="action" name="onInfectionRateStepperClicked:"/>
-                <relationship kind="action" name="onMakeButtonCliked:"/>
-                <relationship kind="outlet" name="blueToothSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="durabilityStepper" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="durabilityValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="infectionRateStepper" candidateClass="UIStepper"/>
@@ -920,6 +849,13 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
+        <class className="PathViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PathViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="blueToothSwitch" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="virusList" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="ProfileViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileViewController.h"/>
             <relationships>
@@ -928,14 +864,16 @@
                 <relationship kind="outlet" name="registerButton" candidateClass="UIButton"/>
             </relationships>
         </class>
+        <class className="ReinforceListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReinforceListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="blueToothSwitch" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="virusList" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="ReinforceViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReinforceViewController.h"/>
             <relationships>
-                <relationship kind="action" name="onBlueToothSwitchClicked:"/>
-                <relationship kind="action" name="onButtonClicked:"/>
-                <relationship kind="action" name="onCancelButtonClicked:"/>
-                <relationship kind="action" name="onDurabilityStepperClicked:"/>
-                <relationship kind="action" name="onInfectionStepperClicked:"/>
                 <relationship kind="outlet" name="blueToothSwitch" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="durabilityLabel" candidateClass="UILabel"/>
@@ -953,18 +891,12 @@
         <class className="SpreadViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SpreadViewController.h"/>
             <relationships>
-                <relationship kind="action" name="onBlueToothSwitchClicked:"/>
-                <relationship kind="action" name="onToReinforceViewButtonClicked:"/>
-                <relationship kind="outlet" name="blueToothSwitch" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="virusList" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="VirusDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VirusDetailViewController.h"/>
             <relationships>
-                <relationship kind="action" name="onButtonClicked:"/>
-                <relationship kind="action" name="onToReinforceViewButtonClicked:"/>
                 <relationship kind="outlet" name="durabilityValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="executeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="getPointLabel" candidateClass="UILabel"/>
@@ -977,6 +909,13 @@
                 <relationship kind="outlet" name="infectionValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="toReinforceViewButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="WebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="WebView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="blueToothSwitch" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
     </classes>

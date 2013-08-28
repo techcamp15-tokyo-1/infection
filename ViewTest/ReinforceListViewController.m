@@ -39,7 +39,6 @@
 
 - (void)dealloc {
     [_virusList release];
-    [_blueToothSwitch release];
     [super dealloc];
 }
 
@@ -104,10 +103,6 @@
     
     //詳細に遷移
     [self performSegueWithIdentifier:@"toReinforceView" sender:self];
-}
-
-- (IBAction)onBlueToothSwitchClicked:(id)sender {
-    //TODO
 }
 
 

@@ -26,7 +26,6 @@
 }
 
 @property (retain, nonatomic) IBOutlet UITableView *virusList;
-@property (retain, nonatomic) IBOutlet UIBarButtonItem *blueToothSwitch;
 
 
 @end
