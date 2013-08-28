@@ -50,12 +50,6 @@
     NSUserDefaults* nd = [NSUserDefaults standardUserDefaults];
     NSString* name = [[UIApplication sharedApplication] uniqueInstallationIdentifier];
     [nd setObject:name forKey:@"Name"];
-    [AudioPlayer playDummyAudioBackground];
-    GKSession* session = [[GKSession alloc] initWithSessionID: @"infection" displayName:name sessionMode:GKSessionModePeer];
-    MyGKSessionDelegate* delegate = [MyGKSessionDelegate sharedInstance];
-    session.delegate = delegate;
-    [session setDataReceiveHandler:[MyGKSessionDelegate sharedInstance] withContext:nil];
-    session.available = YES;
     
     return YES;
 }

@@ -35,33 +35,36 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //TODO
-    //とりあえずAppDelegateから取得しているが、リストから取得できるように変更
+    [self.WebView loadData:[@"ロード中" dataUsingEncoding: NSUTF8StringEncoding] MIMEType:@"text/html" textEncodingName:@"utf-8" baseURL:nil];
     TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
     Virus *virus = testAppDelegate.virusData;
     //user default から取得
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *nameStr = [userDefaults stringForKey:NAME_KEY];
     
-    NSLog(@"%@, %@", [virus getVirusId], nameStr);
-    NSDictionary* jsonDictionary = [NSDictionary dictionaryWithObjects:
-                                    @[[virus getVirusId], nameStr]
-                                                               forKeys:@[@"virus_id", @"name"]];
-    
-    
-    NSData* response = [HTTPRequester sendPostWithDictionary:@"http://nokok.dip.jp/infectionapp/visualize.php" :jsonDictionary];
-    if (response == nil) {
-        NSLog(@"%@", @"connection failed");
-        return;
-    }
-    NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
-    NSLog(@"%@", response);
-    
-    NSURL *url = [NSURL URLWithString:@"http://nokok.dip.jp/infectionapp/visualize.php"];
-    [self.WebView loadData:response MIMEType:@"text/html" textEncodingName:@"utf-8" baseURL:url];
-    
-    //    NSURL *url = [NSURL URLWithString:@"http://d.hatena.ne.jp/murapong"];
-    //    [[UIApplication sharedApplication] openURL:url];
+    NSURL* url = [NSURL URLWithString:@"http://nokok.dip.jp/infectionapp/visualize.php"];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    NSDictionary* dictionary = [virus toNSDictionary];
+    [virus setValue:nameStr forKey:@"name"];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[[HTTPRequester postString:dictionary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+     {
+         NSLog(@"Response from visualize.php");
+         if ([data length] >0 && error == nil)
+         {
+             [self.WebView loadData:data MIMEType:@"text/html" textEncodingName:@"utf-8" baseURL:url];
+         }
+         else if ([data length] == 0 && error == nil)
+         {
+             NSLog(@"Nothing was downloaded.");
+         }
+         else if (error != nil){
+             NSLog(@"Error = %@", error);
+         }
+     }];
 }
 
 

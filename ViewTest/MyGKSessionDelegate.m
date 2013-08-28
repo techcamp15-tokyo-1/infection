@@ -103,12 +103,12 @@ static MyGKSessionDelegate* singleton = nil;
     
     [viruses addObject:virus];
     NSTimeInterval durability = [[virus getDurability] intValue];
-    [NSTimer scheduledTimerWithTimeInterval:durability
+    NSTimer* timer = [NSTimer scheduledTimerWithTimeInterval:durability
                                      target:self
                                    selector:@selector(doTimer:)
                                    userInfo:virus
                                     repeats:NO];
-    
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
     if (!add) {
         return;
     }
@@ -170,6 +170,7 @@ static MyGKSessionDelegate* singleton = nil;
             NSLog(@"PeerID:%@ found", peerID);
             NSLog(@"Establishing connection with peerID:%@", peerID);
             if ([viruses count] == 0) {
+                NSLog(@"no count");
                 return;
             }
             [session connectToPeer:peerID withTimeout:TIMEOUT];

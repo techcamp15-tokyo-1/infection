@@ -17,7 +17,6 @@
     @private
     NSInteger view_mode;
     
-	IBOutlet UILabel *textLabel;
 	NSMutableArray *itemArray;
     
     //選択したウイルス
@@ -27,12 +26,8 @@
 }
 
 @property (retain, nonatomic) IBOutlet UITableView *virusList;
-- (void)createTimer;
-- (void)doTimer:(NSTimer *)timer;
-- (void)getVirusNumber;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *blueToothSwitch;
 
-- (IBAction)onToReinforceViewButtonClicked:(id)sender;
 
 @end
 

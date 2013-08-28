@@ -7,6 +7,7 @@
 //
 
 #import "VirusDetailViewController.h"
+#import "AudioPlayer.h"
 
 @implementation VirusDetailViewController
 
@@ -128,7 +129,7 @@
 //alertのボタン押下時の処理
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     [alertView dismissWithClickedButtonIndex:buttonIndex animated:YES];
-    BOOL connection_failed = NO;
+    
     switch (buttonIndex) {
         case 0: // cancel
             break;
@@ -138,10 +139,16 @@
             testAppDelegate.inSpreadVirusId = [selectedVirus getVirusId];
             
             //blue tooth 通信の開始
+            [AudioPlayer playDummyAudioBackground];
+            NSString* name = [[NSUserDefaults standardUserDefaults] objectForKey:@"Name"];
+            GKSession* session = [[GKSession alloc] initWithSessionID: @"infection" displayName:name sessionMode:GKSessionModePeer];
             MyGKSessionDelegate* delegate = [MyGKSessionDelegate sharedInstance];
+            session.delegate = delegate;
+            [session setDataReceiveHandler:[MyGKSessionDelegate sharedInstance] withContext:nil];
+            session.available = YES;
             NSDictionary* virus_dict = [selectedVirus toNSDictionary];
             [HTTPRequester sendAsynchPostWithDictionary:@"http://nokok.dip.jp/infectionapp/spread.php" :virus_dict];
-            [delegate addVirus:selectedVirus];
+            [delegate addVirus:selectedVirus : NO];
             
             //拡散中のフラグをたてる
             isInSpread = YES;
@@ -179,6 +186,7 @@
                                            userInfo:nil
                                             repeats:NO
              ];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
 /**

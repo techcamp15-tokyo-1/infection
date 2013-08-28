@@ -113,8 +113,6 @@
 //    本メソッドは、UITableViewDelegateプロトコルを採用しているのでコールされる。
 //
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	textLabel.text = [[itemArray objectAtIndex:[indexPath row]] getName];
-    
     //選択したvirusを保持
     selectedVirus = [itemArray objectAtIndex:[indexPath row]];
     TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
