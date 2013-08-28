@@ -236,6 +236,7 @@
     point = [NSNumber numberWithInt:0];
     //TestAppDelegateの値をリセット
     TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
+    testAppDelegate.virusData = selectedVirus;
     testAppDelegate.pointData = point;
     testAppDelegate.viewData = VIEW_VIRUS_LIST;
     
