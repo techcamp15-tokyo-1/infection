@@ -68,11 +68,6 @@
     self.infectionValue.text = [[selectedVirus getInfectionRate] stringValue];
     self.durabilityValue.text = [[selectedVirus getDurability] stringValue];
     
-    //もし感染中のウイルスだった場合、表示を変更
-    if(inSpread && [temp isEqualToString:[selectedVirus getVirusId]]){
-        view_mode = VIEW_IN_SPREAD;
-    }
-    
     [self switchView:view_mode];
     
     [super viewWillAppear:animated];
@@ -245,6 +240,7 @@
             [timer invalidate];
             //総感染数をフィールドにセット
             totalInfectedNumber = [NSNumber numberWithInt:total_number];
+            self.getPointValue.text = [totalInfectedNumber stringValue];
             //画面遷移
             [self switchView:VIEW_POINT];
         }
