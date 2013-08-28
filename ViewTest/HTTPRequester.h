@@ -12,5 +12,7 @@
 
 + (NSData*) sendPostWithData: (NSString*)urlstr :(NSData*)data;
 + (NSData*) sendPostWithDictionary: (NSString*)urlstr : (NSDictionary*)dictionary;
-
++ (void) sendAsynchPostWithData: (NSString*)urlstr : (NSData*)data;
++ (void) sendAsynchPostWithDictionary: (NSString*)urlstr : (NSDictionary*)dictionary;
++ (NSString*) postString: (NSDictionary*) dictionary;
 @end

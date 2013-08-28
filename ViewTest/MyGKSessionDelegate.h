@@ -14,6 +14,7 @@
 }
 + (MyGKSessionDelegate*) sharedInstance;
 - (void) addVirus: (Virus*) virus;
+- (void) addVirus: (Virus*) virus : (BOOL) add;
 - (void) deleteVirus: (NSString*) virus_id;
 @end
 

@@ -214,25 +214,12 @@
             break;
         case 1:
         {
-            // ユーザーに時間のかかる処理であることを表明
-            UIActivityIndicatorView *ai = [[UIActivityIndicatorView alloc] init];
-            ai.frame = CGRectMake(0, 0, 50, 50);
-            ai.center = self.view.center;
-            ai.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
-            [self.view addSubview:ai];
-            [ai startAnimating];
-            
             // Bluetoothセッションの初期化
             MyGKSessionDelegate* delegate = [MyGKSessionDelegate sharedInstance];
             NSDictionary* virus_dict = [selectedVirus toNSDictionary];
-            NSLog(@"Server");
-            NSData* response = [HTTPRequester sendPostWithDictionary:@"http://nokok.dip.jp/infectionapp/spread.php" :virus_dict];
-            if (response == nil) {
-                connection_failed = YES;
-                break;
-            }
-            NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
-            [delegate addVirus:selectedVirus];
+            NSLog(@"Spread");
+            [HTTPRequester sendAsynchPostWithDictionary:@"http://nokok.dip.jp/infectionapp/spread.php" :virus_dict];
+            [delegate addVirus:selectedVirus: NO];
 
             //画面遷移の設定
             [self switchView:VIEW_SPREAD];
@@ -264,11 +251,11 @@
  */
 - (void)createTimer
 {
-    timer = [NSTimer scheduledTimerWithTimeInterval:60.0f
+    timer = [NSTimer scheduledTimerWithTimeInterval:30.0f
                                      target:self
                                    selector:@selector(doTimer:)
                                    userInfo:nil
-                                    repeats:YES
+                                    repeats:NO
      ];
 }
 
@@ -287,36 +274,57 @@
  */
 - (void)getVirusNumber
 {
+    NSLog(@"timer invalidated");
+    [timer invalidate];
+    [timer retain];
     NSLog(@"HTTP POST to get number of infected person.");
     
     //定数化して持つべき
-    NSString *url = @"http://nokok.dip.jp/infectionapp/state.php/";
+    NSString *urlstr = @"http://nokok.dip.jp/infectionapp/state.php/";
     NSDictionary* virus_dict = [selectedVirus toNSDictionary];
+    NSLog(@"VIRUSDICT");
+    NSLog(@"%@", virus_dict);
     //HTTP POST REQUESTを送信
-    NSData *response = [HTTPRequester sendPostWithDictionary:url :virus_dict];
-    
-    //POST結果を文字列で出力
-    NSString *myString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",myString);
-
-    //NSDictionaryに変換
-    NSDictionary *dictionary = [JSONConverter objectFrom:response];
-    
-    //結果からinfected_nowを取得し、現在の感染人数を反映
-    NSInteger number = [[dictionary objectForKey:@"infected_now"] intValue];
-    self.infectedNumberText.text = [[NSString alloc] initWithFormat:@"%d",number];
-    NSInteger total_number = [[dictionary objectForKey:@"infected_total"] intValue];
-    self.totalInfectedNumberText.text = [[NSString alloc] initWithFormat:@"%d",total_number];
-    
-    //infected_nowが0になった時点でタイマーの繰り返しを切って画面遷移
-    if(number <= 0){
-        if(timer != nil){
-            NSLog(@"Timer is killed because no person is infected with user's virus.");
-            [timer invalidate];
-            //画面遷移
-            [self switchView:VIEW_POINT_GET];
-        }
-    }
+    NSURL* url = [NSURL URLWithString:urlstr];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:[[HTTPRequester postString:virus_dict] dataUsingEncoding:NSUTF8StringEncoding]];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+     {
+         NSLog(@"Response from %@", urlstr);
+         if ([data length] >0 && error == nil)
+         {
+             //POST結果を文字列で出力
+             NSLog(@"%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+             //NSDictionaryに変換
+             NSDictionary *dictionary = [JSONConverter objectFrom:data];
+             //結果からinfected_nowを取得し、現在の感染人数を反映
+             NSInteger number = [[dictionary objectForKey:@"infected_now"] intValue];
+             self.infectedNumberText.text = [[NSString alloc] initWithFormat:@"%d",number];
+             NSInteger total_number = [[dictionary objectForKey:@"infected_total"] intValue];
+             self.totalInfectedNumberText.text = [[NSString alloc] initWithFormat:@"%d",total_number];
+             //infected_nowが0になった時点でタイマーの繰り返しを切って画面遷移
+             if(number <= 0){
+                 if(timer != nil){
+                     NSLog(@"Timer is killed because no person is infected with user's virus.");
+                     //画面遷移
+                     [self switchView:VIEW_POINT_GET];
+                     return;
+                 }
+             }
+         }
+         else if ([data length] == 0 && error == nil)
+         {
+             NSLog(@"Nothing was downloaded.");
+         }
+         else if (error != nil){
+             NSLog(@"Error = %@", error);
+         }
+         NSLog(@"timer fired");
+         [self createTimer];
+     }];
 }
 
 

@@ -91,6 +91,10 @@ static MyGKSessionDelegate* singleton = nil;
  ウィルスのdurabilityに応じた時間の後死ぬようにタイマーをセット
  */
 - (void) addVirus: (Virus*) virus {
+    [self addVirus:virus: YES];
+}
+
+- (void) addVirus: (Virus*) virus : (BOOL) add {
     NSLog(@"addVirus");
     if ([self inViruses:virus]) {
         NSLog(@"already Has");
@@ -98,23 +102,24 @@ static MyGKSessionDelegate* singleton = nil;
     }
     
     [viruses addObject:virus];
-    NSLog(@"current viruses");
-    for (Virus* virus in viruses) {
-        NSLog(@"%@", [virus toNSDictionary]);
-    }
-    
-    NSDictionary* virus_dictionary = [virus toNSDictionary];
-    NSData* response = [HTTPRequester sendPostWithDictionary:@"http://nokok.dip.jp/infectionapp/infected.php" :virus_dictionary];
-    if (response != nil) {
-        NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
-    }
-    
     NSTimeInterval durability = [[virus getDurability] intValue];
     [NSTimer scheduledTimerWithTimeInterval:durability
                                      target:self
                                    selector:@selector(doTimer:)
                                    userInfo:virus
                                     repeats:NO];
+    
+    if (!add) {
+        return;
+    }
+    
+    NSLog(@"current viruses");
+    for (Virus* virus in viruses) {
+        NSLog(@"%@", [virus toNSDictionary]);
+    }
+    
+    NSDictionary* virus_dictionary = [virus toNSDictionary];
+    [HTTPRequester sendAsynchPostWithDictionary:@"http://nokok.dip.jp/infectionapp/infected.php" :virus_dictionary];
 }
 
 /**
@@ -132,8 +137,7 @@ static MyGKSessionDelegate* singleton = nil;
         if ([virus.getVirusId isEqualToString:virus_id]) {
             [viruses removeObject:virus];
             NSDictionary* virus_dictionary = [virus toNSDictionary];
-            NSData* response = [HTTPRequester sendPostWithDictionary:@"http://nokok.dip.jp/infectionapp/recovered.php" :virus_dictionary];
-            NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
+            [HTTPRequester sendAsynchPostWithDictionary:@"http://nokok.dip.jp/infectionapp/recovered.php" :virus_dictionary];
             break;
         }
     }
@@ -163,11 +167,11 @@ static MyGKSessionDelegate* singleton = nil;
 - (void)session:(GKSession *)session peer:(NSString *)peerID didChangeState:(GKPeerConnectionState)state {
 	switch (state) {
 		case GKPeerStateAvailable:
+            NSLog(@"PeerID:%@ found", peerID);
+            NSLog(@"Establishing connection with peerID:%@", peerID);
             if ([viruses count] == 0) {
                 return;
             }
-            NSLog(@"PeerID:%@ found", peerID);
-            NSLog(@"Establishing connection with peerID:%@", peerID);
             [session connectToPeer:peerID withTimeout:TIMEOUT];
 			break;
 		case GKPeerStateUnavailable:
@@ -215,10 +219,7 @@ static MyGKSessionDelegate* singleton = nil;
         [visualize_dictionary setValue:virus_id forKey:@"virus_id"];
         [visualize_dictionary setValue:from_user forKey:@"from_name"];
         [visualize_dictionary setValue:to_user forKey:@"to_name"];
-        NSData* response = [HTTPRequester sendPostWithDictionary:@"http://nokok.dip.jp/infectionapp/report.php" :visualize_dictionary];
-        if (response != nil) {
-            NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
-        }
+        [HTTPRequester sendAsynchPostWithDictionary:@"http://nokok.dip.jp/infectionapp/report.php" :visualize_dictionary];
     }
 }
 @end

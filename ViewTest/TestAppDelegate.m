@@ -43,10 +43,8 @@
     //background処理の初期化
     NSLog(@"initializing ...");
     NSUserDefaults* nd = [NSUserDefaults standardUserDefaults];
-    NSString* name = [nd objectForKey:@"Name"];
-    if (name == nil) {
-        name = [[UIApplication sharedApplication] uniqueInstallationIdentifier];
-    }
+    NSString* name = [[UIApplication sharedApplication] uniqueInstallationIdentifier];
+    [nd setObject:name forKey:@"Name"];
     [AudioPlayer playDummyAudioBackground];
     GKSession* session = [[GKSession alloc] initWithSessionID: @"infection" displayName:name sessionMode:GKSessionModePeer];
     MyGKSessionDelegate* delegate = [MyGKSessionDelegate sharedInstance];
