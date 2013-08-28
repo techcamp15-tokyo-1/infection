@@ -65,14 +65,12 @@
         
         [_userDefaults setObject:arr forKey:VIRUS_LIST_KEY];
         [_userDefaults synchronize];
-        NSLog(@"add to user default array");
     } else {
         NSMutableArray *array = [[NSMutableArray alloc] init];
         [array addObject:[virus toNSDictionary]];
         
         [_userDefaults setObject:array forKey:VIRUS_LIST_KEY]; //ここで指定したキーで保存・読み込みを行う
         [_userDefaults synchronize]; //保存を実行
-        NSLog(@"make new user default array");
     }
 }
 

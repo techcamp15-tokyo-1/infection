@@ -214,16 +214,18 @@
             break;
         case 1:
         {
-            //TODO
-            //アプリ起動時にBT通信Sessionを作成しておき、ここではGKSessionでaddVirusを行う
-            //blue tooth 通信の開始
-//            NSLog(@"Audio");
-//            [AudioPlayer playDummyAudioBackground];
-//            NSLog(@"Session");
-//            GKSession* session = [[GKSession alloc] initWithSessionID: @"infection" displayName:nil sessionMode:GKSessionModePeer];
+            // ユーザーに時間のかかる処理であることを表明
+            UIActivityIndicatorView *ai = [[UIActivityIndicatorView alloc] init];
+            ai.frame = CGRectMake(0, 0, 50, 50);
+            ai.center = self.view.center;
+            ai.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+            [self.view addSubview:ai];
+            [ai startAnimating];
+            
+            // Bluetoothセッションの初期化
             MyGKSessionDelegate* delegate = [MyGKSessionDelegate sharedInstance];
             NSDictionary* virus_dict = [selectedVirus toNSDictionary];
-//            NSLog(@"Server");
+            NSLog(@"Server");
             NSData* response = [HTTPRequester sendPostWithDictionary:@"http://nokok.dip.jp/infectionapp/spread.php" :virus_dict];
             if (response == nil) {
                 connection_failed = YES;
@@ -231,12 +233,10 @@
             }
             NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
             [delegate addVirus:selectedVirus];
-//            session.delegate = delegate;
-//            [session setDataReceiveHandler:[MyGKSessionDelegate sharedInstance] withContext:nil];
-//            session.available = YES;
-//            NSLog(@"END");
+
             //画面遷移の設定
             [self switchView:VIEW_SPREAD];
+            
             //デフォルトの感染人数の設定
             _infectedNumberText.text = [[NSString alloc] initWithFormat:@"1"];
             _totalInfectedNumberText.text = [[NSString alloc] initWithFormat:@"1"];
@@ -256,7 +256,6 @@
     }
 }
 
-
 /**
  * 拡散中
  */
@@ -265,16 +264,10 @@
  */
 - (void)createTimer
 {
-    // 指定時間経過後に呼び出すメソッドに渡すデータをセット(この場合はなくてもいいかも？)
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                              @"Snoopy", @"name",
-                              [NSNumber numberWithInt:10], @"age", nil];
-    
-    // タイマーを生成:Intervalで時間(sec),repeatsで繰り返し(YES,NO)
     timer = [NSTimer scheduledTimerWithTimeInterval:60.0f
                                      target:self
                                    selector:@selector(doTimer:)
-                                   userInfo:userInfo
+                                   userInfo:nil
                                     repeats:YES
      ];
 }
@@ -285,7 +278,6 @@
  */
 - (void)doTimer:(NSTimer *)timer
 {
-    NSLog(@"Timer func is called.");
     [self getVirusNumber];
 }
 

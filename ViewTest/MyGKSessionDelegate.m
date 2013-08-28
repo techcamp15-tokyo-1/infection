@@ -206,7 +206,6 @@ static MyGKSessionDelegate* singleton = nil;
     NSLog(@"Received data from peerID:%@", peerID);
     NSArray* virus_json_array = [JSONConverter objectFrom:data];
     for (NSDictionary* virus_dictionary in virus_json_array) {
-        
         [self addVirus:[[Virus alloc] initWithDictionary: virus_dictionary]];
         
         NSMutableDictionary* visualize_dictionary = [NSMutableDictionary dictionary];
