@@ -43,6 +43,12 @@
     [super dealloc];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.virusList reloadData];
+    [super viewWillAppear:animated];
+}
+
 /**
  * ウイルス一覧
  */

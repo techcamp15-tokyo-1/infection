@@ -268,7 +268,7 @@
     [self switchView:VIEW_DETAIL];
     //この時点で一覧に戻ることを許可
     [self.navigationItem setHidesBackButton:NO];
-    //一覧に遷移
+    //ウイルス一覧に遷移
     [self.navigationController popViewControllerAnimated:YES];
 }
 

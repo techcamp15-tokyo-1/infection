@@ -675,25 +675,19 @@
                                     <action selector="onButtonClicked:" destination="svP-RH-sxz" eventType="touchUpInside" id="3aj-Gv-Lfs"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="6R5-1E-GEu">
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6R5-1E-GEu" firstAttribute="bottom" secondItem="s9L-CA-82Q" secondAttribute="bottom" type="default" id="0Do-J7-6Wv"/>
                             <constraint firstAttribute="trailing" secondItem="zNj-YA-Ep5" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="2aK-AD-loG"/>
                             <constraint firstItem="CoF-LT-FR4" firstAttribute="leading" secondItem="yC2-Aj-ZmK" secondAttribute="leading" type="default" id="2bk-mc-y3p"/>
                             <constraint firstItem="zNj-YA-Ep5" firstAttribute="bottom" secondItem="h9g-r3-L7m" secondAttribute="bottom" type="default" id="3RD-I5-c4O"/>
                             <constraint firstAttribute="bottom" secondItem="FbM-HG-ktr" secondAttribute="bottom" constant="48" id="AJe-DJ-pxA"/>
-                            <constraint firstItem="6R5-1E-GEu" firstAttribute="trailing" secondItem="s9L-CA-82Q" secondAttribute="trailing" type="default" id="D50-wu-WNK"/>
                             <constraint firstItem="8Th-os-Q5N" firstAttribute="trailing" secondItem="s9L-CA-82Q" secondAttribute="trailing" type="default" id="DNn-YK-NFV"/>
                             <constraint firstItem="yC2-Aj-ZmK" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" constant="130" id="GD9-1f-JT6"/>
                             <constraint firstItem="Y0R-cv-cvK" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" type="default" id="Jjj-94-82z"/>
                             <constraint firstItem="hhG-cu-dMZ" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" constant="60" id="LDE-fM-jFJ"/>
                             <constraint firstItem="Y0R-cv-cvK" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" constant="120" id="OXG-LR-T3D"/>
                             <constraint firstItem="8Th-os-Q5N" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" type="default" id="R1s-Op-UtO"/>
-                            <constraint firstItem="6R5-1E-GEu" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" type="default" id="ROh-eU-E91"/>
                             <constraint firstItem="CoF-LT-FR4" firstAttribute="baseline" secondItem="FbM-HG-ktr" secondAttribute="baseline" type="default" id="Tb7-YQ-Kec"/>
                             <constraint firstItem="T6o-9z-ZTc" firstAttribute="bottom" secondItem="Y0R-cv-cvK" secondAttribute="bottom" type="default" id="XJL-KX-L8Y"/>
                             <constraint firstItem="FbM-HG-ktr" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" constant="40" id="Y8n-EB-Gif"/>
@@ -706,12 +700,11 @@
                             <constraint firstAttribute="bottom" secondItem="jV0-Lh-ATb" secondAttribute="bottom" constant="147" id="fgi-KN-uI0"/>
                             <constraint firstItem="h9g-r3-L7m" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" constant="20" symbolic="YES" type="default" id="hTI-KG-ljP"/>
                             <constraint firstItem="8Th-os-Q5N" firstAttribute="bottom" secondItem="s9L-CA-82Q" secondAttribute="bottom" type="default" id="p9l-ae-xyF"/>
+                            <constraint firstItem="hhG-cu-dMZ" firstAttribute="centerX" secondItem="8Th-os-Q5N" secondAttribute="centerX" type="default" id="qMa-Gs-RYg"/>
                             <constraint firstItem="jV0-Lh-ATb" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" type="default" id="sct-xu-iL4"/>
                             <constraint firstItem="zNj-YA-Ep5" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" constant="20" symbolic="YES" type="default" id="sgm-Rg-Qxi"/>
                             <constraint firstItem="yC2-Aj-ZmK" firstAttribute="leading" secondItem="zNj-YA-Ep5" secondAttribute="leading" type="default" id="uSN-8o-Fbc"/>
                             <constraint firstItem="h9g-r3-L7m" firstAttribute="leading" secondItem="s9L-CA-82Q" secondAttribute="leading" type="default" id="uxq-Od-BxX"/>
-                            <constraint firstItem="6R5-1E-GEu" firstAttribute="top" secondItem="s9L-CA-82Q" secondAttribute="top" type="default" id="xdD-ZO-mr7"/>
-                            <constraint firstItem="6R5-1E-GEu" firstAttribute="centerX" secondItem="hhG-cu-dMZ" secondAttribute="centerX" type="default" id="y7t-G7-517"/>
                             <constraint firstItem="v7g-Vh-d45" firstAttribute="trailing" secondItem="T6o-9z-ZTc" secondAttribute="trailing" type="default" id="y8J-wL-heX"/>
                         </constraints>
                     </view>
@@ -740,7 +733,6 @@
                         <outlet property="nowPointLabel" destination="h9g-r3-L7m" id="AkR-9e-V7F"/>
                         <outlet property="nowPointValue" destination="zNj-YA-Ep5" id="cHC-VB-Ic9"/>
                         <outlet property="okButton" destination="CoF-LT-FR4" id="wzD-0v-FEU"/>
-                        <outlet property="virusList" destination="6R5-1E-GEu" id="6eL-fl-xQG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9V-1H-QqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -961,7 +953,6 @@
                 <relationship kind="outlet" name="nowPointLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nowPointValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="okButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="virusList" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="SpreadViewController" superclassName="UIViewController">

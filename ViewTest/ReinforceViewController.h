@@ -14,22 +14,16 @@
 #define VIEW_VIRUS_LIST 0
 #define VIEW_REINFORCE 1
 
-@interface ReinforceViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ReinforceViewController : UIViewController
 {
-    @private
-    NSInteger view_mode;
-    NSMutableArray *itemArray;
-    
+    @private    
     Virus *selectedVirus;
     NSNumber *point;
 }
-//
-////選択したVirus
-//@property (retain, nonatomic) IBOutlet Virus *selectedVirus;
-////取得したポイント
-//@property (retain, nonatomic) IBOutlet NSNumber *point;
 
-@property (retain, nonatomic) IBOutlet UITableView *virusList;
+- (void)initViewItem;
+
+
 @property (retain, nonatomic) IBOutlet UILabel *nowPointLabel;
 @property (retain, nonatomic) IBOutlet UILabel *nowPointValue;
 @property (retain, nonatomic) IBOutlet UILabel *nameValue;
