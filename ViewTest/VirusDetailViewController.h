@@ -32,9 +32,8 @@
     NSNumber *totalInfectedNumber;
     //タイマーの切り替えが必要なため、管理しておく必要がある
     NSTimer *timer;
-    //拡散中の場合、IDを保存
-    BOOL inSpread;
-    NSString *inSpreadVirusId;
+    //通信中であることを保持
+    BOOL isInSpread;
 }
 
 - (void)switchView:(NSInteger)mode;

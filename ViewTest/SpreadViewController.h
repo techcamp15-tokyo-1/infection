@@ -33,6 +33,7 @@
 - (void)createTimer;
 - (void)doTimer:(NSTimer *)timer;
 - (void)getVirusNumber;
+@property (retain, nonatomic) IBOutlet UIBarButtonItem *blueToothSwitch;
 
 - (IBAction)onToReinforceViewButtonClicked:(id)sender;
 

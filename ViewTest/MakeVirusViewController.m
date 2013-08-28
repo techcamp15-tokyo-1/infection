@@ -134,6 +134,11 @@
     [self.view endEditing:YES];
 }
 
+//bluetoothの on off
+- (IBAction)onBlueToothSwitchClicked:(id)sender {
+    //TODO
+}
+
 
 - (void)viewDidLoad
 {
@@ -167,6 +172,7 @@
     [_durabilityText release];
     [_remnantText release];
     [_nameText release];
+    [_blueToothSwitch release];
     [super dealloc];
 }
 

@@ -26,8 +26,7 @@
     
     //フィールド値の初期化
     view_mode = VIEW_DETAIL;
-    inSpread = NO;
-    inSpreadVirusId = @"";
+    isInSpread = NO;
     
     [self switchView:view_mode];
 }
@@ -57,16 +56,19 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    //データを受け取って、ラベルに表示する
-    TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
-    selectedVirus = testAppDelegate.virusData;
-    NSString *temp = testAppDelegate.inSpreadVirusId;
-    NSLog(@"%@", temp);
+    //view表示時に通信中ならデータを受け取らない
+    if(!isInSpread){
+        //データを受け取って、ラベルに表示する
+        TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
+        selectedVirus = testAppDelegate.virusData;
+        NSString *temp = testAppDelegate.inSpreadVirusId;
+        NSLog(@"%@", temp);
     
-    //itemの初期化
-    self.nameValue.text = [selectedVirus getName];
-    self.infectionValue.text = [[selectedVirus getInfectionRate] stringValue];
-    self.durabilityValue.text = [[selectedVirus getDurability] stringValue];
+        //itemの初期化
+        self.nameValue.text = [selectedVirus getName];
+        self.infectionValue.text = [[selectedVirus getInfectionRate] stringValue];
+        self.durabilityValue.text = [[selectedVirus getDurability] stringValue];
+    }
     
     [self switchView:view_mode];
     
@@ -132,8 +134,6 @@
             break;
         case 1:
         {
-            //フラグをセット
-            inSpread = YES;
             TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
             testAppDelegate.inSpreadVirusId = [selectedVirus getVirusId];
             
@@ -147,6 +147,9 @@
             }
             NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
             [delegate addVirus:selectedVirus];
+            
+            //拡散中のフラグをたてる
+            isInSpread = YES;
             //画面遷移の設定
             [self switchView:VIEW_IN_SPREAD];
             //デフォルトの感染人数の設定
@@ -234,8 +237,8 @@
     //infected_nowが0になった時点でタイマーの繰り返しを切って画面遷移
     if(number <= 0){
         if(timer != nil){
-            //フラグをリセット
-            inSpread = NO;
+            //拡散中のフラグをリセット
+            isInSpread = NO;
             NSLog(@"Timer is killed because no person is infected with user's virus. total %ld", (long)total_number);
             [timer invalidate];
             //総感染数をフィールドにセット

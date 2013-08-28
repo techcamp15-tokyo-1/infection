@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyGKSessionDelegate.h"
 
 #define MAX_SUM_PARAM 100
 
@@ -17,4 +18,5 @@
 @property (retain, nonatomic) IBOutlet UITextField *durabilityText;
 @property (retain, nonatomic) IBOutlet UITextField *nameText;
 @property (retain, nonatomic) IBOutlet UIButton *makeButton;
+@property (retain, nonatomic) IBOutlet UISwitch *blueToothSwitch;
 @end

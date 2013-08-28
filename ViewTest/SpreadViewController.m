@@ -54,6 +54,7 @@
 - (void)dealloc {
 	[itemArray release];
     [_virusList release];
+    [_blueToothSwitch release];
     [super dealloc];
 }
 
@@ -124,4 +125,7 @@
     [self performSegueWithIdentifier:@"toDetailView" sender:self];
 }
 
+- (IBAction)onBlueToothSwitchClicked:(id)sender {
+    //TODO
+}
 @end

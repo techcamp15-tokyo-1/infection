@@ -42,5 +42,6 @@
 @property (retain, nonatomic) IBOutlet UIButton *cancelButton;
 @property (retain, nonatomic) IBOutlet UIButton *okButton;
 
+@property (retain, nonatomic) IBOutlet UIBarButtonItem *blueToothSwitch;
 
 @end

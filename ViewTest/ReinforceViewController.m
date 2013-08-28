@@ -256,6 +256,11 @@
     [self switchView:VIEW_VIRUS_LIST];
 }
 
+- (IBAction)onBlueToothSwitchClicked:(id)sender {
+    //TODO
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -275,6 +280,7 @@
     [_cancelButton release];
     [_okButton release];
     [_nameValue release];
+    [_blueToothSwitch release];
     [super dealloc];
 }
 @end
