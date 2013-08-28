@@ -22,6 +22,74 @@
 }
 
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    //フィールド値を初期化
+    point = MAX_SUM_PARAM;
+    [self initViewItem];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+}
+
+
+- (BOOL) shouldAutorotate {
+    return YES;
+}
+
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    //フィールド値を初期化
+    point = MAX_SUM_PARAM;
+    [self initViewItem];
+}
+
+- (void)dealloc {
+    [_makeButton release];
+    [_remnantValue release];
+    [_nameText release];
+    [_blueToothSwitch release];
+    [_infectionRateValue release];
+    [_durabilityValue release];
+    [_infectionRateStepper release];
+    [_durabilityStepper release];
+    [super dealloc];
+}
+
+
+- (void)initViewItem
+{
+    self.infectionRateValue.text = @"0";
+    self.durabilityValue.text = @"0";
+    self.remnantValue.text = @"100";
+    
+    //デフォルトの作成値は100
+    self.infectionRateStepper.value = 0;
+    self.infectionRateStepper.minimumValue = 0;
+    self.infectionRateStepper.maximumValue = MAX_SUM_PARAM;
+    self.infectionRateStepper.stepValue = 1;
+    
+    self.durabilityStepper.value = 0;
+    self.durabilityStepper.minimumValue = 0;
+    self.durabilityStepper.maximumValue = MAX_SUM_PARAM;
+    self.durabilityStepper.stepValue = 1;
+}
+
+
 //作成ボタンを押した時の処理
 - (IBAction)onMakeButtonCliked:(id)sender {
     NSString* uiid = [[UIApplication sharedApplication] uniqueInstallationIdentifier];
@@ -31,9 +99,9 @@
     [userDefaults setInteger:virus_n+1 forKey:@"#Viruses"];
 
     //infection rateの数値を取得
-    NSNumber *inputInfectionRate = [NSNumber numberWithInt:[self.infectionRateText.text intValue]];
+    NSNumber *inputInfectionRate = [NSNumber numberWithInt:[self.infectionRateValue.text intValue]];
     //durabilityの数値を取得
-    NSNumber *inputDurability = [NSNumber numberWithInt:[self.durabilityText.text intValue]];
+    NSNumber *inputDurability = [NSNumber numberWithInt:[self.durabilityValue.text intValue]];
     //nameを取得
     NSString *inputName = self.nameText.text;
     //ウイルスを生成
@@ -48,6 +116,8 @@
 //ユーザーデフォルトに追加
 - (void)addToUserDefault:(Virus*)virus
 {
+    NSLog(@"infection rate :%@, durability:%@", [virus getInfectionRate], [virus getDurability]);
+    
     NSUserDefaults *_userDefaults = [NSUserDefaults standardUserDefaults];
     NSArray *arr;
     
@@ -71,26 +141,6 @@
     }
 }
 
-
-//TODO
-//ユーザーでフォルトの削除
-
-//ユーザーでフォルトから読み込んで値を出力
-- (void)showUserDefaultList
-{
-    NSUserDefaults *_userDefaults = [NSUserDefaults standardUserDefaults];
-    NSArray* array = [_userDefaults arrayForKey:VIRUS_LIST_KEY];
-    for ( NSDictionary* object in array ) {
-        NSNumber *id = [NSNumber numberWithInt:[[object objectForKey:@"virus_id"] intValue]];
-        NSString *name = [object objectForKey:@"name"];
-        NSNumber *infection = [NSNumber numberWithInt:[[object objectForKey:@"infection_rate"] intValue]];
-        NSNumber *durability = [NSNumber numberWithInt:[[object objectForKey:@"durability"] intValue]];
-        NSLog(@"%@, %@, %@, %@", id, name, infection, durability);
-    }
-}
-
-
-
 //拡散開始viewへの遷移
 - (void)changeViewToSpreadView
 {
@@ -99,34 +149,29 @@
 }
 
 
-//text field への数値のみの入力制限
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    NSCharacterSet * set = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet];
-    
-    if ([string rangeOfCharacterFromSet:set].location != NSNotFound) {
-        NSLog(@"入力は数値のみです。 %@", string);
-        return NO;
-    }
-    
-    NSInteger remnantValue = [self getIntSumOfTextFiled];
-    _remnantText.text =[[NSString alloc] initWithFormat:@"%d",MAX_SUM_PARAM - remnantValue];
-    
-    return YES;
+- (IBAction)onInfectionRateStepperClicked:(id)sender {
+    //現在の値にStepperの値を足して表示
+    int sum = (int)self.infectionRateStepper.value;
+    self.infectionRateValue.text = [NSString stringWithFormat:@"%d", sum];
+    //現在の残りポイントを更新
+    int remain = point - (int)self.infectionRateStepper.value - (int)self.durabilityStepper.value;
+    self.remnantValue.text = [NSString stringWithFormat:@"%d", remain];
+    //stepperの最大値を変更
+    self.infectionRateStepper.maximumValue = point - (int)self.durabilityStepper.value;
+    self.durabilityStepper.maximumValue = point - (int)self.infectionRateStepper.value;
 }
 
-//入力制限のため、パラメータの合計値を取得して返す
--(NSInteger)getIntSumOfTextFiled
-{
-    //infection rateの数値を取得
-    NSString *inputInfectionRate = _infectionRateText.text;
-    NSInteger inputNumInfectionRate = [inputInfectionRate intValue];
-    
-    //durabilityの数値を取得
-    NSString *inputDurability = _durabilityText.text;
-    NSInteger inputNumDurability = [inputDurability intValue];
-    
-    return inputNumInfectionRate + inputNumDurability;
+
+- (IBAction)onDurabilityStepperCliked:(id)sender {
+    //現在の値にStepperの値を足して表示
+    int sum = (int)self.durabilityStepper.value;
+    self.durabilityValue.text = [NSString stringWithFormat:@"%d", sum];
+    //現在の残りポイントを更新
+    int remain = point - (int)self.infectionRateStepper.value - (int)self.durabilityStepper.value;
+    self.remnantValue.text = [NSString stringWithFormat:@"%d", remain];
+    //stepperの最大値を変更
+    self.infectionRateStepper.maximumValue = point - (int)self.durabilityStepper.value;
+    self.durabilityStepper.maximumValue = point - (int)self.infectionRateStepper.value;
 }
 
 //背景がタップされた時にキーボードを閉じる
@@ -134,46 +179,18 @@
     [self.view endEditing:YES];
 }
 
-//bluetoothの on off
-- (IBAction)onBlueToothSwitchClicked:(id)sender {
-    //TODO
-}
 
-
-- (void)viewDidLoad
+//returnが押されるとキーボードを隠す
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [super viewDidLoad];
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
-
-- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskAll;
-}
-
-
-- (BOOL) shouldAutorotate {
+    [self.view endEditing:YES];
     return YES;
 }
 
 
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-    return UIInterfaceOrientationPortrait;
-}
-
-- (void)dealloc {
-    [_makeButton release];
-    [_infectionRateText release];
-    [_durabilityText release];
-    [_remnantText release];
-    [_nameText release];
-    [_blueToothSwitch release];
-    [super dealloc];
+//bluetoothの on off
+- (IBAction)onBlueToothSwitchClicked:(id)sender {
+    //TODO
 }
 
 @end

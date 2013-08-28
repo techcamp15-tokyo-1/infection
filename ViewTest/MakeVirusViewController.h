@@ -12,11 +12,23 @@
 #define MAX_SUM_PARAM 100
 
 @interface MakeVirusViewController : UIViewController <UITextFieldDelegate>
+{
+    @private
+    NSInteger point;
+}
+
 - (IBAction)backgroundTapped:(id)sender;
-@property (retain, nonatomic) IBOutlet UITextField *infectionRateText;
-@property (retain, nonatomic) IBOutlet UILabel *remnantText;
-@property (retain, nonatomic) IBOutlet UITextField *durabilityText;
+- (void)initViewItem;
+
+@property (retain, nonatomic) IBOutlet UILabel *remnantValue;
 @property (retain, nonatomic) IBOutlet UITextField *nameText;
 @property (retain, nonatomic) IBOutlet UIButton *makeButton;
+
+@property (retain, nonatomic) IBOutlet UILabel *infectionRateValue;
+@property (retain, nonatomic) IBOutlet UIStepper *infectionRateStepper;
+@property (retain, nonatomic) IBOutlet UILabel *durabilityValue;
+@property (retain, nonatomic) IBOutlet UIStepper *durabilityStepper;
+
 @property (retain, nonatomic) IBOutlet UISwitch *blueToothSwitch;
+
 @end

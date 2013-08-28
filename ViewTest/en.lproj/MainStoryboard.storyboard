@@ -12,18 +12,10 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nw0-2f-koQ">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="jhT-WQ-Y0G"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B5z-j4-fIN">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rdg-Wv-fQf">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="bLp-sz-KUo"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -42,7 +34,7 @@
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="感染力" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pN-Bu-oT3">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="aSR-BR-GCz"/>
+                                    <constraint firstAttribute="height" constant="20" id="Q0O-H2-7j3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -76,32 +68,58 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="F7x-AV-HhN">
+                                <connections>
+                                    <action selector="onInfectionRateStepperClicked:" destination="Vuk-Hi-23e" eventType="valueChanged" id="hvb-Su-BwQ"/>
+                                </connections>
+                            </stepper>
+                            <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="WVk-8R-xln">
+                                <connections>
+                                    <action selector="onDurabilityStepperCliked:" destination="Vuk-Hi-23e" eventType="valueChanged" id="DRU-dg-7ym"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3w-p8-Z89">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="9uk-6k-4m8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1LT-8D-4Vs">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nw0-2f-koQ" firstAttribute="centerY" secondItem="5pN-Bu-oT3" secondAttribute="centerY" type="default" id="02i-Dk-0Z4"/>
                             <constraint firstItem="WjG-s1-IFF" firstAttribute="trailing" secondItem="gvf-7d-Wp1" secondAttribute="trailing" type="default" id="292-rU-jMu"/>
-                            <constraint firstAttribute="bottom" secondItem="jVo-Zg-wu5" secondAttribute="bottom" constant="119" id="6Yz-fA-kg8"/>
-                            <constraint firstAttribute="bottom" secondItem="9fg-Ea-lxK" secondAttribute="bottom" constant="70" id="8Wm-4t-rIt"/>
+                            <constraint firstItem="B3w-p8-Z89" firstAttribute="trailing" secondItem="1LT-8D-4Vs" secondAttribute="trailing" type="default" id="2cZ-dl-u04"/>
+                            <constraint firstItem="1LT-8D-4Vs" firstAttribute="leading" secondItem="B3w-p8-Z89" secondAttribute="leading" type="default" id="7BM-eL-VUG"/>
+                            <constraint firstItem="9fg-Ea-lxK" firstAttribute="top" secondItem="gvf-7d-Wp1" secondAttribute="top" constant="87" id="Bjz-x5-ysU"/>
                             <constraint firstItem="WjG-s1-IFF" firstAttribute="leading" secondItem="gvf-7d-Wp1" secondAttribute="leading" type="default" id="C3Q-MV-Pb9"/>
                             <constraint firstItem="WjG-s1-IFF" firstAttribute="bottom" secondItem="gvf-7d-Wp1" secondAttribute="bottom" type="default" id="FMA-jf-MOP"/>
-                            <constraint firstAttribute="trailing" secondItem="B5z-j4-fIN" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="NZc-QF-ed6"/>
-                            <constraint firstItem="9fg-Ea-lxK" firstAttribute="centerX" secondItem="jVo-Zg-wu5" secondAttribute="centerX" type="default" id="Nwj-jO-xiR"/>
-                            <constraint firstItem="oJC-pd-uUE" firstAttribute="centerX" secondItem="nw0-2f-koQ" secondAttribute="centerX" type="default" id="NyY-nZ-g9h"/>
-                            <constraint firstItem="SFY-5p-zbO" firstAttribute="leading" secondItem="gvf-7d-Wp1" secondAttribute="leading" constant="129" id="Pax-1n-JvH"/>
+                            <constraint firstItem="WVk-8R-xln" firstAttribute="leading" secondItem="F7x-AV-HhN" secondAttribute="leading" type="default" id="GUp-30-uun"/>
+                            <constraint firstItem="F7x-AV-HhN" firstAttribute="top" secondItem="gvf-7d-Wp1" secondAttribute="top" constant="171" id="JgD-Hn-W8F"/>
+                            <constraint firstItem="SFY-5p-zbO" firstAttribute="centerX" secondItem="WjG-s1-IFF" secondAttribute="centerX" type="default" id="JnJ-hf-7Fg"/>
+                            <constraint firstAttribute="trailing" secondItem="oJC-pd-uUE" secondAttribute="trailing" constant="85" id="NBe-E9-MH9"/>
+                            <constraint firstItem="1LT-8D-4Vs" firstAttribute="baseline" secondItem="jVo-Zg-wu5" secondAttribute="baseline" type="default" id="NGG-b6-JiL"/>
+                            <constraint firstItem="B3w-p8-Z89" firstAttribute="baseline" secondItem="5pN-Bu-oT3" secondAttribute="baseline" type="default" id="Rcw-Qc-ZaQ"/>
+                            <constraint firstItem="B3w-p8-Z89" firstAttribute="centerY" secondItem="F7x-AV-HhN" secondAttribute="centerY" type="default" id="U8x-C4-5pC"/>
+                            <constraint firstAttribute="bottom" secondItem="WVk-8R-xln" secondAttribute="bottom" constant="113" id="Vlf-Wj-9u8"/>
                             <constraint firstItem="jVo-Zg-wu5" firstAttribute="leading" secondItem="gvf-7d-Wp1" secondAttribute="leading" constant="33" id="WVs-Cx-MBv"/>
                             <constraint firstItem="oJC-pd-uUE" firstAttribute="baseline" secondItem="UbL-4a-TVH" secondAttribute="baseline" type="default" id="XZy-Dk-7YY"/>
-                            <constraint firstAttribute="trailing" secondItem="nw0-2f-koQ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="YB4-yN-HMU"/>
-                            <constraint firstItem="nw0-2f-koQ" firstAttribute="top" secondItem="gvf-7d-Wp1" secondAttribute="top" constant="170" id="cUj-Tb-mAq"/>
-                            <constraint firstItem="SFY-5p-zbO" firstAttribute="top" secondItem="gvf-7d-Wp1" secondAttribute="top" constant="54" id="g1E-q0-zla"/>
+                            <constraint firstItem="1LT-8D-4Vs" firstAttribute="top" secondItem="WVk-8R-xln" secondAttribute="top" type="default" id="arL-fz-Vjb"/>
+                            <constraint firstItem="9fg-Ea-lxK" firstAttribute="leading" secondItem="gvf-7d-Wp1" secondAttribute="leading" constant="41" id="cUl-RW-Ujj"/>
+                            <constraint firstItem="B3w-p8-Z89" firstAttribute="leading" secondItem="gvf-7d-Wp1" secondAttribute="leading" constant="147" id="cko-K8-OKg"/>
                             <constraint firstItem="UbL-4a-TVH" firstAttribute="top" secondItem="gvf-7d-Wp1" secondAttribute="top" constant="127" id="jhM-aB-u9f"/>
-                            <constraint firstAttribute="bottom" secondItem="B5z-j4-fIN" secondAttribute="bottom" constant="114" id="kfG-j5-Yr0"/>
-                            <constraint firstAttribute="bottom" secondItem="rdg-Wv-fQf" secondAttribute="bottom" constant="65" id="ngB-mc-lY8"/>
+                            <constraint firstItem="rdg-Wv-fQf" firstAttribute="top" secondItem="gvf-7d-Wp1" secondAttribute="top" constant="83" id="rOW-lg-QYv"/>
                             <constraint firstItem="5pN-Bu-oT3" firstAttribute="centerX" secondItem="UbL-4a-TVH" secondAttribute="centerX" type="default" id="rX7-Ll-tRt"/>
-                            <constraint firstItem="rdg-Wv-fQf" firstAttribute="leading" secondItem="B5z-j4-fIN" secondAttribute="leading" type="default" id="rtC-xs-hky"/>
                             <constraint firstItem="jVo-Zg-wu5" firstAttribute="centerX" secondItem="5pN-Bu-oT3" secondAttribute="centerX" type="default" id="t1s-73-pQy"/>
-                            <constraint firstAttribute="trailing" secondItem="rdg-Wv-fQf" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="x1Q-lj-VSH"/>
-                            <constraint firstItem="B5z-j4-fIN" firstAttribute="leading" secondItem="nw0-2f-koQ" secondAttribute="leading" type="default" id="xeh-6h-B6D"/>
+                            <constraint firstItem="SFY-5p-zbO" firstAttribute="top" secondItem="gvf-7d-Wp1" secondAttribute="top" constant="33" id="u4u-LC-rjs"/>
+                            <constraint firstAttribute="trailing" secondItem="F7x-AV-HhN" secondAttribute="trailing" constant="5" id="xRP-mO-qhi"/>
+                            <constraint firstItem="rdg-Wv-fQf" firstAttribute="leading" secondItem="gvf-7d-Wp1" secondAttribute="leading" constant="135" id="xzP-QO-IAg"/>
                         </constraints>
                         <connections>
                             <action selector="backgroundTapped:" destination="Vuk-Hi-23e" eventType="touchUpInside" id="dLn-8l-RDu"/>
@@ -121,11 +139,13 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="blueToothSwitch" destination="krL-9O-OyC" id="PT1-BZ-9pt"/>
-                        <outlet property="durabilityText" destination="B5z-j4-fIN" id="EAd-p2-PuJ"/>
-                        <outlet property="infectionRateText" destination="nw0-2f-koQ" id="p1p-C7-Fwz"/>
+                        <outlet property="durabilityStepper" destination="WVk-8R-xln" id="ZQB-Sh-KiU"/>
+                        <outlet property="durabilityValue" destination="1LT-8D-4Vs" id="run-0u-ILH"/>
+                        <outlet property="infectionRateStepper" destination="F7x-AV-HhN" id="F2T-ek-yhd"/>
+                        <outlet property="infectionRateValue" destination="B3w-p8-Z89" id="Rl2-wW-5l4"/>
                         <outlet property="makeButton" destination="WjG-s1-IFF" id="xw4-8q-ebb"/>
                         <outlet property="nameText" destination="rdg-Wv-fQf" id="kXT-o7-Dix"/>
-                        <outlet property="remnantText" destination="oJC-pd-uUE" id="lyZ-9p-07f"/>
+                        <outlet property="remnantValue" destination="oJC-pd-uUE" id="i2D-bF-egV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fK-dM-TUU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -836,14 +856,14 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MakeVirusViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backgroundTapped:"/>
-                <relationship kind="action" name="onBlueToothSwitchClicked:"/>
-                <relationship kind="action" name="onMakeButtonCliked:"/>
                 <relationship kind="outlet" name="blueToothSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="durabilityText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="infectionRateText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="durabilityStepper" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="durabilityValue" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="infectionRateStepper" candidateClass="UIStepper"/>
+                <relationship kind="outlet" name="infectionRateValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="makeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="nameText" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="remnantText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="remnantValue" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
@@ -852,7 +872,6 @@
         <class className="PathViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PathViewController.h"/>
             <relationships>
-                <relationship kind="action" name="onBlutToothSwitchClicked:"/>
                 <relationship kind="outlet" name="blueToothSwitch" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="virusList" candidateClass="UITableView"/>
             </relationships>
@@ -868,11 +887,6 @@
         <class className="ReinforceViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReinforceViewController.h"/>
             <relationships>
-                <relationship kind="action" name="onBlueToothSwitchClicked:"/>
-                <relationship kind="action" name="onButtonClicked:"/>
-                <relationship kind="action" name="onCancelButtonClicked:"/>
-                <relationship kind="action" name="onDurabilityStepperClicked:"/>
-                <relationship kind="action" name="onInfectionStepperClicked:"/>
                 <relationship kind="outlet" name="blueToothSwitch" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="durabilityLabel" candidateClass="UILabel"/>
@@ -891,7 +905,6 @@
         <class className="SpreadViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SpreadViewController.h"/>
             <relationships>
-                <relationship kind="action" name="onBlueToothSwitchClicked:"/>
                 <relationship kind="action" name="onToReinforceViewButtonClicked:"/>
                 <relationship kind="outlet" name="blueToothSwitch" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
@@ -901,8 +914,6 @@
         <class className="VirusDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VirusDetailViewController.h"/>
             <relationships>
-                <relationship kind="action" name="onButtonClicked:"/>
-                <relationship kind="action" name="onToReinforceViewButtonClicked:"/>
                 <relationship kind="outlet" name="durabilityValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="executeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="getPointLabel" candidateClass="UILabel"/>
@@ -920,7 +931,6 @@
         <class className="WebViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
             <relationships>
-                <relationship kind="action" name="onBlueToothSwitchClicked:"/>
                 <relationship kind="outlet" name="WebView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="blueToothSwitch" candidateClass="UIBarButtonItem"/>
             </relationships>
