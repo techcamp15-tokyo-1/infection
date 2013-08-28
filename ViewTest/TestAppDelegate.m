@@ -14,6 +14,11 @@
 
 @implementation TestAppDelegate
 
+@synthesize virusData = _virusData;
+@synthesize pointData = _pointData;
+@synthesize viewData = _viewData;
+@synthesize inSpreadVirusId = _inSpreadVirudId;
+
 - (void)dealloc
 {
     [_window release];

@@ -1,35 +1,47 @@
 //
-//  TableViewViewController.m
-//  TableView
+//  PathViewController.m
+//  Infection
 //
-//  Created by picaudiopro on 9/22/11.
-//  Copyright 2011 picaudiopro. All rights reserved.
+//  Created by techcamp on 13/08/28.
+//  Copyright (c) 2013年 technologycamp. All rights reserved.
 //
 
-#import "SpreadViewController.h"
-#import <GameKit/GameKit.h>
-#import "MyGKSessionDelegate.h"
-#import "AudioPlayer.h"
-#import "HTTPRequester.h"
-#import "JSONConverter.h"
-#import "UserDefaultKey.h"
-#import "ReinforceViewController.h"
-#import "TestAppDelegate.h"
+#import "PathViewController.h"
 
-@implementation SpreadViewController
+@interface PathViewController ()
 
+@end
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
+@implementation PathViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+	// Do any additional setup after loading the view.
     
     _virusList.delegate = self;
     _virusList.dataSource  = self;
-    
-    //フィールド値の初期化
-    view_mode = VIEW_VIRUS_LIST;
-    totalInfectedNumber = [NSNumber numberWithInt:0];
-    [self switchView:view_mode];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    [_virusList release];
+    [_blueToothSwitch release];
+    [super dealloc];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -37,33 +49,6 @@
     [self.virusList reloadData];
     [super viewWillAppear:animated];
 }
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
-
-
-- (void)dealloc {
-	[itemArray release];
-    [_virusList release];
-    [_blueToothSwitch release];
-    [super dealloc];
-}
-
-
-//tableviewと拡散中の切り替え
-- (void)switchView:(NSInteger)mode{
-    view_mode = mode;
-}
-
 
 
 /**
@@ -113,18 +98,18 @@
 //    本メソッドは、UITableViewDelegateプロトコルを採用しているのでコールされる。
 //
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	textLabel.text = [[itemArray objectAtIndex:[indexPath row]] getName];
-    
     //選択したvirusを保持
     selectedVirus = [itemArray objectAtIndex:[indexPath row]];
+    
     TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
     testAppDelegate.virusData = selectedVirus;
     
     //詳細に遷移
-    [self performSegueWithIdentifier:@"toDetailView" sender:self];
+    [self performSegueWithIdentifier:@"toWebView" sender:self];
 }
 
-- (IBAction)onBlueToothSwitchClicked:(id)sender {
+- (IBAction)onBlutToothSwitchClicked:(id)sender {
     //TODO
 }
+
 @end
