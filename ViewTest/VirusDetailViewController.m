@@ -260,11 +260,13 @@
     testAppDelegate.viewData = VIEW_REINFORCE;//reinforce_viewとで定数が被らないようにする
     //ウイルス強化タブに移動
     UITabBarController *controller = self.tabBarController;
-    controller.selectedViewController = [controller.viewControllers objectAtIndex: 3];
+    controller.selectedViewController = [controller.viewControllers objectAtIndex: 2];
     //ウイルス強化画面に移動したら、view_modeをvirusの選択リストに戻す
     [self switchView:VIEW_DETAIL];
     //この時点で一覧に戻ることを許可
     [self.navigationItem setHidesBackButton:NO];
+    //一覧に遷移
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

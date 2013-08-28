@@ -24,13 +24,6 @@
 
 //作成ボタンを押した時の処理
 - (IBAction)onMakeButtonCliked:(id)sender {
-    [self changeViewToSpreadView];
-    
-    //TODO
-    //通信の結果によって条件分岐
-    
-    //TODO
-    //一意になるようにリストから重複しない最小のidを取得
     NSString* uiid = [[UIApplication sharedApplication] uniqueInstallationIdentifier];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSInteger virus_n = [userDefaults integerForKey:@"#Viruses"];
@@ -47,6 +40,8 @@
     Virus *virus = [[Virus alloc] initWithValue:virus_id :inputName :inputInfectionRate :inputDurability];
     //user defaultに保存
     [self addToUserDefault:virus];
+    //viewを遷移
+    [self changeViewToSpreadView];
 }
 
 
@@ -100,7 +95,7 @@
 - (void)changeViewToSpreadView
 {
     UITabBarController *controller = self.tabBarController;
-    controller.selectedViewController = [controller.viewControllers objectAtIndex: 2];
+    controller.selectedViewController = [controller.viewControllers objectAtIndex: 1];
 }
 
 
