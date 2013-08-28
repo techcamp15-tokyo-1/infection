@@ -338,7 +338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0CI-GL-seE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="443" y="580"/>
+            <point key="canvasLocation" x="348" y="580"/>
         </scene>
         <!--Path View Controller - 拡散経路を可視化-->
         <scene sceneID="8rr-ti-jUE">
@@ -495,7 +495,62 @@
             </objects>
             <point key="canvasLocation" x="1136" y="-745"/>
         </scene>
-        <!--Reinforce View Controller - ウイルスを強化-->
+        <!--Reinforce List View Controller - ウイルスを強化-->
+        <scene sceneID="jVk-dg-Fbp">
+            <objects>
+                <viewController id="vbM-Ew-ubL" customClass="ReinforceListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JBh-io-MyA">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="Uel-IJ-5DQ">
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="TuP-sn-IGb">
+                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="svP-RH-sxz" kind="push" identifier="toReinforceView" id="xVe-AS-8ZI"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Uel-IJ-5DQ" firstAttribute="trailing" secondItem="JBh-io-MyA" secondAttribute="trailing" type="default" id="LbM-UU-oDY"/>
+                            <constraint firstItem="Uel-IJ-5DQ" firstAttribute="leading" secondItem="JBh-io-MyA" secondAttribute="leading" type="default" id="dFM-hc-xtm"/>
+                            <constraint firstItem="Uel-IJ-5DQ" firstAttribute="top" secondItem="JBh-io-MyA" secondAttribute="top" type="default" id="hrr-v8-ELc"/>
+                            <constraint firstItem="Uel-IJ-5DQ" firstAttribute="bottom" secondItem="JBh-io-MyA" secondAttribute="bottom" type="default" id="ozO-D1-MMU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="ウイルスを強化" id="aKF-S9-4re">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="6TV-y6-cpl">
+                            <switch key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="601-uM-KQX">
+                                <rect key="frame" x="238" y="8" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <connections>
+                                <action selector="onBlueToothSwitchClicked:" destination="vbM-Ew-ubL" id="dXj-Ph-vAI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="blueToothSwitch" destination="6TV-y6-cpl" id="Vx8-8k-1X4"/>
+                        <outlet property="virusList" destination="Uel-IJ-5DQ" id="Rdz-lz-eMa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gjh-sf-NRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-121" y="1199"/>
+        </scene>
+        <!--Reinforce View Controller - 各パラメータの強化-->
         <scene sceneID="e6z-FP-8ZK">
             <objects>
                 <viewController id="svP-RH-sxz" customClass="ReinforceViewController" sceneMemberID="viewController">
@@ -660,7 +715,7 @@
                             <constraint firstItem="v7g-Vh-d45" firstAttribute="trailing" secondItem="T6o-9z-ZTc" secondAttribute="trailing" type="default" id="y8J-wL-heX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ウイルスを強化" id="cTv-2W-4kp">
+                    <navigationItem key="navigationItem" title="各パラメータの強化" id="cTv-2W-4kp">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="5kY-CO-9Df">
                             <switch key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="ijJ-09-Srl">
                                 <rect key="frame" x="238" y="8" width="79" height="27"/>
@@ -690,7 +745,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9V-1H-QqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-72" y="1207"/>
+            <point key="canvasLocation" x="348" y="1199"/>
         </scene>
         <!--Web View Controller - 拡散経路-->
         <scene sceneID="7SH-Bs-ccM">
@@ -772,7 +827,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4o-AA-fZl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-614" y="592"/>
+            <point key="canvasLocation" x="-638" y="592"/>
         </scene>
         <!--Navigation Controller - 登録・変更-->
         <scene sceneID="xjE-QF-7SW">
@@ -824,7 +879,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="svP-RH-sxz" kind="relationship" relationship="rootViewController" id="7Km-fT-hIs"/>
+                        <segue destination="vbM-Ew-ubL" kind="relationship" relationship="rootViewController" id="LRh-4h-jCk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sp9-39-hsd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -882,6 +937,13 @@
                 <relationship kind="action" name="responseToButtonClick:"/>
                 <relationship kind="outlet" name="nameText" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="registerButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ReinforceListViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReinforceListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="blueToothSwitch" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="virusList" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="ReinforceViewController" superclassName="UIViewController">

@@ -150,7 +150,6 @@
 
 
 - (IBAction)onInfectionRateStepperClicked:(id)sender {
-    //現在の値にStepperの値を足して表示
     int sum = (int)self.infectionRateStepper.value;
     self.infectionRateValue.text = [NSString stringWithFormat:@"%d", sum];
     //現在の残りポイントを更新
@@ -163,7 +162,6 @@
 
 
 - (IBAction)onDurabilityStepperCliked:(id)sender {
-    //現在の値にStepperの値を足して表示
     int sum = (int)self.durabilityStepper.value;
     self.durabilityValue.text = [NSString stringWithFormat:@"%d", sum];
     //現在の残りポイントを更新
