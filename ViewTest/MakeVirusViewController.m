@@ -96,6 +96,12 @@
 
 //作成ボタンを押した時の処理
 - (IBAction)onMakeButtonCliked:(id)sender {
+    //入力が空の場合は作成できないようにしておく
+    if ([self.nameText.text length] == 0){
+        [self showAlert:@"未入力" :@"ウイルス名が未入力です。ウイルス名を入力してください。"];
+        return;
+    }
+    
     NSString* uiid = [[UIApplication sharedApplication] uniqueInstallationIdentifier];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSInteger virus_n = [userDefaults integerForKey:@"#Viruses"];
@@ -185,6 +191,27 @@
 {
     [self.view endEditing:YES];
     return YES;
+}
+
+
+//alertを表示
+- (void) showAlert:(NSString *)title :(NSString*)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 5, 40, 40)];
+    
+    NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"blocked.png"]];
+    UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
+    [imageView setImage:bkgImg];
+    [bkgImg release];
+    [path release];
+    
+    [alert addSubview:imageView];
+    [imageView release];
+    
+    [alert show];
+    [alert release];
 }
 
 

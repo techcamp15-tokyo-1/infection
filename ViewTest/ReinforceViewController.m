@@ -128,8 +128,7 @@
     
     //新しい値を持ったvirusを生成
     Virus *temp = [[Virus alloc] initWithValue:[selectedVirus getVirusId] :[selectedVirus getName] :[selectedVirus getInfectionRate] :[selectedVirus getDurability]];
-    int next_image_no = [[selectedVirus getImageNo] intValue] + 1;
-    NSLog(@"%d", next_image_no);
+    int next_image_no = [[selectedVirus getImageNo] intValue] + [point intValue];
     [temp setImageNo:[[NSNumber alloc] initWithInt:next_image_no]];
     [temp setInfectionRate:[NSNumber numberWithInt:[self.infectionValue.text intValue]]];
     [temp setDurability:[NSNumber numberWithInt:[self.durabilityValue.text intValue]]];
