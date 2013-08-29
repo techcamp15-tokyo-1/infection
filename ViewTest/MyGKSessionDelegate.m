@@ -221,6 +221,31 @@ static MyGKSessionDelegate* singleton = nil;
         [visualize_dictionary setValue:from_user forKey:@"from_name"];
         [visualize_dictionary setValue:to_user forKey:@"to_name"];
         [HTTPRequester sendAsynchPostWithDictionary:@"http://nokok.dip.jp/infectionapp/report.php" :visualize_dictionary];
+        
+        NSString* virus_name = [virus_dictionary objectForKey:@"name"];
+        [self showAlert:@"ウイルスに感染！" :[virus_name stringByAppendingFormat:@"に感染しました！"]];
     }
 }
+
+
+//alertを表示
+- (void) showAlert:(NSString *)title :(NSString*)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(220, 10, 40, 40)];
+    
+    NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"img115_22.png"]];
+    UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
+    [imageView setImage:bkgImg];
+    [bkgImg release];
+    [path release];
+    
+    [alert addSubview:imageView];
+    [imageView release];
+    
+    [alert show];
+    [alert release];
+}
+
 @end

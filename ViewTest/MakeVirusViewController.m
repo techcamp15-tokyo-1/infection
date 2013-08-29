@@ -26,6 +26,11 @@
 {
     [super viewDidLoad];
     
+    self.nameText.delegate = self;
+    
+    //navigation barの背景を変更
+    UIColor *red = [UIColor colorWithRed:0.5 green:0.2 blue:0.2 alpha:1.0];
+    [self.navigationController.navigationBar setTintColor:red];
     //フィールド値を初期化
     point = MAX_SUM_PARAM;
     [self initViewItem];
@@ -62,7 +67,6 @@
     [_makeButton release];
     [_remnantValue release];
     [_nameText release];
-    [_blueToothSwitch release];
     [_infectionRateValue release];
     [_durabilityValue release];
     [_infectionRateStepper release];
@@ -76,22 +80,29 @@
     self.infectionRateValue.text = @"0";
     self.durabilityValue.text = @"0";
     self.remnantValue.text = @"100";
+    self.nameText.text = @"";
     
     //デフォルトの作成値は100
     self.infectionRateStepper.value = 0;
     self.infectionRateStepper.minimumValue = 0;
     self.infectionRateStepper.maximumValue = MAX_SUM_PARAM;
-    self.infectionRateStepper.stepValue = 1;
+    self.infectionRateStepper.stepValue = 10;
     
     self.durabilityStepper.value = 0;
     self.durabilityStepper.minimumValue = 0;
     self.durabilityStepper.maximumValue = MAX_SUM_PARAM;
-    self.durabilityStepper.stepValue = 1;
+    self.durabilityStepper.stepValue = 10;
 }
 
 
 //作成ボタンを押した時の処理
 - (IBAction)onMakeButtonCliked:(id)sender {
+    //入力が空の場合は作成できないようにしておく
+    if ([self.nameText.text length] == 0){
+        [self showAlert:@"未入力" :@"ウイルス名が未入力です。ウイルス名を入力してください。"];
+        return;
+    }
+    
     NSString* uiid = [[UIApplication sharedApplication] uniqueInstallationIdentifier];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSInteger virus_n = [userDefaults integerForKey:@"#Viruses"];
@@ -184,9 +195,25 @@
 }
 
 
-//bluetoothの on off
-- (IBAction)onBlueToothSwitchClicked:(id)sender {
-    //TODO
+//alertを表示
+- (void) showAlert:(NSString *)title :(NSString*)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 5, 40, 40)];
+    
+    NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"blocked.png"]];
+    UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
+    [imageView setImage:bkgImg];
+    [bkgImg release];
+    [path release];
+    
+    [alert addSubview:imageView];
+    [imageView release];
+    
+    [alert show];
+    [alert release];
 }
+
 
 @end

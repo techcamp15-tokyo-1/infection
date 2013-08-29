@@ -23,6 +23,7 @@
 
 - (void)initViewItem;
 
+@property (retain, nonatomic) IBOutlet UIImageView *virusImage;
 
 @property (retain, nonatomic) IBOutlet UILabel *nowPointLabel;
 @property (retain, nonatomic) IBOutlet UILabel *nowPointValue;
@@ -36,6 +37,5 @@
 @property (retain, nonatomic) IBOutlet UIButton *cancelButton;
 @property (retain, nonatomic) IBOutlet UIButton *okButton;
 
-@property (retain, nonatomic) IBOutlet UIBarButtonItem *blueToothSwitch;
 
 @end

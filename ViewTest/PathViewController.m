@@ -30,6 +30,10 @@
     
     _virusList.delegate = self;
     _virusList.dataSource  = self;
+    
+    //navigation barの背景を変更
+    UIColor *red = [UIColor colorWithRed:0.5 green:0.2 blue:0.2 alpha:1.0];
+    [self.navigationController.navigationBar setTintColor:red];
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,7 +91,40 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell;
 	cell = [[[UITableViewCell alloc] init] autorelease];
-	cell.textLabel.text = [[itemArray objectAtIndex: indexPath.row] getName];
+//	cell.textLabel.text = [[itemArray objectAtIndex: indexPath.row] getName];
+    
+    UILabel *textView = [[UILabel alloc] initWithFrame:CGRectMake(40, 2, 160, 40)];
+    textView.text = [[itemArray objectAtIndex: indexPath.row] getName];
+    textView.backgroundColor = [UIColor clearColor];
+    [textView setFont:[UIFont systemFontOfSize:25]];
+    
+    [cell addSubview:textView];
+    
+    //セルに画像を追加
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(240, 0, 40, 40)];
+    
+    NSString *path;
+    //アイコンを変更
+    switch ([[[itemArray objectAtIndex: indexPath.row] getImageNo] intValue]) {
+        case 0:
+            path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"img115_22.png"]];
+            break;
+            
+        case 1:
+            path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"img115_71.png"]];
+            break;
+            
+        default:
+            path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"img115_31.png"]];
+            break;
+    }
+    UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
+    [imageView setImage:bkgImg];
+    [bkgImg release];
+    [path release];
+    
+    [cell addSubview:imageView];
+
 	return cell;
 }
 

@@ -30,6 +30,9 @@
 {
     [super viewDidLoad];
     
+    //navigation barの背景を変更
+    UIColor *red = [UIColor colorWithRed:0.5 green:0.2 blue:0.2 alpha:1.0];
+    [self.navigationController.navigationBar setTintColor:red];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -68,9 +71,13 @@
      }];
 }
 
-
-- (IBAction)onBlueToothSwitchClicked:(id)sender {
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    //ウイルス一覧に遷移
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -80,7 +87,6 @@
 
 - (void)dealloc {
     [_WebView release];
-    [_blueToothSwitch release];
     [super dealloc];
 }
 @end

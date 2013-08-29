@@ -11,6 +11,5 @@
 @interface WebViewController : UIViewController
 
 @property (retain, nonatomic) IBOutlet UIWebView *WebView;
-@property (retain, nonatomic) IBOutlet UIBarButtonItem *blueToothSwitch;
 
 @end
