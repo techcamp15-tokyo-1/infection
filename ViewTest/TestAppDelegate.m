@@ -11,6 +11,7 @@
 #import "AudioPlayer.h"
 #import "MyGKSessionDelegate.h"
 #import "UIApplication+UIID.h"
+#import "HTTPRequester.h"
 
 @implementation TestAppDelegate
 
@@ -50,7 +51,6 @@
     NSUserDefaults* nd = [NSUserDefaults standardUserDefaults];
     NSString* name = [[UIApplication sharedApplication] uniqueInstallationIdentifier];
     [nd setObject:name forKey:@"Name"];
-    
     return YES;
 }
 

@@ -147,7 +147,7 @@
             [session setDataReceiveHandler:[MyGKSessionDelegate sharedInstance] withContext:nil];
             session.available = YES;
             NSDictionary* virus_dict = [selectedVirus toNSDictionary];
-            [HTTPRequester sendAsynchPostWithDictionary:@"http://nokok.dip.jp/infectionapp/spread.php" :virus_dict];
+            [HTTPRequester sendAsynchPostWithDictionary:@"http://nokok.dip.jp/infectionapp/infected.php" :virus_dict];
             [delegate addVirus:selectedVirus : NO];
             
             //拡散中のフラグをたてる

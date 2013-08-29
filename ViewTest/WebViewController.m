@@ -44,8 +44,8 @@
     
     NSURL* url = [NSURL URLWithString:@"http://nokok.dip.jp/infectionapp/visualize.php"];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
-    NSDictionary* dictionary = [virus toNSDictionary];
-    [virus setValue:nameStr forKey:@"name"];
+    NSMutableDictionary* dictionary = [[virus toNSDictionary] mutableCopy];
+    [dictionary setValue:nameStr forKey:@"user_name"];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:[[HTTPRequester postString:dictionary] dataUsingEncoding:NSUTF8StringEncoding]];
     [NSURLConnection sendAsynchronousRequest:request
@@ -63,6 +63,7 @@
          }
          else if (error != nil){
              NSLog(@"Error = %@", error);
+             [self viewDidAppear:NO];
          }
      }];
 }
