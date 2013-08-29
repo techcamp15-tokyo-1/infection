@@ -192,6 +192,8 @@
             
             //タイマーの開始
             [self createTimer];
+            //強制終了用のタイマーの開始
+            [self createStopTimer];
             
             //一覧に戻ってしまうと処理が面倒なのでとりあえず拡散中は戻れないようにしておく
             [self.navigationItem setHidesBackButton:YES];
@@ -270,8 +272,6 @@
              //infected_nowが0になった時点でタイマーの繰り返しを切って画面遷移
              if(number <= 0){
                  if(timer != nil){
-                     //拡散中のフラグをリセット
-                     isInSpread = NO;
                      NSLog(@"Timer is killed because no person is infected with user's virus. total %ld", (long)total_number);
                      [timer invalidate];
                      //総感染数をフィールドにセット
@@ -295,12 +295,47 @@
      }];
 }
 
+/**
+ * 通信強制終了用のtimerの呼び出し
+ */
+- (void)createStopTimer
+{
+    stopTimer = [NSTimer scheduledTimerWithTimeInterval:100.0f
+                                             target:self
+                                           selector:@selector(doStopTimer:)
+                                           userInfo:nil
+                                            repeats:NO
+             ];
+    [[NSRunLoop currentRunLoop] addTimer:stopTimer forMode:NSDefaultRunLoopMode];
+}
+
+
+- (void)doStopTimer:(NSTimer *)_timer
+{
+    //timer が生きているか確認
+    if(![timer isValid]){
+        NSLog(@"Timer is already killed.");
+        return;
+    }
+    
+    [timer invalidate];
+    NSLog(@"Timer is killed because of over time connection 100.0f");
+    
+    //総感染数をフィールドにセット
+    totalInfectedNumber = [NSNumber numberWithInt:[self.infectedTotalValue.text intValue]];
+    self.getPointValue.text = [totalInfectedNumber stringValue];
+    //画面遷移
+    [self switchView:VIEW_POINT];
+    return;
+}
+
 
 /**
  * Point Get
  */
 - (IBAction)onToReinforceViewButtonClicked:(id)sender {
-    //reinforceViewControllerにvirusを渡す
+    //拡散中のフラグをリセット
+    isInSpread = NO;
     //データを送る準備
     TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
     testAppDelegate.virusData = selectedVirus;

@@ -13,6 +13,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.50000000000000011" contentMode="scaleToFill" image="back_blood.gif" translatesAutoresizingMaskIntoConstraints="NO" id="GSx-6a-cuK"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000013" contentMode="scaleToFill" image="plus.png" translatesAutoresizingMaskIntoConstraints="NO" id="t5n-is-aTM">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="IZd-MH-R4N"/>
+                                    <constraint firstAttribute="height" constant="80" id="j7l-D0-ekw"/>
+                                </constraints>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rdg-Wv-fQf">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="OxK-sA-s5M"/>
@@ -121,10 +127,10 @@
                             <constraint firstAttribute="trailing" secondItem="F7x-AV-HhN" secondAttribute="trailing" constant="6" id="0QV-M4-bmt"/>
                             <constraint firstItem="jVo-Zg-wu5" firstAttribute="trailing" secondItem="5pN-Bu-oT3" secondAttribute="trailing" type="default" id="0W3-03-eLw"/>
                             <constraint firstItem="GSx-6a-cuK" firstAttribute="trailing" secondItem="gvf-7d-Wp1" secondAttribute="trailing" type="default" id="0nP-Il-qLe"/>
-                            <constraint firstItem="WjG-s1-IFF" firstAttribute="centerX" secondItem="R5f-AA-o35" secondAttribute="centerX" type="default" id="2z6-oi-Bjf"/>
-                            <constraint firstItem="GSx-6a-cuK" firstAttribute="centerX" secondItem="R5f-AA-o35" secondAttribute="centerX" type="default" id="4Dx-Hl-ZpT"/>
+                            <constraint firstItem="t5n-is-aTM" firstAttribute="top" secondItem="gvf-7d-Wp1" secondAttribute="top" constant="140" id="2GR-63-Wsa"/>
                             <constraint firstItem="oJC-pd-uUE" firstAttribute="leading" secondItem="B3w-p8-Z89" secondAttribute="leading" type="default" id="5j0-ME-gBA"/>
                             <constraint firstItem="oJC-pd-uUE" firstAttribute="trailing" secondItem="B3w-p8-Z89" secondAttribute="trailing" type="default" id="7yq-64-GMg"/>
+                            <constraint firstItem="t5n-is-aTM" firstAttribute="centerX" secondItem="WjG-s1-IFF" secondAttribute="centerX" type="default" id="85n-8C-Dve"/>
                             <constraint firstItem="oJC-pd-uUE" firstAttribute="baseline" secondItem="UbL-4a-TVH" secondAttribute="baseline" type="default" id="9tN-5l-ohZ"/>
                             <constraint firstItem="GSx-6a-cuK" firstAttribute="top" secondItem="gvf-7d-Wp1" secondAttribute="top" type="default" id="AAz-q5-6GY"/>
                             <constraint firstAttribute="bottom" secondItem="2QI-Q8-WOu" secondAttribute="bottom" constant="155" id="DfB-tt-fbP"/>
@@ -141,8 +147,10 @@
                             <constraint firstItem="B3w-p8-Z89" firstAttribute="baseline" secondItem="5pN-Bu-oT3" secondAttribute="baseline" type="default" id="VCt-pK-aTM"/>
                             <constraint firstItem="1LT-8D-4Vs" firstAttribute="top" secondItem="jVo-Zg-wu5" secondAttribute="top" type="default" id="Z0N-A1-7Tn"/>
                             <constraint firstItem="UbL-4a-TVH" firstAttribute="top" secondItem="gvf-7d-Wp1" secondAttribute="top" constant="155" id="ZvO-he-jGf"/>
+                            <constraint firstItem="t5n-is-aTM" firstAttribute="centerX" secondItem="GSx-6a-cuK" secondAttribute="centerX" type="default" id="a9x-Pd-8MT"/>
                             <constraint firstItem="R5f-AA-o35" firstAttribute="top" secondItem="gvf-7d-Wp1" secondAttribute="top" constant="2" id="aYa-31-dld"/>
                             <constraint firstItem="2QI-Q8-WOu" firstAttribute="centerX" secondItem="oJC-pd-uUE" secondAttribute="centerX" type="default" id="acA-HQ-kJ3"/>
+                            <constraint firstItem="t5n-is-aTM" firstAttribute="centerX" secondItem="R5f-AA-o35" secondAttribute="centerX" type="default" id="asn-aW-WRj"/>
                             <constraint firstItem="oJC-pd-uUE" firstAttribute="top" secondItem="UbL-4a-TVH" secondAttribute="top" type="default" id="biw-Mb-xuN"/>
                             <constraint firstItem="5pN-Bu-oT3" firstAttribute="leading" secondItem="UbL-4a-TVH" secondAttribute="leading" type="default" id="fSk-gy-GgC"/>
                             <constraint firstAttribute="bottom" secondItem="WjG-s1-IFF" secondAttribute="bottom" constant="8" id="gtj-Or-cbv"/>
@@ -390,6 +398,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="back_blood.gif" translatesAutoresizingMaskIntoConstraints="NO" id="zyu-v1-XIe"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="share.png" translatesAutoresizingMaskIntoConstraints="NO" id="CKA-Mw-49q">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="EjC-LZ-MwD"/>
+                                    <constraint firstAttribute="height" constant="80" id="w44-Bg-tqE"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yhB-Sn-Ezn">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -411,12 +425,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zyu-v1-XIe" firstAttribute="leading" secondItem="tke-k1-kPM" secondAttribute="leading" type="default" id="6Vm-dg-p4U"/>
+                            <constraint firstItem="CKA-Mw-49q" firstAttribute="top" secondItem="tke-k1-kPM" secondAttribute="top" constant="140" id="7eH-na-Ozj"/>
                             <constraint firstItem="yhB-Sn-Ezn" firstAttribute="trailing" secondItem="tke-k1-kPM" secondAttribute="trailing" type="default" id="DNb-Rw-g6Z"/>
                             <constraint firstItem="yhB-Sn-Ezn" firstAttribute="bottom" secondItem="tke-k1-kPM" secondAttribute="bottom" type="default" id="T3j-zR-UR4"/>
                             <constraint firstItem="zyu-v1-XIe" firstAttribute="top" secondItem="tke-k1-kPM" secondAttribute="top" type="default" id="Ufy-k1-XXA"/>
                             <constraint firstItem="yhB-Sn-Ezn" firstAttribute="top" secondItem="tke-k1-kPM" secondAttribute="top" type="default" id="egK-C5-htm"/>
                             <constraint firstItem="zyu-v1-XIe" firstAttribute="trailing" secondItem="tke-k1-kPM" secondAttribute="trailing" type="default" id="kRs-MF-DvF"/>
                             <constraint firstItem="yhB-Sn-Ezn" firstAttribute="leading" secondItem="tke-k1-kPM" secondAttribute="leading" type="default" id="mDg-et-4F8"/>
+                            <constraint firstItem="CKA-Mw-49q" firstAttribute="centerX" secondItem="zyu-v1-XIe" secondAttribute="centerX" type="default" id="yKi-j4-ed9"/>
                             <constraint firstItem="zyu-v1-XIe" firstAttribute="bottom" secondItem="tke-k1-kPM" secondAttribute="bottom" type="default" id="zJC-26-iHZ"/>
                         </constraints>
                     </view>
@@ -441,10 +457,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="back_blood.gif" translatesAutoresizingMaskIntoConstraints="NO" id="2Zr-aY-wr7"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="upload.png" translatesAutoresizingMaskIntoConstraints="NO" id="UuG-hm-b1G">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="23l-vJ-DzL"/>
+                                    <constraint firstAttribute="height" constant="80" id="75L-Ll-FVx"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MUc-TB-dLx">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SjU-yM-Kkj">
+                                    <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="spreadCell" id="SjU-yM-Kkj">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -468,7 +490,9 @@
                             <constraint firstItem="MUc-TB-dLx" firstAttribute="top" secondItem="E7v-Xw-BDi" secondAttribute="top" type="default" id="Xby-tW-cM1"/>
                             <constraint firstItem="2Zr-aY-wr7" firstAttribute="top" secondItem="E7v-Xw-BDi" secondAttribute="top" type="default" id="bmm-74-RdM"/>
                             <constraint firstItem="2Zr-aY-wr7" firstAttribute="trailing" secondItem="E7v-Xw-BDi" secondAttribute="trailing" type="default" id="une-gu-EX5"/>
+                            <constraint firstItem="UuG-hm-b1G" firstAttribute="top" secondItem="E7v-Xw-BDi" secondAttribute="top" constant="140" id="vDd-ln-k8H"/>
                             <constraint firstItem="MUc-TB-dLx" firstAttribute="trailing" secondItem="E7v-Xw-BDi" secondAttribute="trailing" type="default" id="wjX-Op-COv"/>
+                            <constraint firstItem="UuG-hm-b1G" firstAttribute="centerX" secondItem="MUc-TB-dLx" secondAttribute="centerX" type="default" id="y40-Nw-CDR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="拡散するウイルスを選択" id="8RY-lh-TKF">
@@ -548,6 +572,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="back_blood.gif" translatesAutoresizingMaskIntoConstraints="NO" id="ftL-yW-THP"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="hammer2.png" translatesAutoresizingMaskIntoConstraints="NO" id="zXc-T4-12D">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="X2K-0R-PmC"/>
+                                    <constraint firstAttribute="height" constant="80" id="uMv-Tl-6Jv"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Uel-IJ-5DQ">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -571,10 +601,12 @@
                             <constraint firstItem="ftL-yW-THP" firstAttribute="bottom" secondItem="JBh-io-MyA" secondAttribute="bottom" type="default" id="IXm-om-Xpd"/>
                             <constraint firstItem="ftL-yW-THP" firstAttribute="top" secondItem="JBh-io-MyA" secondAttribute="top" type="default" id="Jla-1W-5l6"/>
                             <constraint firstItem="Uel-IJ-5DQ" firstAttribute="trailing" secondItem="JBh-io-MyA" secondAttribute="trailing" type="default" id="LbM-UU-oDY"/>
+                            <constraint firstItem="zXc-T4-12D" firstAttribute="centerX" secondItem="Uel-IJ-5DQ" secondAttribute="centerX" type="default" id="cuH-DD-x4k"/>
                             <constraint firstItem="Uel-IJ-5DQ" firstAttribute="leading" secondItem="JBh-io-MyA" secondAttribute="leading" type="default" id="dFM-hc-xtm"/>
                             <constraint firstItem="Uel-IJ-5DQ" firstAttribute="top" secondItem="JBh-io-MyA" secondAttribute="top" type="default" id="hrr-v8-ELc"/>
                             <constraint firstItem="ftL-yW-THP" firstAttribute="leading" secondItem="JBh-io-MyA" secondAttribute="leading" type="default" id="htc-8e-3wg"/>
                             <constraint firstItem="Uel-IJ-5DQ" firstAttribute="bottom" secondItem="JBh-io-MyA" secondAttribute="bottom" type="default" id="ozO-D1-MMU"/>
+                            <constraint firstItem="zXc-T4-12D" firstAttribute="top" secondItem="JBh-io-MyA" secondAttribute="top" constant="140" id="paw-7m-UZt"/>
                             <constraint firstItem="ftL-yW-THP" firstAttribute="trailing" secondItem="JBh-io-MyA" secondAttribute="trailing" type="default" id="sgH-jH-Jrv"/>
                         </constraints>
                     </view>
@@ -907,7 +939,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Den-p9-EG1">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="ZHk-Gx-e03" sceneMemberID="viewController">
+                <tabBarController definesPresentationContext="YES" modalTransitionStyle="partialCurl" id="ZHk-Gx-e03" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="XQg-Uu-Msa">
@@ -1064,6 +1096,7 @@
         <class className="PathViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PathViewController.h"/>
             <relationships>
+                <relationship kind="action" name="onBlutToothSwitchClicked:"/>
                 <relationship kind="outlet" name="blueToothSwitch" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="virusList" candidateClass="UITableView"/>
             </relationships>
@@ -1085,6 +1118,10 @@
         <class className="ReinforceViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReinforceViewController.h"/>
             <relationships>
+                <relationship kind="action" name="onButtonClicked:"/>
+                <relationship kind="action" name="onCancelButtonClicked:"/>
+                <relationship kind="action" name="onDurabilityStepperClicked:"/>
+                <relationship kind="action" name="onInfectionStepperClicked:"/>
                 <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="durabilityLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="durabilityStepper" candidateClass="UIStepper"/>
@@ -1108,6 +1145,8 @@
         <class className="VirusDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/VirusDetailViewController.h"/>
             <relationships>
+                <relationship kind="action" name="onButtonClicked:"/>
+                <relationship kind="action" name="onToReinforceViewButtonClicked:"/>
                 <relationship kind="outlet" name="durabilityValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="executeButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="getPointLabel" candidateClass="UILabel"/>

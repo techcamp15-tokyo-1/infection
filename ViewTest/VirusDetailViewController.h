@@ -21,6 +21,8 @@
 #define VIEW_IN_SPREAD 1
 #define VIEW_POINT 2
 
+#define TIME_KILL_TIMER 100.0f
+
 @interface VirusDetailViewController : UIViewController
 {
     @private
@@ -34,6 +36,9 @@
     NSTimer *timer;
     //通信中であることを保持
     BOOL isInSpread;
+    
+    //強制的に通信を終了するためのtimer
+    NSTimer *stopTimer;
 }
 
 - (void)switchView:(NSInteger)mode;
