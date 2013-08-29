@@ -311,13 +311,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MES-Gu-1LC" firstAttribute="centerX" secondItem="3WH-0O-yFT" secondAttribute="centerX" type="default" id="1EY-ah-Phl"/>
                             <constraint firstItem="MES-Gu-1LC" firstAttribute="trailing" secondItem="1AE-Ge-eO6" secondAttribute="trailing" type="default" id="1mN-Ky-zX7"/>
+                            <constraint firstAttribute="bottom" secondItem="Cam-Cr-0Cj" secondAttribute="bottom" constant="162" id="364-uC-dbr"/>
                             <constraint firstItem="U1l-bh-lYI" firstAttribute="trailing" secondItem="3WH-0O-yFT" secondAttribute="trailing" type="default" id="3aM-4t-Tek"/>
                             <constraint firstItem="5wY-NR-UHI" firstAttribute="leading" secondItem="HtU-Qs-FPl" secondAttribute="leading" constant="54" id="4R3-xD-bXI"/>
-                            <constraint firstItem="3WH-0O-yFT" firstAttribute="top" secondItem="Cam-Cr-0Cj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="4VG-KS-q9b"/>
                             <constraint firstItem="nGj-MU-mmm" firstAttribute="centerX" secondItem="Cam-Cr-0Cj" secondAttribute="centerX" type="default" id="5TK-7L-Xag"/>
-                            <constraint firstAttribute="bottom" secondItem="3WH-0O-yFT" secondAttribute="bottom" constant="133" id="6B7-sP-9wT"/>
                             <constraint firstItem="rlJ-gZ-fJq" firstAttribute="baseline" secondItem="U1l-bh-lYI" secondAttribute="baseline" type="default" id="9Kr-F3-d4h"/>
                             <constraint firstItem="VzC-oU-pX4" firstAttribute="centerX" secondItem="pbX-tA-J1P" secondAttribute="centerX" type="default" id="A2x-3P-T3a"/>
                             <constraint firstAttribute="bottom" secondItem="c0s-Ea-Rqz" secondAttribute="bottom" constant="98" id="AVZ-92-pv5"/>
@@ -332,6 +330,7 @@
                             <constraint firstItem="xPY-OP-NDV" firstAttribute="trailing" secondItem="3WH-0O-yFT" secondAttribute="trailing" type="default" id="On3-iO-GHB"/>
                             <constraint firstItem="rlJ-gZ-fJq" firstAttribute="centerX" secondItem="NUv-qD-eRP" secondAttribute="centerX" type="default" id="Opu-9a-yK6"/>
                             <constraint firstItem="5wY-NR-UHI" firstAttribute="top" secondItem="HtU-Qs-FPl" secondAttribute="top" constant="112" id="Rbw-B5-1eZ"/>
+                            <constraint firstItem="3WH-0O-yFT" firstAttribute="centerX" secondItem="1AE-Ge-eO6" secondAttribute="centerX" type="default" id="Txm-EU-fIi"/>
                             <constraint firstItem="MES-Gu-1LC" firstAttribute="leading" secondItem="1AE-Ge-eO6" secondAttribute="leading" type="default" id="Wph-5r-HQM"/>
                             <constraint firstItem="MES-Gu-1LC" firstAttribute="bottom" secondItem="1AE-Ge-eO6" secondAttribute="bottom" type="default" id="avK-Cg-43X"/>
                             <constraint firstItem="rlJ-gZ-fJq" firstAttribute="trailing" secondItem="HtU-Qs-FPl" secondAttribute="trailing" type="default" id="b0l-XB-LOQ"/>
@@ -344,6 +343,7 @@
                             <constraint firstItem="VzC-oU-pX4" firstAttribute="centerX" secondItem="xQG-kj-ggw" secondAttribute="centerX" type="default" id="ji3-a9-FGe"/>
                             <constraint firstAttribute="bottom" secondItem="fCr-XN-YYK" secondAttribute="bottom" constant="58" id="lVM-XB-RFS"/>
                             <constraint firstAttribute="trailing" secondItem="LQm-AG-wtL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="miz-8Q-MyK"/>
+                            <constraint firstItem="c0s-Ea-Rqz" firstAttribute="top" secondItem="3WH-0O-yFT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="nN5-uy-3m5"/>
                             <constraint firstItem="LQm-AG-wtL" firstAttribute="leading" secondItem="NUv-qD-eRP" secondAttribute="leading" type="default" id="ohQ-yP-vd9"/>
                             <constraint firstItem="LQm-AG-wtL" firstAttribute="baseline" secondItem="fCr-XN-YYK" secondAttribute="baseline" type="default" id="q0Q-nD-Eh3"/>
                             <constraint firstItem="AK9-nu-xE1" firstAttribute="bottom" secondItem="HtU-Qs-FPl" secondAttribute="bottom" type="default" id="ro3-Ga-VWq"/>
@@ -390,8 +390,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="back_blood.gif" translatesAutoresizingMaskIntoConstraints="NO" id="zyu-v1-XIe"/>
-                            <tableView clipsSubviews="YES" alpha="0.60000000000000009" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yhB-Sn-Ezn">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yhB-Sn-Ezn">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="pathTableCell" id="3X8-cc-Eup">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -441,10 +441,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="back_blood.gif" translatesAutoresizingMaskIntoConstraints="NO" id="2Zr-aY-wr7"/>
-                            <tableView clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MUc-TB-dLx">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MUc-TB-dLx">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SjU-yM-Kkj">
+                                    <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SjU-yM-Kkj">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -548,10 +548,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="back_blood.gif" translatesAutoresizingMaskIntoConstraints="NO" id="ftL-yW-THP"/>
-                            <tableView clipsSubviews="YES" alpha="0.60000000000000009" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Uel-IJ-5DQ">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Uel-IJ-5DQ">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reinforceListCell" id="TuP-sn-IGb">
+                                    <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reinforceListCell" id="TuP-sn-IGb">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1046,6 +1046,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MakeVirusViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backgroundTapped:"/>
+                <relationship kind="action" name="onDurabilityStepperCliked:"/>
+                <relationship kind="action" name="onInfectionRateStepperClicked:"/>
+                <relationship kind="action" name="onMakeButtonCliked:"/>
                 <relationship kind="outlet" name="durabilityStepper" candidateClass="UIStepper"/>
                 <relationship kind="outlet" name="durabilityValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="infectionRateStepper" candidateClass="UIStepper"/>

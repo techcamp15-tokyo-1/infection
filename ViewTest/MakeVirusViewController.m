@@ -80,6 +80,7 @@
     self.infectionRateValue.text = @"0";
     self.durabilityValue.text = @"0";
     self.remnantValue.text = @"100";
+    self.nameText.text = @"";
     
     //デフォルトの作成値は100
     self.infectionRateStepper.value = 0;

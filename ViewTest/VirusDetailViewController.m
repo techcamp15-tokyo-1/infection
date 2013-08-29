@@ -84,6 +84,7 @@
             case 1:
                 img = [UIImage imageNamed:@"img115_71.png"];
                 self.virusImage.image = img;
+                break;
                 
             default:
                 img = [UIImage imageNamed:@"img115_31.png"];
