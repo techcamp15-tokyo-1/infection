@@ -26,6 +26,8 @@
 {
     [super viewDidLoad];
     
+    self.nameText.delegate = self;
+    
     //フィールド値を初期化
     point = MAX_SUM_PARAM;
     [self initViewItem];
@@ -80,12 +82,12 @@
     self.infectionRateStepper.value = 0;
     self.infectionRateStepper.minimumValue = 0;
     self.infectionRateStepper.maximumValue = MAX_SUM_PARAM;
-    self.infectionRateStepper.stepValue = 1;
+    self.infectionRateStepper.stepValue = 10;
     
     self.durabilityStepper.value = 0;
     self.durabilityStepper.minimumValue = 0;
     self.durabilityStepper.maximumValue = MAX_SUM_PARAM;
-    self.durabilityStepper.stepValue = 1;
+    self.durabilityStepper.stepValue = 10;
 }
 
 

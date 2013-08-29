@@ -23,6 +23,7 @@
 
 - (void)initViewItem;
 
+@property (retain, nonatomic) IBOutlet UIImageView *virusImage;
 
 @property (retain, nonatomic) IBOutlet UILabel *nowPointLabel;
 @property (retain, nonatomic) IBOutlet UILabel *nowPointValue;

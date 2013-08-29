@@ -37,6 +37,7 @@
 }
 
 - (void)switchView:(NSInteger)mode;
+@property (retain, nonatomic) IBOutlet UIImageView *virusImage;
 
 @property (retain, nonatomic) IBOutlet UILabel *nameValue;
 @property (retain, nonatomic) IBOutlet UILabel *infectionValue;

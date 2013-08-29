@@ -51,9 +51,9 @@
     [_infectedTotalValue release];
     [_getPointLabel release];
     [_getPointValue release];
+    [_virusImage release];
     [super dealloc];
 }
-
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -69,12 +69,39 @@
         self.nameValue.text = [selectedVirus getName];
         self.infectionValue.text = [[selectedVirus getInfectionRate] stringValue];
         self.durabilityValue.text = [[selectedVirus getDurability] stringValue];
+        //アイコンを変更
+        switch ([[selectedVirus getImageNo] intValue]) {
+                UIImage *img = [UIImage new];
+            case 0:
+                img = [UIImage imageNamed:@"img115_22.png"];
+                self.virusImage.image = img;
+                break;
+                
+            case 1:
+                img = [UIImage imageNamed:@"img115_71.png"];
+                self.virusImage.image = img;
+                
+            default:
+                img = [UIImage imageNamed:@"img115_31.png"];
+                self.virusImage.image = img;
+                break;
+        }
     }
     
     [self switchView:view_mode];
     
     [super viewWillAppear:animated];
 }
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    //ウイルス一覧に遷移
+    if(!isInSpread){
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 
 //tableviewと拡散中の切り替え
 - (void)switchView:(NSInteger)mode{

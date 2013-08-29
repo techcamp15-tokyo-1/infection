@@ -45,14 +45,16 @@
     [self initViewItem];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    //ウイルス一覧に遷移
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)initViewItem
 {
-    self.nowPointValue.text = @"0";
-    self.nameValue.text = @"";
-    self.infectionValue.text = @"0";
-    self.durabilityValue.text = @"0";
-    
     //selectedVirusの値に従ってItemに値をセット
     self.nowPointValue.text = [point stringValue];
     self.nameValue.text = [selectedVirus getName];
@@ -67,6 +69,23 @@
     self.durabilityStepper.minimumValue = 0;
     self.durabilityStepper.maximumValue = [point integerValue];
     self.durabilityStepper.stepValue = 1;
+    //アイコンを変更
+    switch ([[selectedVirus getImageNo] intValue]) {
+        UIImage *img = [UIImage new];
+        case 0:
+            img = [UIImage imageNamed:@"img115_22.png"];
+            self.virusImage.image = img;
+            break;
+            
+        case 1:
+            img = [UIImage imageNamed:@"img115_71.png"];
+            self.virusImage.image = img;
+            
+        default:
+            img = [UIImage imageNamed:@"img115_31.png"];
+            self.virusImage.image = img;
+            break;
+    }
 }
 
 
@@ -99,8 +118,15 @@
 
 
 - (IBAction)onButtonClicked:(id)sender {
+    //TODO
+    //アニメーション終了まで待機
+    //[self evolveImageAnimation];
+    
     //新しい値を持ったvirusを生成
     Virus *temp = [[Virus alloc] initWithValue:[selectedVirus getVirusId] :[selectedVirus getName] :[selectedVirus getInfectionRate] :[selectedVirus getDurability]];
+    int next_image_no = [[selectedVirus getImageNo] intValue] + 1;
+    NSLog(@"%d", next_image_no);
+    [temp setImageNo:[[NSNumber alloc] initWithInt:next_image_no]];
     [temp setInfectionRate:[NSNumber numberWithInt:[self.infectionValue.text intValue]]];
     [temp setDurability:[NSNumber numberWithInt:[self.durabilityValue.text intValue]]];
     
@@ -138,16 +164,30 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+
 - (IBAction)onCancelButtonClicked:(id)sender {
-    //TestAppDelegateの値をリセット
-    TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
-    point = testAppDelegate.pointData;
-    testAppDelegate.viewData = VIEW_VIRUS_LIST;
-    
-    //ウイルス一覧に遷移
-    [self.navigationController popViewControllerAnimated:YES];
+    //押すと強化の値がリセットされるように変更
+    [self initViewItem];
 }
 
+
+- (void)evolveImageAnimation
+{
+    UIImage *image = [UIImage imageNamed:@"img115_71.png"];
+    UIImageView *nextView = [[UIImageView alloc] initWithImage:image];
+    
+    //トランジションアニメーションを実行
+    [UIView transitionFromView:self.virusImage
+                        toView:nextView
+                      duration:1.0f
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    completion:^(BOOL finished) {
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }];
+    
+    [self.virusImage startAnimating]; // アニメーション開始!!
+    [image release]; // きちんと後片付け
+}
 
 
 - (void)didReceiveMemoryWarning
@@ -167,6 +207,7 @@
     [_cancelButton release];
     [_okButton release];
     [_nameValue release];
+    [_virusImage release];
     [super dealloc];
 }
 @end

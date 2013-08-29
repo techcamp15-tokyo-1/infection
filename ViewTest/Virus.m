@@ -27,10 +27,12 @@
         name = _name;
         infection_rate = _infection_rate;
         durability = _durability;
+        image_no = @0;
         [virus_id retain];
         [name retain];
         [infection_rate retain];
         [durability retain];
+        [image_no retain];
     }
     return self;
 }
@@ -41,10 +43,12 @@
     name           = [virus_dictionary objectForKey:@"name"];
     infection_rate = [virus_dictionary objectForKey:@"infection_rate"];
     durability     = [virus_dictionary objectForKey:@"durability"];
+    image_no       = [virus_dictionary objectForKey:@"image_no"];;
     [virus_id retain];
     [name retain];
     [infection_rate retain];
     [durability retain];
+    [image_no retain];
     return self;
 }
 
@@ -67,6 +71,10 @@
     durability = _durability;
 }
 
+-(void)setImageNo :(NSNumber *)_image_no
+{
+    image_no = _image_no;
+}
 
 - (NSString *)getName
 {
@@ -87,13 +95,17 @@
     return virus_id;
 }
 
+-(NSNumber *) getImageNo {
+    return image_no;
+}
+
 /**
  ウィルスのステータスをJSON形式のNSDictionaryに変換する
  */
 - (NSDictionary*) toNSDictionary {
     NSDictionary* jsonDictionary = [NSDictionary dictionaryWithObjects:
-                                    @[virus_id,name,infection_rate,durability]
-                                    forKeys:@[@"virus_id", @"name", @"infection_rate", @"durability"]];
+                                    @[virus_id,name,infection_rate,durability,image_no]
+                                    forKeys:@[@"virus_id", @"name", @"infection_rate", @"durability", @"image_no"]];
     return jsonDictionary;
 }
 

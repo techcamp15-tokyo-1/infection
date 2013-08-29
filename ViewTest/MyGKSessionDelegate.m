@@ -233,6 +233,17 @@ static MyGKSessionDelegate* singleton = nil;
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(220, 10, 40, 40)];
+    
+    NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"img115_22.png"]];
+    UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
+    [imageView setImage:bkgImg];
+    [bkgImg release];
+    [path release];
+    
+    [alert addSubview:imageView];
+    [imageView release];
+    
     [alert show];
     [alert release];
 }
