@@ -25,6 +25,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    //navigation barの背景を変更
+    UIColor *red = [UIColor colorWithRed:0.5 green:0.2 blue:0.2 alpha:1.0];
+    [self.navigationController.navigationBar setTintColor:red];
+
     //フィールド値の初期化
     view_mode = VIEW_DETAIL;
     isInSpread = NO;

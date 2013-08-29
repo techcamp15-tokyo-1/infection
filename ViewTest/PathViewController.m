@@ -30,6 +30,10 @@
     
     _virusList.delegate = self;
     _virusList.dataSource  = self;
+    
+    //navigation barの背景を変更
+    UIColor *red = [UIColor colorWithRed:0.5 green:0.2 blue:0.2 alpha:1.0];
+    [self.navigationController.navigationBar setTintColor:red];
 }
 
 - (void)didReceiveMemoryWarning
