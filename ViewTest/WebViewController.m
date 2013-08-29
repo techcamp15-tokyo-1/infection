@@ -10,6 +10,7 @@
 #import "HTTPRequester.h"
 #import "TestAppDelegate.h"
 #import "Virus.h"
+#import "JSONConverter.h"
 
 @interface WebViewController ()
 
@@ -38,7 +39,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.WebView loadData:[@"ロード中" dataUsingEncoding: NSUTF8StringEncoding] MIMEType:@"text/html" textEncodingName:@"utf-8" baseURL:nil];
+    [self.WebView loadData:[@"ロード中..." dataUsingEncoding: NSUTF8StringEncoding] MIMEType:@"text/html" textEncodingName:@"utf-8" baseURL:nil];
     TestAppDelegate *testAppDelegate = [[UIApplication sharedApplication] delegate];
     Virus *virus = testAppDelegate.virusData;
     //user default から取得
@@ -58,6 +59,12 @@
          NSLog(@"Response from visualize.php");
          if ([data length] >0 && error == nil)
          {
+             NSDictionary* json = [JSONConverter objectFrom:data];
+             if ([self contains: [json objectForKey:@"result"] : @"failure"]) {
+                 [self showAlert:@"可視化失敗" :@"拡散経路の取得に失敗しました"];
+                 [self.WebView loadHTMLString:@"" baseURL:nil];
+                 return;
+             }
              [self.WebView loadData:data MIMEType:@"text/html" textEncodingName:@"utf-8" baseURL:url];
          }
          else if ([data length] == 0 && error == nil)
@@ -69,6 +76,23 @@
              [self viewDidAppear:NO];
          }
      }];
+}
+
+//alertを表示
+- (void) showAlert:(NSString *)title :(NSString*)message
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+    [alert release];
+}
+
+- (BOOL) contains: (NSString*) longer : (NSString*) shorter {
+    NSRange isRange = [longer rangeOfString:shorter options:NSCaseInsensitiveSearch];
+    if(isRange.location == 0) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
